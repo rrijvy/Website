@@ -20,6 +20,7 @@
         { "data": "solganOne", "name": "SolganOne ", "autowidth": true },
         { "data": "solganTwo", "name": "SolganTwo", "autowidth": true },
         { "data": "solganThree", "name": "SolganThree", "autowidth": true },
+        { "data": "order", "name": "Order", "autowidth": true },
        
         {
             "render": function (data, type, full, meta) {
@@ -64,14 +65,21 @@ $("body").on("click", ".editBtn", function (e) {
 
 $("body").on("click", ".deleteBtn", function (e) {
     e.preventDefault();
-    let data = {
-        id: $(this).val()
-    };
+    let id = $(this).val();
+    $(".modaldeleteBtn").attr("data-id", id);
+    $("#deleteModal").modal("show");
+
+});
+
+$("body").on("click", ".modaldeleteBtn", function (e) {
+    e.preventDefault();
+    let id = $(this).attr("data-id");
     $.ajax({
         url: "/Banners/Delete",
         type: "GET",
-        data: data,
+        data: {id:id},
         success: function (response) {
+            $("#deleteModal").modal("hide");
             dataTable.fnFilter();
         }
     });

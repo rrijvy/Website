@@ -93,17 +93,15 @@ namespace Alphasoft.Controllers
                 if (image == null)
                 {
                     var serviceCategoryimage = _work.ServiceCategories.Get(serviceCategory.Id);
-
-                    serviceCategoryimage.Image = serviceCategory.Image;
-
+                    serviceCategoryimage.Name = serviceCategory.Name;
+                    serviceCategoryimage.Order = serviceCategory.Order;
+                    serviceCategoryimage.Description =serviceCategory.Description;
                     _work.ServiceCategories.Update(serviceCategoryimage);
                     _work.Complete();
                     return PartialView("_Edit", serviceCategoryimage);
                 }
                 _work.ServiceCategories.Update(serviceCategory);
-
                 _work.Complete();
-
                 return PartialView("_Edit", serviceCategory);
             }
             return PartialView("_Edit", serviceCategory);
@@ -160,7 +158,8 @@ namespace Alphasoft.Controllers
                     Id = item.Id,
                     Name = item.Name,
                     Description = item.Description,
-                    Image = item.Image
+                    Image = item.Image,
+                    Order=item.Order,
                 });
             }
 

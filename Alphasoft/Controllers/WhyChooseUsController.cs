@@ -105,7 +105,7 @@ namespace Alphasoft.Controllers
                     Title=item.Title,
                     ShortDescription=item.ShortDescription,
                     Description=item.Description,
-                    Order=item.Order,
+                  
                     IsActive=item.IsActive,
 
                 });

@@ -20,5 +20,7 @@ namespace Alphasoft.ViewModels
         public string ShortDescription { get; set; }
 
         public string ServiceCategoryName { get; set; }
+        public int Order { get; set; }
+
     }
 }

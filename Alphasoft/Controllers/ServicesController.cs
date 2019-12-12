@@ -132,6 +132,7 @@ namespace Alphasoft.Controllers
                     Description = item.Description,
                     ShortDescription = item.ShortDescription,
                     ServiceCategoryName = item.ServiceCategory.Name,
+                    Order=item.Order,
                     
                 });
             }

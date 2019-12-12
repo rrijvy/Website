@@ -18,6 +18,7 @@
                     <th>SolganOne</th>
                     <th>SolganTwo</th>
                     <th>SolganThree</th>
+                    <th>Order</th>
                     <th></th>
                 </tr>
             </thead>
@@ -67,7 +68,27 @@
     </div>
 </div>
 
-@section Scripts{ 
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h1 style="margin-left:110px;font-size:40px;" class="text-lg-center">
+                    <i style="color:#ff4444;" class="fa fa-trash text-center"></i>
+                </h1>
+                <p style="margin-left:10px;font-size:20px;">You want to Delete this ?</p>
+            </div>
+            <div class="modal-footer">
+                <div style="margin-right:60px;">
+                    <button  type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <input style="background-color:#ff4444; color: white;" type="submit" value="Delete" class="btn  modaldeleteBtn" data-id="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
     <script src="~/js/Banner/banners.js"></script>
 
 

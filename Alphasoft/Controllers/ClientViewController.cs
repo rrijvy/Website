@@ -29,9 +29,9 @@ namespace Alphasoft.Controllers
 
                 Product = _work.Products.GetProductWithCategory(id),
 
-                Products = _work.Products.GetAll().Where(x => x.Id != id).ToList(),
+                Products = _work.Products.GetAll().Where(x => x.Id != id).OrderBy(x=>x.Order).ToList(),
 
-                ProductCategories = _work.ProductCategories.GetAll(),
+                ProductCategories = _work.ProductCategories.GetAll().OrderBy(x=>x.Order).ToList(),
 
                 ClientProjects = _work.ClientProducts.ClientProjectsByProduct(id)
             };
@@ -44,7 +44,7 @@ namespace Alphasoft.Controllers
 
             FaqVm faqvm = new FaqVm
             {
-                Faqs = _work.Faq.GetAll()
+                Faqs = _work.Faq.GetAll().OrderBy(x => x.Order).ToList(),
 
             };
             return View(faqvm);
@@ -54,7 +54,7 @@ namespace Alphasoft.Controllers
         {
             BlogsVM blogsVM = new BlogsVM
             {
-                Blogs = _work.Blogs.GetAll()
+                Blogs = _work.Blogs.GetAll().OrderBy(x=>x.Order).ToList(),
             };
 
             return View(blogsVM);

@@ -12,5 +12,7 @@ namespace Alphasoft.Models
         public string UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public int? UpdateCount { get; set; }
+
+        public int Order { get; set; }
     }
 }

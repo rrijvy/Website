@@ -15,22 +15,27 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label asp-for="SolganOne"></label>
-              
-                <textarea id="sologan1"  asp-for="SolganOne"> </textarea>
+
+                <textarea id="sologan1" asp-for="SolganOne"> </textarea>
                 <span asp-validation-for="SolganOne" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="SolganTwo"></label>
-            
-                <textarea id="sologan2"  asp-for="SolganTwo"></textarea>
+
+                <textarea id="sologan2" asp-for="SolganTwo"></textarea>
                 <span asp-validation-for="SolganTwo" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="SolganThree"></label>
-                <textarea id="sologan3"  asp-for="SolganThree"></textarea>
+                <textarea id="sologan3" asp-for="SolganThree"></textarea>
                 <span asp-validation-for="SolganThree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order"></label>
+                <input type="number" asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Image"></label>

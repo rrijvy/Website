@@ -88,6 +88,7 @@ namespace Alphasoft.Controllers
                     bannerimage.SolganOne = banner.SolganOne;
                     bannerimage.SolganTwo = banner.SolganTwo;
                     bannerimage.SolganThree = banner.SolganThree;
+                    bannerimage.Order = banner.Order;
 
                     _work.Banner.Update(bannerimage);
                     _work.Complete();
@@ -150,6 +151,7 @@ namespace Alphasoft.Controllers
                    SolganOne=item.SolganOne,
                    SolganTwo=item.SolganTwo,
                    SolganThree=item.SolganThree,
+                   Order=item.Order,
                 });
             }
 

@@ -24,6 +24,7 @@ namespace Alphasoft.Repositories
       
         public List<AboutUs> GetWithAboutUs()
         {
+            
             return Context.AboutUs.ToList();
         }
 
