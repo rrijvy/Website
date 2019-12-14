@@ -94,6 +94,7 @@ namespace Alphasoft.Controllers
                 {
                     Id = item.Id,
                     Title = item.Title,
+                    Order=item.Order,
                     Description = item.Description,
                     Qualification=item.Qualification,
                     Location=item.Location,

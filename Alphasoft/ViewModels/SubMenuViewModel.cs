@@ -11,7 +11,7 @@ namespace Alphasoft.ViewModels
         public int Id { get; set; }
         public string Name { get; set; }
         public string MenuName { get; set; }
-       
+      
         public string ControllerName { get; set; }
         public string ActionName { get; set; }
         public bool IsActive { get; set; }

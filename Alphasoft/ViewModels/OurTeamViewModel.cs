@@ -18,5 +18,6 @@ namespace Alphasoft.ViewModels
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string LinkedIn { get; set; }
+        public int Order { get; set; }
     }
 }

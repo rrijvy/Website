@@ -159,6 +159,7 @@ namespace Alphasoft.Controllers
                 {
                     Id = item.Id,
                     Name = item.Name,
+                    Order=item.Order,
                     Image = item.Image,
                     Description = item.Description,
                     Facebook = item.Facebook,

@@ -68,15 +68,23 @@ $("body").on("click", ".editBtn", function (e) {
         }
     });
 });
-$("body").on("click", ".deleteBtn", function () {
-    let data = {
-        id: $(this).val()
-    };
+
+$("body").on("click", ".deleteBtn", function (e) {
+    e.preventDefault();
+    let id = $(this).val();
+    $(".modaldeleteBtn").attr("data-id", id);
+    $("#deleteModal").modal("show");
+});
+
+$("body").on("click", ".modaldeleteBtn", function (e) {
+    e.preventDefault();
+    let id = $(this).attr("data-id");
     $.ajax({
         url: "/HostingPlans/Delete",
         type: "GET",
-        data: data,
-        success: function () {
+        data: { id: id },
+        success: function (response) {
+            $("#deleteModal").modal("hide");
             dataTable.fnFilter();
         }
     });

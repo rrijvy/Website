@@ -19,5 +19,6 @@ namespace Alphasoft.ViewModels
         public string ShortDescription { get; set; }
         public DateTime RealiseDate { get; set; }
         public int ProductCategoryId { get; set; }
+       
     }
 }

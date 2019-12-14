@@ -12,13 +12,14 @@
                 <input asp-for="ControllerName" type="text" class="form-control" />
                 <span asp-validation-for="ControllerName" class="text-danger"></span>
             </div>
+         
             <div class="form-group">
                 <label asp-for="IsActive"></label>
                 <br />
-                <input asp-for="IsActive" type="radio" value="True" /> True
-                <input asp-for="IsActive" type="radio" value="False" /> False
-                <span asp-validation-for="IsActive" class="text-danger"></span>
+                <input asp-for="IsActive" type="hidden" value="true" />
+                <input id="toggle_checkbox" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" checked>
             </div>
+
         </div>
 
         <div class="col-md-6">
@@ -41,6 +42,26 @@
 </form>
 
 <script>
+
+    $('#toggle_checkbox').bootstrapToggle({
+            on: 'Enable',
+            off: 'Disable',
+            width: 100
+        });
+    $('#toggle_checkbox').change(function () {
+
+            let value = $('#toggle_checkbox')[0].checked;
+
+            if (value == true) {
+                $('#IsActive').val(true);
+                $('#IsActive').attr('data-val', true);
+            }
+            if (value == false) {
+                $('#IsActive').val(false);
+                $('#IsActive').attr('data-val', false);
+            }
+        });
+
     $("#menuId").select2({
         dropdownParent: $("#submenus-createModal")
     });

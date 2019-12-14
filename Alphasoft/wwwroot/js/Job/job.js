@@ -17,6 +17,7 @@
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
         { "data": "title", "name": "Title", "autowidth": true },
+        { "data": "order", "name": "Order", "autowidth": true },
         { "data": "description", "name": "Description ", "autowidth": true },
         { "data": "location", "name": "Location", "autowidth": true },
         { "data": "qualification", "name": "Qualification", "autowidth": true },
@@ -59,16 +60,24 @@ $("body").on("click", ".editBtn", function (e) {
     });
 });
 
+
+
 $("body").on("click", ".deleteBtn", function (e) {
     e.preventDefault();
-    let data = {
-        id: $(this).val()
-    };
+    let id = $(this).val();
+    $(".modaldeleteBtn").attr("data-id", id);
+    $("#deleteModal").modal("show");
+});
+
+$("body").on("click", ".modaldeleteBtn", function (e) {
+    e.preventDefault();
+    let id = $(this).attr("data-id");
     $.ajax({
         url: "/Jobs/Delete",
         type: "GET",
-        data: data,
-        success: function () {
+        data: { id: id },
+        success: function (response) {
+            $("#deleteModal").modal("hide");
             dataTable.fnFilter();
         }
     });

@@ -14,5 +14,6 @@ namespace Alphasoft.ViewModels
         public string Qualification { get; set; }
         public DateTime JobCreateDate { get; set; }
         public DateTime DeadLine { get; set; }
+        public int Order { get; set; }
     }
 }

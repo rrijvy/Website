@@ -162,6 +162,7 @@ namespace Alphasoft.Controllers
                 {
                     Id = item.Id,
                     Title=item.Title,
+                    //Order=item.Order,
                     Icon=item.Icon,
                     Image=item.Image,
                     ShortDescription = item.ShortDescription,

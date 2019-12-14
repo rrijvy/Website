@@ -19,5 +19,6 @@ namespace Alphasoft.ViewModels
         public DateTime ReleaseDate { get; set; }
         public bool IsPopular { get; set; }
         public string Image { get; set; }
+        public int Order { get; set; }
     }
 }

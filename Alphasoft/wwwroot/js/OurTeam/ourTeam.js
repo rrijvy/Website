@@ -18,6 +18,7 @@ var dataTable = $("#ourDatatable").dataTable({
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
         { "data": "name", "name": "Name", "autowidth": true },
+        { "data": "order", "name": "Order", "autowidth": true },
         { "data": "image", "name": "Image", "autowidth": true },
         { "data": "departmentName", "name": "DepartmentName ", "autowidth": true },
         { "data": "designationName", "name": "DesignationName", "autowidth": true },
@@ -73,22 +74,23 @@ var dataTable = $("#ourDatatable").dataTable({
 
     $("body").on("click", ".deleteBtn", function (e) {
         e.preventDefault();
-        let data = {
-            id: $(this).val()
-        };
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
+    });
+
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
         $.ajax({
             url: "/OurTeams/Delete",
             type: "GET",
-            data: data,
+            data: { id: id },
             success: function (response) {
-                console.log(response);
+                $("#deleteModal").modal("hide");
                 dataTable.fnFilter();
             }
-
         });
-
     });
-
-
 
 })();

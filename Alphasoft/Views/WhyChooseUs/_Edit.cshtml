@@ -27,11 +27,9 @@
             <div class="form-group">
                 <label asp-for="IsActive"></label>
                 <br />
-                <input asp-for="IsActive" type="radio" value="True" /> True
-                <input asp-for="IsActive" type="radio" value="False" /> False
-                <span asp-validation-for="IsActive" class="text-danger"></span>
+                <input asp-for="IsActive" type="hidden" value="true" />
+                <input type="checkbox" id="toggleEditCheckbox" toggle="toggle" data-onstyle="primary" data-offstyle="danger" checked />
             </div>
-
             <div id="alert"></div>
             <button class="btn btn-success form-control" type="submit">Update</button>
         </div>
@@ -39,6 +37,23 @@
 </form>
   
 <script>
+    $("#toggleEditCheckbox").bootstrapToggle({
+        on: "Enable",
+        off: "Disable",
+        width:100
+    });
+    $("#toggleEditCheckbox").change(function () {
+        let value = $("#toggleEditCheckbox")[0].checked;
+        if (value == true) {
+            $('#IsActive').val(true);
+            $('#IsActive').attr('data-val', true);
+        }
+        if (value == false) {
+            $('#IsActive').val(false);
+            $('#IsActive').attr('data-val', false);
+        }
+    });
+
     $(".description").summernote({
         height:100
     });

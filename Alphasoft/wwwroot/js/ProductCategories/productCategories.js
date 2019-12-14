@@ -18,6 +18,7 @@ var dataTable = $("#productDatatable").dataTable({
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
         { "data": "name", "name": "Name", "autowidth": true },
+        { "data": "order", "name": "Order", "autowidth": true },
 
         {
             "render": function (data, type, full, meta) {
@@ -43,12 +44,10 @@ var dataTable = $("#productDatatable").dataTable({
     });
 
     $("body").on("click", ".editBtn", function (e) {
-       
         e.preventDefault();
         $("#productCategories-editModal").modal('show');
         let data = {
             id: $(this).val()
-
         };
         $.ajax({
             url: "/ProductCategories/EditView",
@@ -56,25 +55,30 @@ var dataTable = $("#productDatatable").dataTable({
             data: data,
             success: function (response) {
                 $("#productCategories-editFormDiv").html(response);
-
             }
 
         });
 
     });
 
+
     $("body").on("click", ".deleteBtn", function (e) {
         e.preventDefault();
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
 
-        let data = {
-            id: $(this).val()
-        };
+    });
 
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
         $.ajax({
             url: "/ProductCategories/Delete",
             type: "GET",
-            data: data,
+            data: { id: id },
             success: function (response) {
+                $("#deleteModal").modal("hide");
                 dataTable.fnFilter();
             }
         });

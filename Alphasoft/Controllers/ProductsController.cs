@@ -174,6 +174,7 @@ namespace Alphasoft.Controllers
                 {
                     Id = item.Id,
                     Name = item.Name,
+                    Order=item.Order,
                     CategoryName = item.ProductCategory.Name,
                     PurchasePrice = item.PurchasePrice,
                     RetailPrice = item.RetailPrice,

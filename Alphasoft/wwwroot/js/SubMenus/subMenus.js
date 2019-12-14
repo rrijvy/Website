@@ -20,7 +20,7 @@
         { "data": "controllerName", "name": "ControllerName ", "autowidth": true },
         { "data": "actionName", "name": "ActionName", "autowidth": true },
         { "data": "isActive", "name": "IsActive", "autowidth": true },
-        { "data": "m-enuName", "name": "MenuName", "autowidth": true },
+        { "data": "menuName", "name": "MenuName", "autowidth": true },
      
         {
             "render": function (data, type, full, meta) {
@@ -46,23 +46,7 @@
         });
 
     });
-    $("body").on("click", ".deleteBtn", function (e) {
-        e.preventDefault();
-
-        let data = {
-            id: $(this).val()
-        };
-
-        $.ajax({
-            url: "/SubMenus/Delete",
-            type: "GET",
-            data: data,
-            success: function (response) {
-                dataTable.fnFilter();
-            }
-        });
-    });
-
+   
     $("body").on("click", ".editBtn", function (e) {
         e.preventDefault();
         $("#submenus-editModal").modal('show');
@@ -80,5 +64,26 @@
         });
     });
 
+    $("body").on("click", ".deleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
+
+    });
+
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
+        $.ajax({
+            url: "/SubMenus/Delete",
+            type: "GET",
+            data: { id: id },
+            success: function (response) {
+                $("#deleteModal").modal("hide");
+                dataTable.fnFilter();
+            }
+        });
+    });
 
 })();

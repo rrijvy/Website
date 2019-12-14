@@ -63,23 +63,23 @@
     });
 
     $("body").on("click", ".deleteBtn", function (e) {
-
         e.preventDefault();
-        let data = {
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
+    });
 
-            id: $(this).val()
-        };
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
         $.ajax({
-
             url: "/Contactus/Delete",
             type: "GET",
-            data: data,
+            data: { id: id },
             success: function (response) {
-
+                $("#deleteModal").modal("hide");
                 dataTable.fnFilter();
-
             }
-
         });
     });
 

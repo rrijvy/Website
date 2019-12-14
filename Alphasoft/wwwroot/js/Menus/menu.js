@@ -17,6 +17,7 @@
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
         { "data": "name", "name": "Name", "autowidth": true },
+        { "data": "order", "name": "Order", "autowidth": true },
         { "data": "controllerName", "name": "ControllerName ", "autowidth": true },
         { "data": "actionName", "name": "ActionName", "autowidth": true },
         { "data": "dropdownType", "name": "DropdownType", "autowidth": true },
@@ -62,19 +63,23 @@
     });
 
 
-
     $("body").on("click", ".deleteBtn", function (e) {
         e.preventDefault();
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
 
-        let data = {
-            id: $(this).val()
-        };
+    });
 
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
         $.ajax({
             url: "/Menus/Delete",
             type: "GET",
-            data: data,
+            data: { id: id },
             success: function (response) {
+                $("#deleteModal").modal("hide");
                 dataTable.fnFilter();
             }
         });

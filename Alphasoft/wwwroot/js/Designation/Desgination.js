@@ -17,6 +17,7 @@
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
         { "data": "name", "name": "Name", "autowidth": true },
+        { "data": "order", "name": "Order", "autowidth": true },
 
         {
             "render": function (data, type, full, meta) {
@@ -55,20 +56,24 @@
         });
     });
 
-   
-
+  
     $("body").on("click", ".deleteBtn", function (e) {
         e.preventDefault();
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
 
-        let data = {
-            id: $(this).val()
-        };
+    });
 
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
         $.ajax({
             url: "/Designations/Delete",
             type: "GET",
-            data: data,
+            data: { id: id },
             success: function (response) {
+                $("#deleteModal").modal("hide");
                 dataTable.fnFilter();
             }
         });

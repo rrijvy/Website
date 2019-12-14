@@ -20,6 +20,7 @@ namespace Alphasoft.ViewModels
         public bool IsActive { get; set; }
         public int ParentId { get; set; }
         public string DropdownType { get; set; }
+        public int Order { get; set; }
         public List<SubMenu> SubMenus { get; set; }
     }
 }

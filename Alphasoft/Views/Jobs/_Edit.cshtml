@@ -2,11 +2,16 @@
 <form id="job-editForm" class="createForm">
     <div class="row">
         <div class="col-md-12">
-              <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Title"></label>
                 <input type="text" asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order"></label>
+                <input type="text" asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description"></label>
@@ -24,7 +29,7 @@
                 <span asp-validation-for="Qualification" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="JobCreateDate"></label>
+                <label>Job Create Date</label>
                 <input type="date" asp-for="JobCreateDate" class="form-control" />
                 <span asp-validation-for="JobCreateDate" class="text-danger"></span>
             </div>

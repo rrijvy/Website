@@ -8,6 +8,11 @@
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Order"></label>
+                <input type="number" asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Description"></label>
                 <textarea class="description" asp-for="Description"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
@@ -23,7 +28,7 @@
                 <span asp-validation-for="Qualification" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="JobCreateDate"></label>
+                <label>Job Create Date</label>
                 <input type="date" asp-for="JobCreateDate" class="form-control" />
                 <span asp-validation-for="JobCreateDate" class="text-danger"></span>
             </div>

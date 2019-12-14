@@ -124,6 +124,7 @@ namespace Alphasoft.Controllers
                 {
                     Id = item.Id,
                     Name = item.Name,
+                    Order=item.Order,
                     ControllerName = item.ControllerName,
                     ActionName = item.ActionName,
                     IsActive = item.IsActive,

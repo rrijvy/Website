@@ -17,6 +17,7 @@
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
         { "data": "name", "name": "Name", "autowidth": true },
+        { "data": "order", "name": "Order", "autowidth": true },
       
         {
             "render": function (data, type, full, meta) {
@@ -41,22 +42,6 @@
         });
     });
 
-    $("body").on("click", ".deleteBtn", function (e) {
-        e.preventDefault();
-
-        let data = {
-            id: $(this).val()
-        };
-
-        $.ajax({
-            url: "/Departments/Delete",
-            type: "GET",
-            data: data,
-            success: function (response) {
-                dataTable.fnFilter();
-            }
-        });
-    });
 
     $("body").on("click", ".editBtn", function (e) {
         e.preventDefault();
@@ -77,5 +62,26 @@
         });
     });
 
+    $("body").on("click", ".deleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
+
+    });
+
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
+        $.ajax({
+            url: "/Departments/Delete",
+            type: "GET",
+            data: { id: id },
+            success: function (response) {
+                $("#deleteModal").modal("hide");
+                dataTable.fnFilter();
+            }
+        });
+    });
 
 })();

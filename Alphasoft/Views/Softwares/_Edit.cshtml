@@ -3,12 +3,17 @@
 <form id="software-editForm" class="createForm" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-12">
-            <input type="hidden" asp-for="Id"  />
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Title"></label>
                 <input asp-for="Title" type="text" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                <label asp-for="Order"></label>
+                <input asp-for="Order" type="number" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>*@
             <div class="form-group">
                 <label asp-for="ShortDescription"></label>
                 <textarea class="shortdescription" asp-for="ShortDescription"></textarea>

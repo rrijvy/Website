@@ -53,8 +53,8 @@
         };
         $.ajax({
             url: "Blogs/EditView",
-            data: data,
             type: "GET",
+            data: data,
             success: function (response) {
                 $("#blog-editFormDiv").html(response);
             }
@@ -63,20 +63,24 @@
 
     $("body").on("click", ".deleteBtn", function (e) {
         e.preventDefault();
-        let data = {
-            id: $(this).val()
-        };
-        console.log(data);
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
+    });
+
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
         $.ajax({
             url: "/Blogs/Delete",
             type: "GET",
-            data: data,
+            data: { id: id },
             success: function (response) {
-                console.log(response);
+                $("#deleteModal").modal("hide");
                 dataTable.fnFilter();
             }
-
         });
-
     });
+
+
 })();

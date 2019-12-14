@@ -17,6 +17,7 @@
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
         { "data": "title", "name": "Title", "autowidth": true },
+        //{ "data": "order", "name": "Order", "autowidth": true },
         { "data": "icon", "name": "Icon", "autowidth": true },
         { "data": "image", "name": "Image", "autowidth": true },
         { "data": "shortDescription", "name": "ShortDescription", "autowidth": true },
@@ -63,15 +64,22 @@ $("body").on("click", ".editBtn", function (e) {
 
 $("body").on("click", ".deleteBtn", function (e) {
     e.preventDefault();
-    let data = {
-        id: $(this).val()
-    };
+    let id = $(this).val();
+    $(".modaldeleteBtn").attr("data-id", id);
+    $("#deleteModal").modal("show");
+
+});
+
+$("body").on("click", ".modaldeleteBtn", function (e) {
+    e.preventDefault();
+    let id = $(this).attr("data-id");
     $.ajax({
         url: "/Softwares/Delete",
         type: "GET",
-        data: data,
-        success: function () {
+        data: { id: id },
+        success: function (response) {
+            $("#deleteModal").modal("hide");
             dataTable.fnFilter();
         }
-    })
+    });
 });

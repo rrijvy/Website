@@ -64,21 +64,24 @@ $("body").on("click", ".editBtn", function (e) {
     });
 });
 
-
-$("body").on("click", ".deleteBtn", function (e) {
-    e.preventDefault();
-    let data = {
-        id: $(this).val()
-    };
-    $.ajax({
-        url: "/Faqs/Delete",
-        type: "GET",
-        data: data,
-        success: function (response) {
-            dataTable.fnFilter();
-        }
-
-
+    $("body").on("click", ".deleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).val();
+        $(".modaldeleteBtn").attr("data-id", id);
+        $("#deleteModal").modal("show");
     });
 
-});
+    $("body").on("click", ".modaldeleteBtn", function (e) {
+        e.preventDefault();
+        let id = $(this).attr("data-id");
+        $.ajax({
+            url: "/Faqs/Delete",
+            type: "GET",
+            data: { id: id },
+            success: function (response) {
+                $("#deleteModal").modal("hide");
+                dataTable.fnFilter();
+            }
+        });
+    });
+

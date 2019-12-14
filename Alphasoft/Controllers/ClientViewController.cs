@@ -64,7 +64,7 @@ namespace Alphasoft.Controllers
         {
             OurTeamVM teamVm = new OurTeamVM
             {
-                Teams = _work.OurTeams.GetAllWithDepartmentAndDesignation()
+                Teams = _work.OurTeams.GetAllWithDepartmentAndDesignation().OrderBy(x=>x.Order).ToList()
             };
 
             return View(teamVm);
@@ -102,7 +102,7 @@ namespace Alphasoft.Controllers
         {
             ProductsViewModel productsViewModel = new ProductsViewModel
             {
-                Products = _work.Products.GetAllWithCategory(),
+                Products = _work.Products.GetAllWithCategory().OrderBy(x=>x.Order).ToList(),
             };
 
             productsViewModel.PopularProducts = _work.QueryHelper.GetPopularProducts(productsViewModel.Products);

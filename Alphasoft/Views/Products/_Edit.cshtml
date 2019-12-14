@@ -10,6 +10,11 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Order"></label>
+                <input asp-for="Order" type="text" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="RetailPrice"></label>
                 <input asp-for="RetailPrice" type="number" step="0.01" class="form-control" />
                 <span asp-validation-for="RetailPrice" class="text-danger"></span>
