@@ -12,5 +12,6 @@ namespace Alphasoft.IRepositories
       
         List<AboutUs> GetWithAboutUs();
         AboutUs GetWithAbout();
+       
     }
 }

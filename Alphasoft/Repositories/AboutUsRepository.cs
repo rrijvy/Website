@@ -32,6 +32,8 @@ namespace Alphasoft.Repositories
         {
             return Context.AboutUs.FirstOrDefault();
         }
+
+       
     }
 
 

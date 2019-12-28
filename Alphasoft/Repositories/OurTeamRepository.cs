@@ -30,5 +30,10 @@ namespace Alphasoft.Repositories
         {
             return Context.OurTeams.Where(x => x.Id == id).Include(x => x.Department).Include(x => x.Designation).FirstOrDefault();
         }
+
+        public List<OurTeam> TeamWithUs()
+        {
+            return Context.OurTeams.ToList();
+        }
     }
 }

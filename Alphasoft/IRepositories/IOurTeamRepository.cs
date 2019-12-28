@@ -7,5 +7,6 @@ namespace Alphasoft.IRepositories
     {
         List<OurTeam> GetAllWithDepartmentAndDesignation();
         OurTeam GetWithDepartmentDesignation(int id);
+        List<OurTeam> TeamWithUs();
     }
 }
