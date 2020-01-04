@@ -108,6 +108,7 @@ namespace Alphasoft.Controllers
                 software.Description = model.Description;
                 software.ShortDescription = model.ShortDescription;
                 software.SoftwareCategoryId = model.SoftwareCategoryId;
+                software.Order = model.Order;
                 _work.Softwares.Update(software);
                 _work.Complete();
                 return PartialView("_Edit", software);
@@ -161,13 +162,13 @@ namespace Alphasoft.Controllers
                 softwareList.Add(new SoftwareViewModel
                 {
                     Id = item.Id,
-                    Title=item.Title,
-                    //Order=item.Order,
-                    Icon=item.Icon,
-                    Image=item.Image,
+                    Title = item.Title,
+                    Order = item.Order,
+                    Icon = item.Icon,
+                    Image = item.Image,
                     ShortDescription = item.ShortDescription,
-                    Description =item.Description,
-                    SoftwareCategoryName=item.SoftwareCategory.Name,
+                    Description = item.Description,
+                    SoftwareCategoryName = item.SoftwareCategory.Name,
                 });
             }
 

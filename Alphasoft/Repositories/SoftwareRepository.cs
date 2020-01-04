@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Alphasoft.Repositories
 {
-    public class SoftwareRepository:Repository<Software>,ISoftwareRepository
+    public class SoftwareRepository : Repository<Software>, ISoftwareRepository
     {
         public SoftwareRepository(ApplicationDbContext context) : base(context) { }
 
@@ -22,11 +22,11 @@ namespace Alphasoft.Repositories
         }
         public List<Software> GetAllWithSoftware()
         {
-            return Context.Softwares.Include(x => x.SoftwareCategory).ToList();
+            return Context.Softwares.Include(x => x.SoftwareCategory).OrderBy(x => x.Order).ToList();
         }
 
-       
 
-   
+
+
     }
 }

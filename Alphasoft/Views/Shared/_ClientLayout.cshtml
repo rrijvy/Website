@@ -10,6 +10,7 @@
     List<Menu> menuList = _work.Menus.GetAllActive();
     List<Menu> menus = menuList.Where(x => x.ParentId == 0).ToList();
     List<Software> softwareList = _work.Softwares.GetAllWithSoftware();
+    List<SoftwareCategory> softwareCategories = _work.SoftwareCategories.GetAll();
     List<Menu> subMenus = new List<Menu>();
 
 }
@@ -155,7 +156,7 @@
                                         <div id="navigationMenuBar" class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
                                             <nav class="collapse">
                                                 <ul class="nav nav-pills" id="mainNav">
-                                                    @foreach (var menu in menus)
+                                                    @foreach (var menu in menus.OrderBy(x => x.Order))
                                                     {
                                                         int index = 0;
                                                         subMenus = menuList.Where(x => x.ParentId == menu.Id).ToList();
@@ -173,15 +174,15 @@
                                                                     <li>
                                                                         <div class="dropdown-mega-content">
                                                                             <div class="row">
-                                                                                @foreach (var softwareCategory in softwareList.GroupBy(x=>x.SoftwareCategoryId))
+                                                                                @foreach (var softwareCategory in softwareCategories.OrderBy(x => x.Order))
                                                                                 {
-                                                                                    var softwareCategoryName = softwareCategory.Select(x => x.SoftwareCategory.Name).FirstOrDefault();
-                                                                                    var softwares = softwareCategory.Select(x => x).ToList();
+                                                                                    var softwareCategoryName = softwareCategory.Name;
+                                                                                    var softwares = softwareList.Where(x => x.SoftwareCategoryId == softwareCategory.Id).ToList();
                                                                                     ++index;
 
                                                                                     if (reminder == 0)
                                                                                     {
-                                                                                        columnNo = 12 / softwareList.GroupBy(x=>x.SoftwareCategoryId).Count();
+                                                                                        columnNo = 12 / softwareList.GroupBy(x => x.SoftwareCategoryId).Count();
                                                                                     }
                                                                                     else
                                                                                     {
@@ -246,7 +247,7 @@
                                                                 {
                                                                     <ul class="dropdown-menu">
 
-                                                                        @foreach (var subMenu in subMenus)
+                                                                        @foreach (var subMenu in subMenus.OrderBy(x => x.Order))
                                                                         {
                                                                             <li>
                                                                                 <a class="dropdown-item" asp-controller="@subMenu.ControllerName" asp-action="@subMenu.ActionName">

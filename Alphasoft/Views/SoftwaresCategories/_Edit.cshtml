@@ -3,12 +3,21 @@
 
 <form id="softwareCategory-EditForm" class="createForm" enctype="multipart/form-data">
     <div class="row">
-        <input type="hidden" asp-for="Id"/>
+        <input type="hidden" asp-for="Id" />
         <div class="col-md-12">
             <div class="form-group">
                 <label asp-for="Name"></label>
                 <input asp-for="Name" type="text" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Order"></label>
+                <input asp-for="Order" type="number" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
             </div>
         </div>
     </div>
@@ -35,7 +44,7 @@
 <script>
     $("#softwareCategory-EditForm").on("submit", function (e) {
         e.preventDefault();
-         let formData = new FormData();
+        let formData = new FormData();
         let company = objectifyForm($(this).serializeArray());
         formData.append("image", $("#image")[0].files[0]);
         for (var key in company) {

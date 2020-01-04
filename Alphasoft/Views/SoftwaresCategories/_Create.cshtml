@@ -19,6 +19,16 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Order"></label>
+                <input asp-for="Order" type="number" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div id="fav-preview" class="image-preview" style="display: none;">
@@ -33,7 +43,7 @@
 <script>
     $("#softwareCategory-createForm").on("submit", function (e) {
         e.preventDefault();
-         let formData = new FormData();
+        let formData = new FormData();
 
         let company = objectifyForm($(this).serializeArray());
         formData.append("image", $("#image")[0].files[0]);

@@ -9,13 +9,13 @@
             <div class="col-lg-3">
                 <aside class="sidebar">
                     @*<form action="page-search-results.html" method="get">
-                        <div class="input-group mb-3 pb-1">
-                            <input class="form-control text-1" placeholder="Search..." name="s" id="s" type="text">
-                            <span class="input-group-append">
-                                <button type="submit" class="btn btn-dark text-1 p-2"><i class="fas fa-search m-2"></i></button>
-                            </span>
-                        </div>
-                    </form>*@
+                            <div class="input-group mb-3 pb-1">
+                                <input class="form-control text-1" placeholder="Search..." name="s" id="s" type="text">
+                                <span class="input-group-append">
+                                    <button type="submit" class="btn btn-dark text-1 p-2"><i class="fas fa-search m-2"></i></button>
+                                </span>
+                            </div>
+                        </form>*@
                     <h5 class="font-weight-bold pt-3">Categories</h5>
                     <ul class="nav nav-list flex-column">
                         @foreach (var item in Model.ProductCategories)
@@ -211,7 +211,7 @@
                                     <h4>Add a review</h4>
                                     <div class="row">
                                         <div class="col">
-                                            <form action="" id="submitReview" method="post">                                                
+                                            <form action="" id="submitReview" method="post">
                                                 <div class="form-row">
                                                     <div class="form-group col-lg-6">
                                                         <label class="required font-weight-bold text-dark">Name</label>
@@ -252,16 +252,16 @@
                         {
                             <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 0px; top: 0px;">
                                 <span class="product-thumb-info border-0">
-                                    <a href="shop-cart.html" class="add-to-cart-product bg-color-primary">
+                                    <a href="/ClientView/Product/@item.Id" class="add-to-cart-product bg-color-primary">
                                         <span class="text-uppercase text-1">See Details</span>
                                     </a>
-                                    <a href="shop-product-sidebar-left.html">
+                                    <a href="/ClientView/Product/@item.Id">
                                         <span class="product-thumb-info-image">
                                             <img alt="" class="img-fluid" src="@item.Image">
                                         </span>
                                     </a>
                                     <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">
-                                        <a href="shop-product-sidebar-left.html">
+                                        <a href="/ClientView/Product/@item.Id">
                                             <h4 class="text-4 text-primary">@item.Name</h4>
                                             <span class="price">
                                                 <del><span class="amount">@item.RetailPrice</span></del>

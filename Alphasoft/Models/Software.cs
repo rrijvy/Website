@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Alphasoft.Models
 {
-    public class Software
+    public class Software : Base
     {
         public int Id { get; set; }
         public string Title { get; set; }

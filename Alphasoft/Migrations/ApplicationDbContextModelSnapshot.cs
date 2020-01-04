@@ -723,17 +723,29 @@ namespace Alphasoft.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime?>("CreatedDate");
+
                     b.Property<string>("Description");
 
                     b.Property<string>("Icon");
 
                     b.Property<string>("Image");
 
+                    b.Property<int>("Order");
+
                     b.Property<string>("ShortDescription");
 
                     b.Property<int>("SoftwareCategoryId");
 
                     b.Property<string>("Title");
+
+                    b.Property<int?>("UpdateCount");
+
+                    b.Property<string>("UpdatedBy");
+
+                    b.Property<DateTime?>("UpdatedDate");
 
                     b.HasKey("Id");
 
@@ -748,11 +760,23 @@ namespace Alphasoft.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime?>("CreatedDate");
+
                     b.Property<string>("Image");
 
                     b.Property<string>("Name");
 
+                    b.Property<int>("Order");
+
                     b.Property<string>("Thumbnail");
+
+                    b.Property<int?>("UpdateCount");
+
+                    b.Property<string>("UpdatedBy");
+
+                    b.Property<DateTime?>("UpdatedDate");
 
                     b.HasKey("Id");
 

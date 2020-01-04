@@ -1,6 +1,6 @@
 ﻿namespace Alphasoft.Models
 {
-    public class SoftwareCategory
+    public class SoftwareCategory : Base
     {
         public int Id { get; set; }
         public string Name { get; set; }

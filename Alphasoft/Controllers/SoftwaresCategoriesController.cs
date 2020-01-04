@@ -82,6 +82,7 @@ namespace Alphasoft.Controllers
                 }
 
                 softwareCategory.Name = model.Name;
+                softwareCategory.Order = model.Order;
                 _work.SoftwareCategories.Update(softwareCategory);
                 _work.Complete();
                 return PartialView("_Edit", softwareCategory);
@@ -137,6 +138,7 @@ namespace Alphasoft.Controllers
                     Image = item.Image,
                     Name = item.Name,
                     Thumbnail=item.Thumbnail,
+                    Order = item.Order
                 });
             }
             //total number of rows count     
