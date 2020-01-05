@@ -4,21 +4,7 @@
 }
 
     <div role="main" class="main">
-        <section class="page-header page-header-classic page-header-sm">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                        <h1 data-title-border>About Us</h1>
-                    </div>
-                    <div class="col-md-4 order-1 order-md-2 align-self-center">
-                        <ul class="breadcrumb d-block text-md-right">
-                            <li><a href="/Home">Home</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    
         <div class="container">
             <div class="row pt-5">
                 <div class="col">
@@ -44,25 +30,30 @@
                         </div>
                     </div>
 
-                    <div  class="row mt-3 mb-5">
+                    <div class="row mt-3 mb-5">
                         <div class="col-md-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="800">
                             <h3 class="font-weight-bold text-4 mb-2">Our Mission</h3>
-                            <p >@Html.Raw(Model.about.OurMissionDescription)</p>
-                          
+                            <p style="text-align:justify;">@Html.Raw(Model.about.OurMissionDescription)</p>
+
                         </div>
                         <div class="col-md-4 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="600">
                             <h3 class="font-weight-bold text-4 mb-2">Our Vision</h3>
-                            <p >@Html.Raw(Model.about.OurVisionDescription)</p>
+                            <p style="text-align:justify;">@Html.Raw(Model.about.OurVisionDescription)</p>
                         </div>
                         <div class="col-md-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="800">
                             <h3 class="font-weight-bold text-4 mb-2">Why Us</h3>
-                            <p>@Html.Raw(Model.about.WhyUsDescription)</p>
+                            <p style="text-align:justify;">@Html.Raw(Model.about.WhyUsDescription)</p>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
+
+       
+
+
+
 
         <section class="section section-default border-0 my-5 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="750">
             <div class="container py-4">
@@ -74,7 +65,7 @@
                             {
                                 <img style="height:450px;width:500px;" alt="" class="img-fluid" src="@item.WhoWeAreImageOne">
                             }
-                           
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -88,7 +79,10 @@
             </div>
         </section>
 
-        <div class="container pb-1">
+
+
+
+        @*<div class="container pb-1">
 
             <div class="row pt-4">
                 <div class="col">
@@ -117,7 +111,61 @@
                     <a href="/ClientView/Career" class="btn btn-modern btn-primary mt-1">Join Our Team!</a>
                 </div>
             </div>
+        </div>*@
+
+        <div class="row">
+            <div class="col-md-8 mx-md-auto text-center">
+
+                <h2 class="text-color-dark font-weight-normal text-5 mb-0 pt-2">Our <strong class="font-weight-extra-bold">History</strong></h2>
+                <p>How we started, lorem ipsum dolor sit amet, consectetur adipiscing elit ac laoreet libero.</p>
+
+                <section class="timeline" id="timeline">
+                    <div class="timeline-body">
+                        <div class="timeline-date">
+                            <h3 class="text-primary font-weight-bold">2020</h3>
+                        </div>
+
+                        <article class="timeline-box left text-left appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="200">
+                            <div class="timeline-box-arrow"></div>
+                            <div class="p-2">
+                                <img alt="" class="img-fluid" src="~/images/w2.jpg" />
+                                <h3 class="font-weight-bold text-3 mt-3 mb-1">New Office</h3>
+                                <p class="mb-0 text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante.</p>
+                            </div>
+                        </article>
+
+                        <div class="timeline-date">
+                            <h3 class="text-primary font-weight-bold">2012</h3>
+                        </div>
+
+                        <article class="timeline-box right text-left appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="400">
+                            <div class="timeline-box-arrow"></div>
+                            <div class="p-2">
+                                <img alt="" class="img-fluid" src="~/images/marge1.jpg" />
+                                <h3 class="font-weight-bold text-3 mt-3 mb-1">New Partners</h3>
+                                <p class="mb-0 text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat.</p>
+                            </div>
+                        </article>
+
+                        <div class="timeline-date">
+                            <h3 class="text-primary font-weight-bold">2006</h3>
+                        </div>
+
+                        <article class="timeline-box left text-left appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="600">
+                            <div class="timeline-box-arrow"></div>
+                            <div class="p-2">
+                                <img alt="" class="img-fluid" src="~/images/marg.33.jpg" />
+                                <h3 class="font-weight-bold text-3 mt-3 mb-1">Foundation</h3>
+                                <p class="mb-0 text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel consequat, ante.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+            </div>
         </div>
+
+
 
         <section class="section section-default border-0 my-5">
             <div class="container py-4">
@@ -134,11 +182,11 @@
 
                         <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 appear-animation" data-appear-animation="fadeInRightShorter">
                             <span class="thumb-info thumb-info-hide-wrapper-bg bg-transparent border-radius-0">
-                              
+
                                 <span class="thumb-info-wrapper">
                                     <a href="">
                                         <img src="@item.Image" class="img-fluid" alt="" style="height: 250px;">
-                                       
+
                                         <span class="thumb-info-title">
                                             <span class="thumb-info-inner">@item.Name</span>
                                             <span class="thumb-info-type">@item.DepartmentName</span>
@@ -168,11 +216,15 @@
                             </span>
                         </div>
                     }
-                   
+
                 </div>
             </div>
         </section>
 
-       
 
-        </div>
+
+
+
+
+
+    </div>

@@ -10,5 +10,6 @@ namespace Alphasoft.ViewModels.ClientViewModels
     {
         public List<Service> Services { get; set; }
         public List<ServiceCategory> ServiceCategories { get; set; }
+        public List<Client> Client { get; internal set; }
     }
 }

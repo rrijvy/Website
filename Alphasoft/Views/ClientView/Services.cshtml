@@ -1,148 +1,381 @@
 ﻿@model ServiceVM
 @{
-    int animationDelay = 500;
     int categoryIndex = 0;
 }
 <div role="main" class="main">
-    <div class="container pb-1">
-        <div class="row">
-            <div class="featured-boxes featured-boxes-style-2" style="width: 100%;">
-                <div class="row">
-                    @foreach (var item in Model.Services)
-                    {
-                        animationDelay = animationDelay + 200;
-                        <div class="col-md-6 col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="@animationDelay">
-                            <div class="featured-box featured-box-effect-4">
-                                <div class="box-content">
-                                    <i class="icon-featured @item.IconClassName icons text-color-primary bg-color-grey"></i>
-                                    <h4 class="font-weight-bold">@item.Name</h4>
-                                    <p class="px-3">@item.ShortDescription</p>
+ 
+        <div class="container">
+            <div class="z-index-1 appear-animation" data-appear-animation="fadeInDownShorter" data-appear-animation-delay="500">
+                <div class="owl-carousel owl-theme full-width owl-loaded owl-drag owl-carousel-init m-0 mb-4" data-plugin-options="{'items': 1, 'loop': true, 'nav': true, 'dots': false, 'animateOut': 'fadeOut'}">
+                    <div>
+                        <img style="height:400px;width:1500px;" src="~/images/w1.jpg" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row text-center pt-3">
+                <div class="col-md-10 mx-md-auto">
+                    <h1 class="word-rotator slide font-weight-bold text-8 mb-3 appear-animation" data-appear-animation="fadeInUpShorter">
+                        <span>Porto is </span>
+                        <span class="word-rotator-words bg-dark">
+                            <b class="is-visible">incredibly</b>
+                            <b>especially</b>
+                            <b>extremely</b>
+                        </span>
+                        <span> beautiful and fully responsive.</span>
+                    </h1>
+                    <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+            <div class="home-concept mt-5">
+                <div class="container">
+
+                    <div class="row text-center">
+                        <span class="sun"></span>
+                        <span class="cloud"></span>
+                        <div class="col-lg-2 ml-lg-auto">
+                            <div class="process-image">
+                                <img style="height:145px;width:145px;" src="~/images/sta1.jpg" alt="" />
+                                <strong>Strategy</strong>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="process-image process-image-on-middle">
+                                <img style="height:145px;width:145px;" src="~/images/p1.webp" alt="" />
+                                <strong>Planning</strong>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="process-image">
+                                <img style="height:145px;width:145px;" src="~/images/build2.jpg" alt="" />
+                                <strong>Build</strong>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 ml-lg-auto">
+                            <div class="project-image">
+                                <div id="fcSlideshow" class="fc-slideshow">
+                                    <ul class="fc-slides">
+                                        <li><a href="portfolio-single-wide-slider.html"><img style="height:338px;width:338px;" class="img-responsive" src="~/images/w1.jpg" alt="" /></a></li>
+                                        <li><a href="portfolio-single-wide-slider.html"><img style="height:338px;width:338px;" class="img-responsive" src="~/images/w2.jpg" alt="" /></a></li>
+                                        <li><a href="portfolio-single-wide-slider.html"><img style="height:338px;width:338px;" class="img-responsive" src="~/images/sta1.jpg" alt="" /></a></li>
+                                    </ul>
+                                </div>
+                                <strong class="our-work">Our Work</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-5 pb-4">
+
+            <div class="row">
+                <div class="col mb-4">
+                    <hr class="my-5">
+                </div>
+            </div>
+
+            <div class="row pb-3">
+
+                <div class="col-lg-8">
+                    <h2 class="font-weight-normal text-7">Our <strong class="font-weight-extra-bold">Product Service</strong></h2>
+                    <div class="row">
+                        @foreach (var item in Model.Services)
+                        {
+                            categoryIndex += 1;
+                            @if (categoryIndex % 2 == 0)
+                            {
+                                <div class="col-sm-6">
+                                    <div class="feature-box feature-box-style-2">
+                                        <div class="feature-box-icon">
+                                            <i class="@item.IconClassName text-color-primary"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="font-weight-bold text-4 mb-0">@item.Name</h4>
+                                            <p class="mb-4">@Html.Raw(item.ShortDescription)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-6">
+                                    <div class="feature-box feature-box-style-2">
+                                        <div class="feature-box-icon">
+                                            <i class="@item.IconClassName text-color-primary"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="font-weight-bold text-4 mb-0">@item.Name</h4>
+                                            <p class="mb-4">@Html.Raw(item.ShortDescription)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <h2 class="font-weight-normal text-6">and more...</h2>
+
+                    <div class="accordion accordion-modern" id="accordion">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h4 class="card-title m-0">
+                                    <a class="accordion-toggle text-color-dark font-weight-bold" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <i class="icons icon-diamond text-color-primary"></i>
+                                        Creative Websites
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="collapse show">
+                                <div class="card-body text-2">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blanorem ipsum dolor sit amet, consecte.</p>
+                                    <p class="mb-0">Adipiscing elit phasellus blanit ma... <a href="#" class="d-block text-color-dark font-weight-semibold pt-4">read more <i class="fas fa-angle-right position-relative top-1 ml-1"></i></a></p>
                                 </div>
                             </div>
                         </div>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="section section-primary border-top-0 mb-0">
-        <div class="container">
-            <div class="row counters counters-sm counters-text-light">
-                <div class="col-sm-6 col-lg-3 mb-5 mb-lg-0">
-                    <div class="counter">
-                        <strong data-to="30000" data-append="+">0</strong>
-                        <label class="opacity-5 text-4 mt-1">Happy Clients</label>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-5 mb-lg-0">
-                    <div class="counter">
-                        <strong data-to="3500" data-append="+">0</strong>
-                        <label class="opacity-5 text-4 mt-1">Answered Tickets</label>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-5 mb-sm-0">
-                    <div class="counter">
-                        <strong data-to="16">0</strong>
-                        <label class="opacity-5 text-4 mt-1">Pre-made Demos</label>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="counter">
-                        <strong data-to="3000" data-append="+">0</strong>
-                        <label class="opacity-5 text-4 mt-1">Development Hours</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="container-fluid">
-        @foreach (var item in Model.ServiceCategories)
-        {
-            categoryIndex++;
-
-            string image = item.Image;
-
-            if (string.IsNullOrEmpty(item.Image) || item.Image == "undefined")
-            {
-                image = "porto_7.4.0/img/generic/generic-corporate-3-1-full.jpg";
-            }
-
-            <div class="container-fluid">
-                @if (categoryIndex % 2 != 0)
-                {
-                    <div class="row align-items-center bg-color-grey">
-                        <div class="col-lg-6 p-0">
-                            <section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}" data-image-src="@image" style="min-height: 315px;">
-                            </section>
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h4 class="card-title m-0">
+                                    <a class="accordion-toggle text-color-dark font-weight-bold" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                        <i class="icons icon-bubble text-color-primary"></i>
+                                        Contact Forms
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="collapse">
+                                <div class="card-body text-2">
+                                    <p class="mb-0">Donec tellus massa, tristique sit amet condimentum vel, facilisis quis sapien.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-lg-6 p-0">
-                            <section class="section section-no-border h-100 m-0">
-                                <div class="row m-0">
-                                    <div class="col-half-section col-half-section-left">
-                                        <div class="overflow-hidden">
-                                            <h4 class="mb-0 appear-animation" data-appear-animation="maskUp"><a href="#" class="text-4 font-weight-bold pt-2 d-block text-dark text-decoration-none pb-1">@item.Name</a></h4>
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h4 class="card-title m-0">
+                                    <a class="accordion-toggle text-color-dark font-weight-bold" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                        <i class="icons icon-grid text-color-primary"></i>
+                                        Portfolio Pages
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="collapse">
+                                <div class="card-body text-2">
+                                    <p class="mb-0">Donec tellus massa, tristique sit amet condimentum vel, facilisis quis sapien.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="solid my-5">
+
+            <div class="row text-center pt-4">
+                <div class="col">
+                    <h2 class="word-rotator slide font-weight-bold text-8 mb-2">
+                        <span>We Provide Our Customer </span>
+                        <span class="word-rotator-words bg-primary">
+                            <b class="is-visible">Pronali ERP</b>
+                            <b>Pronali Payroll</b>
+                            <b>Pronali Pos</b>
+                        </span>
+                        <span>Our Project </span>
+                    </h2>
+                    <h4 class="text-primary lead tall text-4">30,0000 CUSTOMERS IN 100 COUNTRIES MEET OUR CUSTOMERS.</h4>
+                </div>
+            </div>
+
+            @*<div class="row text-center mt-5">
+                <div class="owl-carousel owl-theme carousel-center-active-item" data-plugin-options="{'responsive': {'0': {'items': 1}, '476': {'items': 1}, '768': {'items': 5}, '992': {'items': 7}, '1200': {'items': 7}}, 'autoplay': true, 'autoplayTimeout': 3000, 'dots': false}">
+                    <div>
+                      
+                            <img style="height:100px;width:100px;" class="img-fluid" src="" alt="">
+                      
+
+                    </div>
+                </div>
+            </div>*@
+
+        </div>
+
+
+
+        <section class="section section-custom-map appear-animation" data-appear-animation="fadeInUpShorter">
+            <section class="section section-default section-footer">
+                <div class="container">
+                    <div class="row mt-5 appear-animation" data-appear-animation="fadeInUpShorter">
+                        <div class="col-lg-6">
+                            <div class="recent-posts mb-5">
+                                <h2 class="font-weight-normal text-6 mb-4"><strong class="font-weight-extra-bold">Latest</strong> Posts</h2>
+                                <div class="owl-carousel owl-theme dots-title mb-0" data-plugin-options="{'items': 1, 'autoHeight': true, 'autoplay': true, 'autoplayTimeout': 8000}">
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-4 mb-lg-0">
+                                            <article>
+                                                <div class="row">
+                                                    <div class="col-auto pr-0">
+                                                        <div class="date">
+                                                            <span class="day font-weight-extra-bold">15</span>
+                                                            <span class="month text-1">JAN</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col pl-1">
+                                                        <h4 class="text-primary text-4"><a class="d-block" href="blog-post.html">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                        <p class="pr-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                        <a href="/" class="read-more text-color-dark font-weight-semibold text-2">read more <i class="fas fa-angle-right position-relative top-1 ml-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </article>
                                         </div>
-                                        <div class="overflow-hidden mb-2">
-                                            <p class="mb-0 lead text-4 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">@item.Description</p>
+                                        <div class="col-lg-6">
+                                            <article>
+                                                <div class="row">
+                                                    <div class="col-auto pr-0">
+                                                        <div class="date">
+                                                            <span class="day font-weight-extra-bold">14</span>
+                                                            <span class="month text-1">JAN</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col pl-1">
+                                                        <h4 class="text-primary text-4"><a class="d-block" href="blog-post.html">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                        <p class="pr-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                        <a href="/" class="read-more text-color-dark font-weight-semibold text-2">read more <i class="fas fa-angle-right position-relative top-1 ml-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-4 mb-lg-0">
+                                            <article>
+                                                <div class="row">
+                                                    <div class="col-auto pr-0">
+                                                        <div class="date">
+                                                            <span class="day font-weight-extra-bold">13</span>
+                                                            <span class="month text-1">JAN</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col pl-1">
+                                                        <h4 class="text-primary text-4"><a class="d-block" href="blog-post.html">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                        <p class="pr-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                        <a href="/" class="read-more text-color-dark font-weight-semibold text-2">read more <i class="fas fa-angle-right position-relative top-1 ml-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <article>
+                                                <div class="row">
+                                                    <div class="col-auto pr-0">
+                                                        <div class="date">
+                                                            <span class="day font-weight-extra-bold">12</span>
+                                                            <span class="month text-1">JAN</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col pl-1">
+                                                        <h4 class="text-primary text-4"><a class="d-block" href="blog-post.html">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                        <p class="pr-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                        <a href="/" class="read-more text-color-dark font-weight-semibold text-2">read more <i class="fas fa-angle-right position-relative top-1 ml-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-4 mb-lg-0">
+                                            <article>
+                                                <div class="row">
+                                                    <div class="col-auto pr-0">
+                                                        <div class="date">
+                                                            <span class="day font-weight-extra-bold">11</span>
+                                                            <span class="month text-1">JAN</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col pl-1">
+                                                        <h4 class="text-primary text-4"><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                        <p class="pr-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                        <a href="/" class="read-more text-color-dark font-weight-semibold text-2">read more <i class="fas fa-angle-right position-relative top-1 ml-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <article>
+                                                <div class="row">
+                                                    <div class="col-auto pr-0">
+                                                        <div class="date">
+                                                            <span class="day font-weight-extra-bold">10</span>
+                                                            <span class="month text-1">JAN</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col pl-1">
+                                                        <h4 class="text-primary text-4"><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                                        <p class="pr-4 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                        <a href="/" class="read-more text-color-dark font-weight-semibold text-2">read more <i class="fas fa-angle-right position-relative top-1 ml-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </article>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                            </div>
                         </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="row align-items-center bg-color-grey">
-                        <div class="col-lg-6 order-2 order-lg-1 p-0">
-                            <section class="section section-no-border h-100 m-0">
-                                <div class="row justify-content-end m-0">
-                                    <div class="col-half-section col-half-section-right custom-text-align-right">
-                                        <div class="overflow-hidden">
-                                            <h4 class="mb-0appear-animation" data-appear-animation="maskUp"><a href="#" class="text-4 font-weight-bold pt-2 d-block text-dark text-decoration-none pb-1">@item.Name</a></h4>
+                        <div class="col-lg-6">
+                            <h2 class="font-weight-normal text-6 mb-4"><strong class="font-weight-extra-bold">What</strong> Client’s Say</h2>
+                            <div class="row">
+                                <div class="owl-carousel owl-theme dots-title dots-title-pos-2 mb-0" data-plugin-options="{'items': 1, 'autoHeight': true}">
+                                    <div>
+                                        <div class="col">
+                                            <div class="testimonial testimonial-primary">
+                                                <blockquote>
+                                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.</p>
+                                                </blockquote>
+                                                <div class="testimonial-arrow-down"></div>
+                                                <div class="testimonial-author">
+                                                    <div class="testimonial-author-thumbnail">
+                                                        <img src="img/clients/client-1.jpg" class="rounded-circle" alt="">
+                                                    </div>
+                                                    <p><strong>John Doe</strong><span>Okler</span></p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="overflow-hidden mb-2">
-                                            <p class="mb-0 lead text-4 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">@item.Description</p>
+                                    </div>
+                                    <div>
+                                        <div class="col">
+                                            <div class="testimonial testimonial-primary">
+                                                <blockquote>
+                                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vehicula est, in consequat.</p>
+                                                </blockquote>
+                                                <div class="testimonial-arrow-down"></div>
+                                                <div class="testimonial-author">
+                                                    <div class="testimonial-author-thumbnail">
+                                                        <img src="img/clients/client-1.jpg" class="rounded-circle" alt="">
+                                                    </div>
+                                                    <p><strong>John Doe</strong><span>Okler</span></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 p-0">
-                            <section class="parallax section section-parallax h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}" data-image-src="@image style="min-height: 315px;">
-                            </section>
+                            </div>
                         </div>
                     </div>
-                }
-            </div>
-        }
-    </div>
-    <div class="container-fluid">
-        <div class="row featured-boxes-full featured-boxes-full-scale">
-            <div class="col-lg-3 featured-box-full featured-box-full-primary">
-                <i class="far fa-life-ring"></i>
-                <h4>Customer Support</h4>
-                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-            <div class="col-lg-3 featured-box-full featured-box-full-primary">
-                <i class="fas fa-film"></i>
-                <h4>Sliders</h4>
-                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-            <div class="col-lg-3 featured-box-full featured-box-full-primary">
-                <i class="far fa-star"></i>
-                <h4>Winner</h4>
-                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet. </p>
-            </div>
-            <div class="col-lg-3 featured-box-full featured-box-full-primary">
-                <i class="far fa-edit"></i>
-                <h4>Customizable</h4>
-                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing metus elit. Quisque rutrum pellentesque imperdiet. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-        </div>
-    </div>
+                </div>
+            </section>
+        </section>
+
+
     <section class="call-to-action call-to-action-strong-grey content-align-center call-to-action-in-footer">
         <div class="container py-5">
             <div class="row py-3">

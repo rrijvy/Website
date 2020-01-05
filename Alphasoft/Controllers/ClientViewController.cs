@@ -127,7 +127,8 @@ namespace Alphasoft.Controllers
             ServiceVM serviceVM = new ServiceVM
             {
                 Services = _work.Services.GetAll(),
-                ServiceCategories = _work.ServiceCategories.GetAll()
+                ServiceCategories = _work.ServiceCategories.GetAll(),
+                 Client = _work.Client.GetAll(),
             };
             return View(serviceVM);
         }
@@ -210,6 +211,16 @@ namespace Alphasoft.Controllers
 
             products = _work.Products.GetCategoryWiseProducts(id).TakeLast(number).ToList();
             return PartialView("_GetCategoryWiseProducts", products);
+        }
+        public IActionResult Softwares()
+        {
+            SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
+            {
+                Software = _work.Softwares.GetAll(),
+               
+            };
+            return View(SoftwareViewVM);
+           
         }
     }
 }

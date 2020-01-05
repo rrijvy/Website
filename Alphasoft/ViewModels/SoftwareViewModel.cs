@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Alphasoft.Models;
 
 namespace Alphasoft.ViewModels
 {
@@ -15,5 +16,7 @@ namespace Alphasoft.ViewModels
         public string Description { get; set; }
         public string SoftwareCategoryName { get; set; }
         public int Order { get; set; }
+        public List<Software> Software { get; internal set; }
+        public List<Client> Client { get; internal set; }
     }
 }
