@@ -33,6 +33,7 @@ namespace Alphasoft.Repositories
 
         public List<Product> GetCategoryWiseProducts(int categoryId)
         {
+
             return Context.Products.Include(x => x.ProductCategory).Where(x => x.ProductCategoryId == categoryId).ToList();
         }
     }

@@ -1,36 +1,31 @@
 ﻿
 @{
     Layout = "_Layout";
-    ViewData["Title"] = "Software";
+    ViewData["Title"] = "Fetaures";
 }
-
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h4 class="text-info">Software Information</h4>
-        <button id="software-createmodalBtn" class="btn btn-primary panel-header-create-btn" data-toggle="modal" data-target="#software-createModal">Create</button>
+        <h4 class="text-info">Features</h4>
+        <button id="features-createmodalBtn" class="btn btn-primary panel-header-create-btn" data-toggle="modal" data-target="#features-createModal">Create</button>
     </div>
     <div class="panel-body">
-        <table id="softwareDatatable" class="table table-bordered table-hover table-responsive">
+        <table id="featuresDatatable" class="table table-bordered table-hover table-responsive">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Order</th>
+                    <th>Name</th>
                     <th>Icon</th>
-                    <th>Image</th>
+                    <th>Icon Image</th>
                     <th>ShortDescription</th>
-                    <th>Description </th>
-                    <th>SoftwareCategoryName</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody id="softwareTableBody"></tbody>
+            <tbody id="featuresTableBody"></tbody>
         </table>
     </div>
 </div>
 
-<div id="software-createModal"
+<div id="features-createModal"
      class="modal fade"
      tabindex="-1"
      role="dialog"
@@ -41,16 +36,16 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title text-info">Create software Description</h4>
+                <h4 class="modal-title text-info">Create Features</h4>
             </div>
             <div class="modal-body">
-                <div id="software-createFormDiv"></div>
+                <div id="features-createFormDiv"></div>
             </div>
         </div>
     </div>
 </div>
 
-<div id="software-editModal"
+<div id="features-editModal"
      class="modal fade"
      tabindex="-1"
      role="dialog"
@@ -61,17 +56,17 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Edit software Description</h4>
+                <h4 class="modal-title">Edit Features</h4>
             </div>
             <div class="modal-body">
-                <div id="software-editFormDiv"></div>
+                <div id="features-editFormDiv"></div>
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="feturesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -83,13 +78,18 @@
             <div class="modal-footer">
                 <div style="margin-right:60px;">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    <input style="background-color:#ff4444; color: white;" type="submit" value="Delete" class="btn  modaldeleteBtn" data-id="" />
+                    <input style="background-color:#ff4444; color: white;" type="submit" value="Delete" class="btn  feturesDeleteBtn" data-id="" />
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+
 @section Scripts{
-    <script src="~/js/Software/software.js"></script>
+
+  
+  <script src="~/js/Features/features.js"></script>
+
+
 }

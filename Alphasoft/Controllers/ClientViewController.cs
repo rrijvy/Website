@@ -185,6 +185,8 @@ namespace Alphasoft.Controllers
             return PartialView("_CategoryWiseProducts", products);
         }
 
+
+
         public IActionResult CategoryWiseProduct(int id)
         {
             ProductsViewModel productsViewModel = new ProductsViewModel
@@ -197,6 +199,18 @@ namespace Alphasoft.Controllers
             productsViewModel.CategoryProducts = _work.QueryHelper.GetCategoryProducts(productsViewModel.Products);
 
             return View(productsViewModel);
+        }
+
+        public IActionResult CategoryWiseSoftware(int id)
+        {
+            SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
+            {
+                    Software=_work.Softwares.GetAllWithSoftware(),
+                    CategoryWiseSoftware=_work.Softwares.GetCategoryWiseSoftware(id),
+
+            };
+
+            return View(SoftwareViewVM);
         }
 
         public IActionResult GetCategoryWiseProducts(int id, int number = 8)
@@ -217,6 +231,9 @@ namespace Alphasoft.Controllers
             SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
             {
                 Software = _work.Softwares.GetAll(),
+                SoftwareCategory = _work.SoftwareCategories.GetAll(),
+                Features = _work.Features.GetAll(),
+                SoftwareImage=_work.Softwares.FirstOrDefault()
                
             };
             return View(SoftwareViewVM);

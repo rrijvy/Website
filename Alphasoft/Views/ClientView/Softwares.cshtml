@@ -1,20 +1,21 @@
 ﻿@model SoftwareViewModel
 @{
     ViewData["Title"] = "Softwares";
+    int SoftwareImageDiv = 0;
+    int SoftwareFeaturesIndex = 0;
 
 }
 
-
-<section  class="page-header page-header-modern page-header-background  py-0 overlay overlay-color-light overlay-show overlay-op-8">
+<section class="page-header page-header-modern page-header-background  py-0 overlay overlay-color-light overlay-show overlay-op-8">
     <div class="container">
         <div class="row">
             <div class="col-sm-5 order-2 order-sm-1 align-self-center p-static">
-               
+
                 <div class="overflow-hidden pb-2">
                     <h1 style="color:black;" class="text-10 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">Introducing the new <strong>Software</strong></h1>
                 </div>
                 <div class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
-                    <span style="color:black;" class="sub-title text-4 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere.</span>
+                    <span style="color:black;" class="sub-title text-4 mt-4">@Model.SoftwareImage.Title</span>
                 </div>
                 <div class="appear-animation d-inline-block" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
                     <a href="#" class="btn btn-modern btn-dark mt-4">Buy Now <i class="fas fa-arrow-right ml-1"></i></a>
@@ -25,7 +26,8 @@
             </div>
             <div class="col-sm-7 order-1 order-sm-2 align-items-end justify-content-end d-flex pt-5">
                 <div style="min-height: 350px;" class="overflow-hidden">
-                    <img alt="" style="width:400px;height:360px;" src="~/images/m1.jpg" class="img-fluid appear-animation" data-appear-animation="slideInUp" data-appear-animation-delay="600" data-appear-animation-duration="1s">
+
+                    <img alt="" style="width:400px;height:360px;" src="@Model.SoftwareImage.Image" class="img-fluid appear-animation" data-appear-animation="slideInUp" data-appear-animation-delay="600" data-appear-animation-duration="1s">
                 </div>
             </div>
         </div>
@@ -56,77 +58,49 @@
     <div class="container">
         <h1 class="mt-4 mt-lg-5" style="color:white;text-align:center;font-weight:bold;">Our Features</h1>
         <div class="row mt-4 mt-lg-5">
-            <div class="col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
-                <div class="feature-box">
-                    <div class="feature-box-icon feature-box-icon-large bg-light mt-1">
-                        <i class="icons icon-support text-color-primary text-6"></i>
+            @foreach (var item in Model.Features)
+            {
+                SoftwareImageDiv += 1;
+                if (SoftwareImageDiv % 2 == 0)
+                {
+
+                    <div class="process-step col-lg-1 mb-5 mb-lg-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+                        <img class="img-fluid" style="height:80px;width:80px;border-radius:50%;" src="@item.IconImage" />
                     </div>
-                    <div class="feature-box-info">
-                        <h2 class="text-color-light font-weight-bold text-4 line-height-5 mb-1">CUSTOMER SUPPORT</h2>
-                        <p class="text-color-light opacity-7">Lorem ipsum dolor sit <span class="alternative-font text-color-light">amet</span>, consectetur adipiscing elit. Praesent tincidunt pretium vulputate.</p>
+                    <div class="process-step col-lg-5 mb-5 mb-lg-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+                        <div class="process-step-circle">
+                            <strong class="process-step-circle-content"></strong>
+                        </div>
+                        <div class="process-step-content">
+                            <h4 class="mb-1 text-5 font-weight-bold" style="color:white;">@item.Name</h4>
+                            <p class="mb-0" style="color:white;text-align:justify;">@Html.Raw(item.ShortDescription)</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 appear-animation" data-appear-animation="fadeInUpShorter">
-                <div class="feature-box">
-                    <div class="feature-box-icon feature-box-icon-large bg-light mt-1">
-                        <i class="icons icon-layers text-color-primary text-6"></i>
+
+
+                }
+                else
+                {
+                    <div class="process-step col-lg-1 mb-5 mb-lg-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+                        <img class="img-fluid" style="height:80px;width:80px;border-radius:50%;" src="@item.IconImage" />
                     </div>
-                    <div class="feature-box-info">
-                        <h2 class="font-weight-bold text-color-light text-4 line-height-5 mb-1">SLIDERS</h2>
-                        <p class="text-color-light opacity-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget pretium purus.</p>
+                    <div class="process-step col-lg-5 mb-5 mb-lg-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+                        <div class="process-step-circle">
+                            <strong class="process-step-circle-content"></strong>
+                        </div>
+                        <div class="process-step-content">
+                            <h4 class="mb-1 text-5 font-weight-bold" style="color:white;">@item.Name</h4>
+                            <p class="mb-0" style="color:white;text-align:justify;">@Html.Raw(item.ShortDescription)</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-                <div class="feature-box">
-                    <div class="feature-box-icon feature-box-icon-large bg-light mt-1">
-                        <i class="icons icon-menu text-color-primary text-5"></i>
-                    </div>
-                    <div class="feature-box-info">
-                        <h2 class="font-weight-bold text-color-light text-4 line-height-5 mb-1">BUTTONS</h2>
-                        <p class="text-color-light opacity-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel magna fringilla.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-lg-4">
-            <div class="col-lg-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
-                <div class="feature-box">
-                    <div class="feature-box-icon feature-box-icon-large bg-light mt-1">
-                        <i class="icons icon-doc text-color-primary text-5"></i>
-                    </div>
-                    <div class="feature-box-info">
-                        <h2 class="font-weight-bold text-color-light text-4 line-height-5 mb-1">HTML5 / CSS3 / JS</h2>
-                        <p class="text-color-light opacity-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim ante eleifend.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 appear-animation" data-appear-animation="fadeInUpShorter">
-                <div class="feature-box">
-                    <div class="feature-box-icon feature-box-icon-large bg-light mt-1">
-                        <i class="icons icon-user text-color-primary text-5"></i>
-                    </div>
-                    <div class="feature-box-info">
-                        <h2 class="font-weight-bold text-color-light text-4 line-height-5 mb-1">ICONS</h2>
-                        <p class="text-color-light opacity-7">Lorem ipsum dolor sit <span class="alternative-font text-color-light">amet</span>, consectetur adipiscing elit. Praesent consequat pharetra massa.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-                <div class="feature-box">
-                    <div class="feature-box-icon feature-box-icon-large bg-light mt-1">
-                        <i class="icons icon-screen-desktop text-color-primary text-6"></i>
-                    </div>
-                    <div class="feature-box-info">
-                        <h2 class="font-weight-bold text-color-light text-4 line-height-5 mb-1">LIGHTBOX</h2>
-                        <p class="text-color-light opacity-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum aliquet erat.</p>
-                    </div>
-                </div>
-            </div>
+                }
+
+            }
         </div>
     </div>
 </section>
+
+
 
 <section class="section bg-color-grey-scale-1 border-0 pt-0 pt-md-5 m-0">
     <div class="container">
@@ -180,30 +154,48 @@
     </div>
 </section>
 
+<section class="section bg-color-grey section-height-3 border-0 mt-5 mb-0">
+    <div class="container">
 
-<div class="container">
-    <div class="row align-items-center">
-        <h1 style="text-align:center;margin-left:200px; margin-top:10px;" class="text-center pb-4 pt-3">What Pronali software can do for your business?</h1>
-        <div class="col-md-6 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1000">
-            <div class="owl-carousel owl-theme nav-inside mb-0" data-plugin-options="{'items': 1, 'margin': 10, 'animateOut': 'fadeOut', 'autoplay': true, 'autoplayTimeout': 6000, 'loop': true}">
-                <div>
-                    <img alt="" class="img-fluid" src="~/images/w2.jpg">
-                </div>
-                <div>
-                    <img alt="" class="img-fluid" src="~/images/w1.jpg">
-                </div>
+        <div class="row">
+            <div class="col">
+            @foreach (var item in Model.Software)
+            {
+                SoftwareFeaturesIndex += 1;
+                if (SoftwareFeaturesIndex % 2 == 0) { 
+
+                        <div class="row align-items-center pt-5 pb-3 appear-animation" data-appear-animation="fadeInRightShorter">
+                          <div class="col-md-8 pr-md-5 mb-5 mb-md-0">
+                             <h2 class="font-weight-normal text-6 mb-3" style="text-align:justify;"><strong class="font-weight-extra-bold">@item.Title</strong></h2>
+                              <p class="text-4" style="text-align:justify;">@Html.Raw(item.ShortDescription)</p>
+
+                            </div>
+                            <div class="col-md-4 px-5 px-md-3">
+                                <img class="img-fluid scale-2 my-4" src="@item.Image" alt="style switcher" />
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row align-items-center pt-4 appear-animation" data-appear-animation="fadeInLeftShorter">
+                            <div class="col-md-4 mb-4 mb-md-0">
+                                <img class="img-fluid scale-2 pr-5 pr-md-0 my-4" src="@item.Image" alt="layout styles" />
+                            </div>
+                            <div class="col-md-8 pl-md-5">
+                                <h2 class="font-weight-normal text-6 mb-3" style="text-align:justify;"><strong class="font-weight-extra-bold">@item.Title</strong></h2>
+                                <p class="text-4" style="text-align:justify;">@Html.Raw(item.ShortDescription)</p>
+                            </div>
+                        </div>
+
+                        
+                    }
+
+                }
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="overflow-hidden mb-2">
-                <h2 class="text-color-dark font-weight-normal text-5 mb-0 pt-0 mt-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="1200">Who <strong class="font-weight-extra-bold">We Are</strong></h2>
-            </div>
-            <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam <a href="#">vehicula</a> sit amet enim ac sagittis. Curabitur eget leo varius, elementum mauris eget, egestas quam. Donec ante risus, dapibus sed lectus non, lacinia vestibulum nisi. Morbi vitae augue quam. Nullam ac laoreet libero.</p>
-            <p class="mb-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1600">Consectetur adipiscing elit. Aliquam iaculis sit amet enim ac sagittis. Curabitur eget leo varius, elementum mauris eget, egestas quam.</p>
         </div>
     </div>
+</section>
 
-</div>
 
 
 

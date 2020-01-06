@@ -20,13 +20,17 @@ namespace Alphasoft.Repositories
                 return _context as ApplicationDbContext;
             }
         }
+
+     
+
         public List<Software> GetAllWithSoftware()
         {
             return Context.Softwares.Include(x => x.SoftwareCategory).OrderBy(x => x.Order).ToList();
         }
 
-
-
-
+        public List<Software> GetCategoryWiseSoftware(int id)
+        {
+            return Context.Softwares.Include(x => x.SoftwareCategory).Where(x => x.Id == id).ToList();
+        }
     }
 }

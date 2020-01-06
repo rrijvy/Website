@@ -31,6 +31,7 @@ namespace Alphasoft.UnitOfWork
         IJobRepository Job { get; }
         ISoftwareRepository Softwares { get; }
         ISoftwareCategoriesRepository SoftwareCategories { get; }
+        IFeaturesRepository Features { get; }
         IQueryHelper QueryHelper { get; }
 
         int Complete();

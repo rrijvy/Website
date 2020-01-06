@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alphasoft.IRepositories
 {
-   public interface ISoftwareRepository:IRepository<Software>
+   public interface IFeaturesRepository:IRepository<Features>
     {
-        List<Software> GetAllWithSoftware();
-        List<Software> GetCategoryWiseSoftware(int id);
     }
 }

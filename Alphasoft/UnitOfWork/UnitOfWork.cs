@@ -61,11 +61,12 @@ namespace Alphasoft.UnitOfWork
             Softwares = new SoftwareRepository(_context);
 
             SoftwareCategories = new SoftwareCategoriesRepository(_context);
+            Features = new FeaturesRepository(_context);
 
             QueryHelper = new QueryHelper();
 
         }
-
+        public IFeaturesRepository Features { get; private set; }
         public IProductRepository Products { get; private set; }
         public IProductCategoryRepository ProductCategories { get; private set; }
         public IServiceRepository Services { get; private set; }
