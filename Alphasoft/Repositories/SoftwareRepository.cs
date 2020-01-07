@@ -21,7 +21,14 @@ namespace Alphasoft.Repositories
             }
         }
 
-     
+        public Software GetAllWithFeatureAndCategory(int id)
+        {
+            return Context.Softwares
+                .Include(x => x.SoftwareCategory)
+                .Include(x => x.Features)
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+        }
 
         public List<Software> GetAllWithSoftware()
         {
@@ -32,5 +39,7 @@ namespace Alphasoft.Repositories
         {
             return Context.Softwares.Include(x => x.SoftwareCategory).Where(x => x.Id == id).ToList();
         }
+
+
     }
 }

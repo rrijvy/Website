@@ -103,7 +103,7 @@ namespace Alphasoft.Controllers
                     }
                     software.Image = _imagePath.GetImagePathForDb(path);
                 }
-
+                software.Name = model.Name;
                 software.Title = model.Title;
                 software.Description = model.Description;
                 software.ShortDescription = model.ShortDescription;

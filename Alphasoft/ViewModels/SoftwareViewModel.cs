@@ -23,5 +23,12 @@ namespace Alphasoft.ViewModels
         public List<Features> Features { get; set; }
         public Software SoftwareImage { get;  set; }
         public List<Software> CategoryWiseSoftware { get;  set; }
+
+
+
+
+
+        //rijvy
+        public Software SingleSoftware { get; set; }
     }
 }

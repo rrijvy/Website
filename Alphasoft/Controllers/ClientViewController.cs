@@ -201,17 +201,7 @@ namespace Alphasoft.Controllers
             return View(productsViewModel);
         }
 
-        public IActionResult CategoryWiseSoftware(int id)
-        {
-            SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
-            {
-                    Software=_work.Softwares.GetAllWithSoftware(),
-                    CategoryWiseSoftware=_work.Softwares.GetCategoryWiseSoftware(id),
-
-            };
-
-            return View(SoftwareViewVM);
-        }
+      
 
         public IActionResult GetCategoryWiseProducts(int id, int number = 8)
         {
@@ -226,18 +216,36 @@ namespace Alphasoft.Controllers
             products = _work.Products.GetCategoryWiseProducts(id).TakeLast(number).ToList();
             return PartialView("_GetCategoryWiseProducts", products);
         }
-        public IActionResult Softwares()
+        //public IActionResult Softwares()
+        //{
+        //    SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
+        //    {
+        //        Software = _work.Softwares.GetAll(),
+        //        SoftwareCategory = _work.SoftwareCategories.GetAll(),
+        //        Features = _work.Features.GetAll(),
+        //        SoftwareImage=_work.Softwares.FirstOrDefault()
+               
+        //    };
+        //    return View(SoftwareViewVM);
+           
+        //}
+        public IActionResult CategoryWiseSoftware(int id)
         {
             SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
             {
-                Software = _work.Softwares.GetAll(),
-                SoftwareCategory = _work.SoftwareCategories.GetAll(),
-                Features = _work.Features.GetAll(),
-                SoftwareImage=_work.Softwares.FirstOrDefault()
-               
+                SingleSoftware = _work.Softwares.GetAllWithFeatureAndCategory(id),
+                Client = _work.Client.GetAll()
             };
             return View(SoftwareViewVM);
-           
+
+        }
+        public IActionResult Pronali()
+        {
+            PronaliViewModel viewModel = new PronaliViewModel
+            {
+              
+            };
+            return View(viewModel);
         }
     }
 }
