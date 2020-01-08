@@ -21,5 +21,6 @@ namespace Alphasoft.ViewModels.ClientViewModels
         public object OurTeamvm { get; internal set; }
         public List<OurTeam> Teams { get; internal set; }
         public OurTeam Team { get; internal set; }
+        public List<Software> TotalSoftware { get; internal set; }
     }
 }

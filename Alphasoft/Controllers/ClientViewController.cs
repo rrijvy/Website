@@ -86,12 +86,13 @@ namespace Alphasoft.Controllers
         {
             AboutUsVm aboutUsVm = new AboutUsVm
             {
-           
+
                 Company = _work.Companies.FirstOrDefault(),
                 aboutUs = _work.AboutUs.GetWithAboutUs(),
                 about = _work.AboutUs.GetWithAbout(),
-                OurTeamvm=_work.OurTeams.TeamWithUs(),
+                OurTeamvm = _work.OurTeams.TeamWithUs(),
                 Teams = _work.OurTeams.GetAllWithDepartmentAndDesignation(),
+                TotalSoftware = _work.Softwares.GetAll(),
             };
            
 
