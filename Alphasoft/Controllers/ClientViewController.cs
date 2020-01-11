@@ -157,6 +157,9 @@ namespace Alphasoft.Controllers
         public IActionResult Section_3()
         {
             var popularProducts = _work.Products.GetAllWithCategory();
+
+            popularProducts = popularProducts.Where(x => x.IsPopular == true).ToList();
+
             return PartialView("_Section3", popularProducts);
         }
 
@@ -170,6 +173,7 @@ namespace Alphasoft.Controllers
         public IActionResult Section_5()
         {
             var ourProducts = _work.Products.GetAllWithCategory();
+
             return PartialView("_Section5", ourProducts);
         }
 
