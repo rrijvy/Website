@@ -6,7 +6,9 @@ using Alphasoft.Models;
 
 namespace Alphasoft.IRepositories
 {
-    public interface IBlogsRepository:IRepository<Blog>
+    public interface IBlogsRepository : IRepository<Blog>
     {
+        Blog GetWithSingleImage();
+        Blog GetWithLatImage();
     }
 }

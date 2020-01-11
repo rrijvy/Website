@@ -1,5 +1,6 @@
 ﻿using Alphasoft.IRepositories;
 using Alphasoft.IServices;
+using Alphasoft.Models;
 using Alphasoft.Repositories;
 using System;
 
@@ -35,5 +36,6 @@ namespace Alphasoft.UnitOfWork
         IQueryHelper QueryHelper { get; }
 
         int Complete();
+       
     }
 }

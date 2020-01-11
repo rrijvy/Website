@@ -8,6 +8,8 @@ namespace Alphasoft.ViewModels.ClientViewModels
 {
     public class ServiceVM
     {
+        public List<Blog> blogs { get; set; }
+
         public List<Service> Services { get; set; }
         public List<ServiceCategory> ServiceCategories { get; set; }
         public List<Client> Client { get; internal set; }

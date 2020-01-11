@@ -71,25 +71,30 @@ namespace Alphasoft.Controllers
         }
         public IActionResult Edit(IFormFile image, Features features)
         {
+            var featuresImage = _work.Features.Get(features.Id);
             if (ModelState.IsValid)
             {
                 if (image != null)
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(image.ContentDisposition).FileName.Trim('"').Replace(" ", string.Empty);
-                    var path = _imagePath.GetImagePath(fileName, "Fetures", features.Id.ToString());
+                    var path = _imagePath.GetImagePath(fileName, "Fetures", featuresImage.Id.ToString());
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
                         image.CopyTo(stream);
                     }
-                    features.IconImage = _imagePath.GetImagePathForDb(path);
+                    featuresImage.IconImage = _imagePath.GetImagePathForDb(path);
                 }
-
-                _work.Features.Update(features);
+                featuresImage.Id = features.Id;
+                featuresImage.Name = features.Name;
+                featuresImage.ShortDescription = features.ShortDescription;
+                featuresImage.SoftwareId = features.SoftwareId;
+                featuresImage.Icon=features.Icon;
+                _work.Features.Update(featuresImage);
                 _work.Complete();
 
-                return PartialView("_Edit", features);
+                return PartialView("_Edit", featuresImage);
             }
-            return PartialView("_Edit", features);
+            return PartialView("_Edit", featuresImage);
         }
 
         public IActionResult Delete(int id)

@@ -16,8 +16,11 @@
     },
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
-        { "data": "thumbnail", "name": "Thumbnail", "autowidth": true },
+        { "data": "creator", "name": "Creator", "autowidth": true },
         { "data": "title", "name": "Title ", "autowidth": true },
+        { "data": "videoUrl", "name": "VideoUrl", "autowidth": true },
+        { "data": "date", "name": "Date", "autowidth": true },
+        { "data": "image", "name": "Image", "autowidth": true },
         { "data": "description", "name": "Description", "autowidth": true },
         {
             "render": function (data, type, full, meta) {

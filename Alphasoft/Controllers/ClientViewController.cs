@@ -55,6 +55,8 @@ namespace Alphasoft.Controllers
             BlogsVM blogsVM = new BlogsVM
             {
                 Blogs = _work.Blogs.GetAll().OrderBy(x=>x.Order).ToList(),
+                singleblogs=_work.Blogs.GetWithSingleImage(),
+                lastImage=_work.Blogs.GetWithLatImage(),
             };
 
             return View(blogsVM);
@@ -130,6 +132,7 @@ namespace Alphasoft.Controllers
                 Services = _work.Services.GetAll(),
                 ServiceCategories = _work.ServiceCategories.GetAll(),
                  Client = _work.Client.GetAll(),
+                 blogs=_work.Blogs.GetAll(),
             };
             return View(serviceVM);
         }

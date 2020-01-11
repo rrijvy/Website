@@ -162,6 +162,7 @@ namespace Alphasoft.Controllers
                 softwareList.Add(new SoftwareViewModel
                 {
                     Id = item.Id,
+                    Name = item.Name,
                     Title = item.Title,
                     Order = item.Order,
                     Icon = item.Icon,

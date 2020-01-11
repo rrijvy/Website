@@ -1,12 +1,25 @@
 ﻿@model Blog
 
-    <form id="blog-createForm" class="createForm">
+    <form id="blog-createForm" class="createForm" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="fav-preview" class="image-preview" style="display: none;">
+                    <div id="text" style="display: none;"></div>
+                    <img id="imgpreview" src="#" />
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label asp-for="Thumbnail"></label>
-                    <input asp-for="Thumbnail" type="text" class="form-control" />
-                    <span asp-validation-for="Thumbnail" class="text-danger"></span>
+                    <label asp-for="Creator"></label>
+                    <input asp-for="Creator" type="text" class="form-control" />
+                    <span asp-validation-for="Creator" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="VideoUrl"></label>
+                    <input asp-for="VideoUrl" type="text" class="form-control" />
+                    <span asp-validation-for="VideoUrl" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Title"></label>
@@ -20,33 +33,57 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Description"></label>
-                    <input asp-for="Description" type="text" class="form-control" />
+                    <textarea class="form-control" asp-for="Description"></textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
+                <div class="form-group">
+                    <label asp-for="Image"></label>
+                    <input id="image" name="image" type="file" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
             </div>
         </div>
         <div id="alert"></div>
         <button class="btn btn-success form-control" type="submit">Save</button>
     </form>
-<script>
-    $("#blog-createForm").on("submit", function (e) {
 
+<script>
+
+      $("#blog-createForm").on("submit", function (e) {
         e.preventDefault();
-        let data = objectifyForm($(this).serializeArray());
+         let formData = new FormData();
+
+        let blogs = objectifyForm($(this).serializeArray());
+        formData.append("image", $("#image")[0].files[0]);
+
+        for (var key in blogs) {
+            formData.append(key, blogs[key]);
+        }
         $.ajax({
             url: "/Blogs/Create",
             type: "POST",
-            data: data,
+            data: formData,
+            processData: false,
+            contentType: false,
             success: function (response) {
-
-                $("#blog-createFormDiv").html(response);
+               $("#blog-createFormDiv").html(response);
                 dataTable.fnFilter();
-                $("#blog-createModal").modal('hide');
+                 $("#blog-createModal").modal('hide');
             }
-
         });
-
     });
 
+
+    $("#image").on("change", function () {
+        let maxWidth = 5000;
+        let maxHeight = 5000;
+        let input = $(this);
+        let imgpreview = $("#imgpreview");
+        let fav_preview = $("#fav-preview");
+        fileOnSelect(input, maxWidth, maxHeight, imgpreview, fav_preview);
+
+    });
+  
 
 </script>

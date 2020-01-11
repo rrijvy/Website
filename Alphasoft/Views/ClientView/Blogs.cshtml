@@ -2,7 +2,7 @@
 
 @{ 
 
-    int blogsDiv=0;
+//int blogsDiv=0;
 
 }
 
@@ -121,45 +121,164 @@
 
 
 
-<div role="main" class="main">
+    <div role="main" class="main">
 
-    <section class="page-header page-header-modern bg-color-light-scale-1 page-header-md">
-        <div class="container">
-            <div class="row">
+        <div class="slider-container bg-color-grey rev_slider_wrapper" style="height: 80vh;">
+            <div id="revolutionSlider" class="slider rev_slider" data-version="5.4.8" data-plugin-revolution-slider data-plugin-options="{'sliderLayout': 'fullscreen', 'fullScreenOffsetContainer': '#header', 'delay': 9000, 'gridwidth': [1410,1110,930,690], 'gridheight': 700, 'disableProgressBar': 'on', 'responsiveLevels': [4096,1422,1182,974], 'navigation' : {'arrows': { 'enable': true, 'style': 'metis arrows-primary arrows-rounded' }, 'bullets': {'enable': false}}}">
+                <ul>
+                    <li data-transition="fade">
+                        <img src="@Model.singleblogs.Image"
+                             alt=""
+                             data-bgposition="center center"
+                             data-bgfit="cover"
+                             data-bgrepeat="no-repeat"
+                             class="rev-slidebg">
+                        <div class="tp-caption overlay d-none d-sm-block d-lg-none overlay-show overlay-color-secondary overlay-op-8"
+                             data-frames='[{"delay":0}]'
+                             data-x="center"
+                             data-y="center"
+                             data-height="1000"
+                             data-width="100%"
+                             data-basealign="slide"></div>
 
-                <div class="col-md-12 align-self-center p-static order-2 text-center">
+                        <h1 class="tp-caption font-weight-extra-bold text-color-dark line ws-normal"
+                            data-frames='[{"delay":1500,"speed":400,"frame":"0","from":"opacity:0;x:50%;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                            data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
+                            data-y="center" data-voffset="['-85','-85','-85','-85']"
+                            data-width="['500','500','500','500']"
+                            data-fontsize="['48','48','48','48']"
+                            data-lineheight="['55','55','55','55']"
+                            data-textAlign="['left','left','left','center']">
+                            @Model.singleblogs.Title
+                        </h1>
+                        <div class="tp-caption font-weight-light text-color-dark opacity-7 ws-normal"
+                             data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2300,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                             data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
+                             data-y="center" data-voffset="['0','0','0','0']"
+                             data-width="['900','900','900','900']"
+                             data-fontsize="['18','18','18','22']"
+                             data-lineheight="['26','26','26','26']"
+                             data-textAlign="['left','left','left','center']">Our new Project Start.</div>
 
-                    <h1 class="text-dark font-weight-bold text-8">Blogs</h1>
-                    <span class="sub-title text-dark">Check out our Latest News!</span>
-                </div>
+                        <a class="tp-caption d-inline-flex align-items-center btn btn-primary font-weight-bold rounded"
+                           href="#"
+                           data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"y:50%;opacity:0;","to":"y:0;o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                           data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
+                           data-y="center" data-voffset="['65','65','65','65']"
+                           data-paddingtop="['16','16','16','24']"
+                           data-paddingbottom="['16','16','16','24']"
+                           data-paddingleft="['30','30','30','30']"
+                           data-paddingright="['15','15','15','15']"
+                           data-fontsize="['13','13','13','18']"
+                           data-lineheight="['20','20','20','22']">GET STARTED NOW <i class="fas fa-arrow-right ml-4 pl-1 mr-2 text-4"></i></a>
+                    </li>
+                    <li data-transition="fade">
+                        <img src="@Model.lastImage.Image"
+                             alt=""
+                             data-bgposition="center center"
+                             data-bgfit="cover"
+                             data-bgrepeat="no-repeat"
+                             class="rev-slidebg">
+                        <div class="tp-caption overlay d-none d-sm-block d-lg-none overlay-show overlay-color-secondary overlay-op-8"
+                             data-frames='[{"delay":0}]'
+                             data-x="center"
+                             data-y="center"
+                             data-height="1000"
+                             data-width="100%"
+                             data-basealign="slide"></div>
 
-                <div class="col-md-12 align-self-center order-1">
+                        <h1 class="tp-caption font-weight-extra-bold text-color-dark line ws-normal"
+                            data-frames='[{"delay":1500,"speed":400,"frame":"0","from":"opacity:0;x:50%;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                            data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
+                            data-y="center" data-voffset="['-85','-85','-85','-85']"
+                            data-width="['500','500','500','500']"
+                            data-fontsize="['48','48','48','48']"
+                            data-lineheight="['55','55','55','55']"
+                            data-textAlign="['left','left','left','center']">
+                            @Model.lastImage.Title
+                        </h1>
+                        <div class="tp-caption font-weight-light text-color-dark opacity-7 ws-normal"
+                             data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2300,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
+                             data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
+                             data-y="center" data-voffset="['0','0','0','0']"
+                             data-width="['900','900','900','900']"
+                             data-fontsize="['18','18','18','22']"
+                             data-lineheight="['26','26','26','26']"
+                             data-textAlign="['left','left','left','center']">Creation Our Blogs.</div>
 
-                    <ul class="breadcrumb d-block text-center">
-                        <li><a href="#">Home</a></li>
-                        <li class="active">Blog</li>
-                    </ul>
-                </div>
+                        <a class="tp-caption d-inline-flex align-items-center btn btn-primary font-weight-bold rounded"
+                           href="#"
+                           data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"y:50%;opacity:0;","to":"y:0;o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                           data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
+                           data-y="center" data-voffset="['65','65','65','65']"
+                           data-paddingtop="['16','16','16','24']"
+                           data-paddingbottom="['16','16','16','24']"
+                           data-paddingleft="['30','30','30','30']"
+                           data-paddingright="['15','15','15','15']"
+                           data-fontsize="['13','13','13','18']"
+                           data-lineheight="['20','20','20','22']">GET STARTED NOW <i class="fas fa-arrow-right ml-4 pl-1 mr-2 text-4"></i></a>
+                    </li>
+
+                </ul>
             </div>
         </div>
-    </section>
 
-    <div class="container py-4">
+        <div style="background-color:dodgerblue;" class="home-intro home-intro-quaternary" id="home-intro">
+            <div class="container">
 
-        <div class="row">
-            <div class="col">
-                <div class="blog-posts">
+                <div class="row text-center">
+                    <div class="col">
+                        <p class="mb-0">
+                            The fastest way to grow your business with the leader in <span class="highlighted-word highlighted-word-animation-1 highlighted-word-animation-1-light text-color-dark font-weight-semibold text-5">Technology</span>
+                            <span>Check out our options and features included.</span>
+                        </p>
+                    </div>
+                </div>
 
-                    <div class="row">
+            </div>
+        </div>
 
-                        @foreach (var item in Model.Blogs)
-                        {
-                           
-                                <div class="col-md-4 col-lg-3">
+
+        @*<section class="page-header page-header-modern bg-color-light-scale-1 page-header-md">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12 align-self-center p-static order-2 text-center">
+
+                        <h1 class="text-dark font-weight-bold text-8">Blogs</h1>
+                        <span class="sub-title text-dark">Check out our Latest News!</span>
+                    </div>
+
+                    <div class="col-md-12 align-self-center order-1">
+
+                        <ul class="breadcrumb d-block text-center">
+                            <li><a href="#">Home</a></li>
+                            <li class="active">Blog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+
+
+
+
+        <div class="container py-4">
+
+            <div class="row">
+                <div class="col">
+                    <div class="blog-posts">
+
+                        <div class="row">
+
+                            @foreach (var item in Model.Blogs)
+                            {
+
+                                <div class="col-md-4 col-lg-4">
                                     <article class="post post-medium border-0 pb-0 mb-5">
                                         <div class="post-image">
                                             <a href="#">
-                                                <img src="~/images/w2.jpg" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                                <img src="@item.Image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
                                             </a>
                                         </div>
 
@@ -178,12 +297,25 @@
                                         </div>
                                     </article>
                                 </div>
-                         
-                        }
+
+                            }
+
+                        </div>
+
+
 
                     </div>
+                </div>
 
-                  
+            </div>
+
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+              
+                    <iframe style="height:300px;width:100%;" class="embed-responsive-item" src="https://www.@Model.singleblogs.VideoUrl" allowfullscreen></iframe>
 
                 </div>
             </div>
@@ -191,5 +323,3 @@
         </div>
 
     </div>
-
-</div>

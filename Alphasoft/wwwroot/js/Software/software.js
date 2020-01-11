@@ -16,6 +16,7 @@
     },
     "columns": [
         { "data": "id", "name": "Id", "autowidth": true, "className": "text_center" },
+        { "data": "name", "name": "Name", "autowidth": true },
         { "data": "title", "name": "Title", "autowidth": true },
         { "data": "order", "name": "Order", "autowidth": true },
         { "data": "icon", "name": "Icon", "autowidth": true },
