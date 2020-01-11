@@ -37,7 +37,7 @@ namespace Alphasoft.Controllers
                     Id = item.Id,
                     Title = item.Title,
                     Description = item.Description,
-                    Order = item.Order,                    
+                    Order = item.Order,
                     ShortDescription = Regex.Replace(item.ShortDescription, "<[^>]*>", "")
                 };
                 homeViewModel.ChooseUsList.Add(chooseUs);

@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq.Dynamic.Core;
 using Alphasoft.Models;
 using Alphasoft.UnitOfWork;
+using Microsoft.AspNetCore.Http;
+using Alphasoft.IServices;
+using System.Net.Http.Headers;
+using System.IO;
 
 namespace Alphasoft.Controllers
 {
@@ -15,9 +19,12 @@ namespace Alphasoft.Controllers
     {
         private readonly IUnitOfWork _work;
 
-        public WhyChooseUsController(IUnitOfWork work)
+        private readonly IImagePath _imagePath;
+
+        public WhyChooseUsController(IUnitOfWork work, IImagePath imagePath)
         {
             _work = work;
+            _imagePath = imagePath;
         }
         public IActionResult Index()
         {
@@ -29,10 +36,21 @@ namespace Alphasoft.Controllers
             ChooseUs chose = new ChooseUs();
             return PartialView("_Create", chose);
         }
-        public IActionResult Create(ChooseUs choseUs)
+        public IActionResult Create(IFormFile image,ChooseUs choseUs)
         {
             if (ModelState.IsValid)
             {
+             
+                if (image !=null)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(image.ContentDisposition).FileName.Trim('"').Replace(" ", string.Empty);
+                    var path = _imagePath.GetImagePath(fileName, "ChoseUs", choseUs.Id.ToString());
+                    using (var stream=new FileStream(path,FileMode.Create))
+                    {
+                        image.CopyTo(stream);
+                    }
+                    choseUs.Image = _imagePath.GetImagePathForDb(path);
+                }
                 _work.ChooseUs.Add(choseUs);
                 _work.Complete();
                 ModelState.Clear();
@@ -48,14 +66,34 @@ namespace Alphasoft.Controllers
             return PartialView("_Edit",choseus);
 
         }
-        public IActionResult Edit(ChooseUs choseUs)
+        public IActionResult Edit(IFormFile image, ChooseUs choseUs)
         {
+            var chouseUsImage = _work.ChooseUs.Get(choseUs.Id);
             if (ModelState.IsValid)
             {
-                _work.ChooseUs.Update(choseUs);
+
+                if (image!=null)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(image.ContentDisposition).FileName.Trim('"').Replace(" ", string.Empty);
+                    var path = _imagePath.GetImagePath(fileName, "ChouseUs", chouseUsImage.Id.ToString());
+                    using (var stream=new FileStream(path, FileMode.Create))
+                    {
+                        image.CopyTo(stream);
+                    }
+                    chouseUsImage.Image = _imagePath.GetImagePathForDb(path);
+
+                }
+                chouseUsImage.Id = choseUs.Id;
+                chouseUsImage.Title = choseUs.Title;
+                chouseUsImage.ShortDescription = choseUs.ShortDescription;
+                chouseUsImage.Order = choseUs.Order;
+                choseUs.IsActive = choseUs.IsActive;
+                _work.ChooseUs.Update(chouseUsImage);
                 _work.Complete();
+
+                return PartialView("_Edit", chouseUsImage);
             }
-            return PartialView("_Edit",choseUs);
+            return PartialView("_Edit", chouseUsImage);
         }
         public IActionResult Delete(int id)
         {
