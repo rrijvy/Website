@@ -38,6 +38,7 @@ namespace Alphasoft.Data
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Software> Softwares { get; set; }
         public DbSet<SoftwareCategory> SoftwareCategories { get; set; }
+        public DbSet<Features> Features { get; set; }
 
     }
 }

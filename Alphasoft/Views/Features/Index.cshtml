@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Fetaures";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="text-info">Features</h4>
+        <button id="features-createmodalBtn" class="btn btn-primary panel-header-create-btn" data-toggle="modal" data-target="#features-createModal">Create</button>
+    </div>
+    <div class="panel-body">
+        <table id="featuresDatatable" class="table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Icon</th>
+                    <th>Icon Image</th>
+                    <th>ShortDescription</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="featuresTableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="features-createModal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-rx" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title text-info">Create Features</h4>
+            </div>
+            <div class="modal-body">
+                <div id="features-createFormDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="features-editModal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-rx" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Edit Features</h4>
+            </div>
+            <div class="modal-body">
+                <div id="features-editFormDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="feturesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h1 style="margin-left:110px;font-size:40px;" class="text-lg-center">
+                    <i style="color:#ff4444;" class="fa fa-trash text-center"></i>
+                </h1>
+                <p style="margin-left:10px;font-size:20px;">You want to Delete this ?</p>
+            </div>
+            <div class="modal-footer">
+                <div style="margin-right:60px;">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <input style="background-color:#ff4444; color: white;" type="submit" value="Delete" class="btn  feturesDeleteBtn" data-id="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+  
+  <script src="~/js/Features/features.js"></script>
+
+
+}

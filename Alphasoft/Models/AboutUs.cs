@@ -15,5 +15,6 @@ namespace Alphasoft.Models
         public string WhoWeAreDescription { get; set; }
         public string WhoWeAreImageOne { get; set; }
         public string WhoWeAreImageTwo { get; set; }
+        public string WhoWeAreImageThree { get; set; }
     }
 }

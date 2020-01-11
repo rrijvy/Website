@@ -1,0 +1,95 @@
+﻿
+@model Features
+
+    <form id="features-createForm" class="createForm" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="logo-preview" class="image-preview " style="display: none;">
+                    <div id="text" style="display: none;"></div>
+                    <img id="preview" src="#" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" type="text" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Icon"></label>
+                    <input asp-for="Icon" type="text" class="form-control" />
+                    <span asp-validation-for="Icon" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ShortDescription"></label>
+                    <textarea id="shortdescription" asp-for="ShortDescription"></textarea>
+                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SoftwareId"></label>
+                    <select asp-for="SoftwareId" asp-items="ViewBag.Name" class="form-control">
+                        <option value="0">Select...</option>
+                    </select>
+                    <span asp-validation-for="SoftwareId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IconImage"></label>
+                    <input id="logo" name="image" type="file" class="form-control" />
+                    <span asp-validation-for="IconImage" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="alert"></div>
+        <button class="btn btn-success form-control" type="submit">Save</button>
+    </form>
+
+<script>
+
+    
+
+      $("#shortdescription").summernote({
+        height:120
+      });
+
+     $("#features-createForm").on("submit", function (e) {
+        e.preventDefault();
+
+        let formData = new FormData();
+        formData.append("image", $("#logo")[0].files[0]);
+
+        let featuers = objectifyForm($(this).serializeArray());
+
+
+        for (var key in featuers) {
+            formData.append(key, featuers[key]);
+        }
+        $.ajax({
+            url: "/Features/Create",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+                $("#features-createFormDiv").html(response);
+                dataTable.fnFilter();
+                $("#features-createModal").modal('hide');
+            }
+        });
+     });
+
+    $("#logo").on("change", function () {
+        let maxWdth = 300;
+        let maxHeight = 300;
+        let input = $(this);
+        let preview = $("#preview");
+        let logo_preview = $("#logo-preview");
+        fileOnSelect(input, maxWdth, maxHeight, preview, logo_preview);
+
+    });
+
+</script>

@@ -7,6 +7,10 @@ using Alphasoft.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Dynamic.Core;
 using Alphasoft.Models;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
+using Alphasoft.IServices;
+using System.IO;
 
 namespace Alphasoft.Controllers
 {
@@ -14,9 +18,11 @@ namespace Alphasoft.Controllers
     {
         private readonly IUnitOfWork _work;
 
-        public BlogsController(IUnitOfWork work)
+        private readonly IImagePath _imagePath;
+        public BlogsController(IUnitOfWork work, IImagePath imagepath)
         {
             _work = work;
+            _imagePath = imagepath;
         }
         public IActionResult Index()
         {
@@ -29,16 +35,27 @@ namespace Alphasoft.Controllers
 
             return PartialView("_Create", blog);
         }
-        public IActionResult Create(Blog blog)
+        public IActionResult Create(IFormFile image, Blog blog)
         {
 
             if (ModelState.IsValid)
             {
+               
+
+                if (image !=null)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(image.ContentDisposition).FileName.Trim('"').Replace(" ", string.Empty);
+                    var path = _imagePath.GetImagePath(fileName, "Blogs", blog.Id.ToString());
+                    using (var stream=new FileStream(path, FileMode.Create))
+                    {
+                        image.CopyTo(stream);
+                    }
+                    blog.Image = _imagePath.GetImagePathForDb(path);
+                   
+                }
                 _work.Blogs.Add(blog);
                 _work.Complete();
-
                 ModelState.Clear();
-
                 blog = new Blog();
 
                 return PartialView("_Create", blog);
@@ -54,17 +71,38 @@ namespace Alphasoft.Controllers
         }
 
 
-        public IActionResult Edit(Blog blog)
+        public IActionResult Edit(IFormFile image,Blog blog)
         {
+            var blogsImage = _work.Blogs.Get(blog.Id);
+
             if (ModelState.IsValid)
             {
-                _work.Blogs.Update(blog);
+
+                if (image!=null)
+                {
+                    var fileName=ContentDispositionHeaderValue.Parse(image.ContentDisposition).FileName.Trim('"').Replace(" ",string.Empty);
+                    var path = _imagePath.GetImagePath(fileName, "Blogs", blogsImage.Id.ToString());
+                    using(var stream=new FileStream(path, FileMode.Create))
+                    {
+                        image.CopyTo(stream);
+                    }
+                    blogsImage.Image = _imagePath.GetImagePathForDb(path);
+                }
+                blogsImage.Id = blog.Id;
+                blogsImage.Title = blog.Title;
+                blogsImage.Creator = blog.Creator;
+                blogsImage.Date = blog.Date;
+                blogsImage.Description = blog.Description;
+                blogsImage.Order = blog.Order;
+                blogsImage.VideoUrl = blog.VideoUrl;
+
+                _work.Blogs.Update(blogsImage);
                 _work.Complete();
               
-                return PartialView("_Edit", blog);
+                return PartialView("_Edit", blogsImage);
             }
 
-            return PartialView("_Edit",blog);
+            return PartialView("_Edit", blogsImage);
         }
 
         public IActionResult Delete(int id)
@@ -113,7 +151,10 @@ namespace Alphasoft.Controllers
                 blogList.Add(new BlogsViewModel
                 {
                     Id = item.Id,
-                    Thumbnail=item.Thumbnail,
+                    Creator=item.Creator,
+                    VideoUrl=item.VideoUrl,
+                    Date=item.Date,
+                    Image=item.Image,
                     Title=item.Title,
                     Description=item.Description,
 

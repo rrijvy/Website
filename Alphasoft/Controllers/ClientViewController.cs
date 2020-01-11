@@ -55,6 +55,8 @@ namespace Alphasoft.Controllers
             BlogsVM blogsVM = new BlogsVM
             {
                 Blogs = _work.Blogs.GetAll().OrderBy(x=>x.Order).ToList(),
+                singleblogs=_work.Blogs.GetWithSingleImage(),
+                lastImage=_work.Blogs.GetWithLatImage(),
             };
 
             return View(blogsVM);
@@ -86,12 +88,13 @@ namespace Alphasoft.Controllers
         {
             AboutUsVm aboutUsVm = new AboutUsVm
             {
-           
+
                 Company = _work.Companies.FirstOrDefault(),
                 aboutUs = _work.AboutUs.GetWithAboutUs(),
                 about = _work.AboutUs.GetWithAbout(),
-                OurTeamvm=_work.OurTeams.TeamWithUs(),
+                OurTeamvm = _work.OurTeams.TeamWithUs(),
                 Teams = _work.OurTeams.GetAllWithDepartmentAndDesignation(),
+                TotalSoftware = _work.Softwares.GetAll(),
             };
            
 
@@ -129,6 +132,7 @@ namespace Alphasoft.Controllers
                 Services = _work.Services.GetAll(),
                 ServiceCategories = _work.ServiceCategories.GetAll(),
                  Client = _work.Client.GetAll(),
+                 blogs=_work.Blogs.GetAll(),
             };
             return View(serviceVM);
         }
@@ -153,6 +157,9 @@ namespace Alphasoft.Controllers
         public IActionResult Section_3()
         {
             var popularProducts = _work.Products.GetAllWithCategory();
+
+            popularProducts = popularProducts.Where(x => x.IsPopular == true).ToList();
+
             return PartialView("_Section3", popularProducts);
         }
 
@@ -166,6 +173,7 @@ namespace Alphasoft.Controllers
         public IActionResult Section_5()
         {
             var ourProducts = _work.Products.GetAllWithCategory();
+
             return PartialView("_Section5", ourProducts);
         }
 
@@ -185,6 +193,8 @@ namespace Alphasoft.Controllers
             return PartialView("_CategoryWiseProducts", products);
         }
 
+
+
         public IActionResult CategoryWiseProduct(int id)
         {
             ProductsViewModel productsViewModel = new ProductsViewModel
@@ -199,6 +209,8 @@ namespace Alphasoft.Controllers
             return View(productsViewModel);
         }
 
+      
+
         public IActionResult GetCategoryWiseProducts(int id, int number = 8)
         {
             List<Product> products = new List<Product>();
@@ -212,15 +224,36 @@ namespace Alphasoft.Controllers
             products = _work.Products.GetCategoryWiseProducts(id).TakeLast(number).ToList();
             return PartialView("_GetCategoryWiseProducts", products);
         }
-        public IActionResult Softwares()
+        //public IActionResult Softwares()
+        //{
+        //    SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
+        //    {
+        //        Software = _work.Softwares.GetAll(),
+        //        SoftwareCategory = _work.SoftwareCategories.GetAll(),
+        //        Features = _work.Features.GetAll(),
+        //        SoftwareImage=_work.Softwares.FirstOrDefault()
+               
+        //    };
+        //    return View(SoftwareViewVM);
+           
+        //}
+        public IActionResult CategoryWiseSoftware(int id)
         {
             SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
             {
-                Software = _work.Softwares.GetAll(),
-               
+                SingleSoftware = _work.Softwares.GetAllWithFeatureAndCategory(id),
+                Client = _work.Client.GetAll()
             };
             return View(SoftwareViewVM);
-           
+
+        }
+        public IActionResult Pronali()
+        {
+            PronaliViewModel viewModel = new PronaliViewModel
+            {
+              
+            };
+            return View(viewModel);
         }
     }
 }

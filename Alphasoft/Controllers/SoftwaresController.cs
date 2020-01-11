@@ -103,7 +103,7 @@ namespace Alphasoft.Controllers
                     }
                     software.Image = _imagePath.GetImagePathForDb(path);
                 }
-
+                software.Name = model.Name;
                 software.Title = model.Title;
                 software.Description = model.Description;
                 software.ShortDescription = model.ShortDescription;
@@ -162,6 +162,7 @@ namespace Alphasoft.Controllers
                 softwareList.Add(new SoftwareViewModel
                 {
                     Id = item.Id,
+                    Name = item.Name,
                     Title = item.Title,
                     Order = item.Order,
                     Icon = item.Icon,

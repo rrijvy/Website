@@ -9,5 +9,7 @@ namespace Alphasoft.IRepositories
    public interface ISoftwareRepository:IRepository<Software>
     {
         List<Software> GetAllWithSoftware();
+        List<Software> GetCategoryWiseSoftware(int id);
+        Software GetAllWithFeatureAndCategory(int id);
     }
 }

@@ -35,7 +35,7 @@ namespace Alphasoft.Controllers
             AboutUs aboutUs = new AboutUs();
             return PartialView("_Create", aboutUs);
         }
-        public IActionResult Create(IFormFile image1,IFormFile image2,IFormFile image3, AboutUs aboutus)
+        public IActionResult Create(IFormFile image1,IFormFile image2, IFormFile image3, AboutUs aboutus)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +59,16 @@ namespace Alphasoft.Controllers
                     }
                     aboutus.WhoWeAreImageTwo = _imagePath.GetImagePathForDb(path);
                 }
+                if (image3 != null)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(image3.ContentDisposition).FileName.Trim('"').Replace(" ", string.Empty);
+                    var path = _imagePath.GetImagePath(fileName, "AboutUs", aboutus.Id.ToString());
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        image3.CopyTo(stream);
+                    }
+                    aboutus.WhoWeAreImageThree = _imagePath.GetImagePathForDb(path);
+                }
                 _work.AboutUs.Add(aboutus);
                 _work.Complete();
                 ModelState.Clear();
@@ -73,7 +83,7 @@ namespace Alphasoft.Controllers
             var aboutus = _work.AboutUs.Get(id);
             return PartialView("_Edit", aboutus);
         }
-        public IActionResult Edit(IFormFile image1, IFormFile image2, AboutUs aboutus)
+        public IActionResult Edit(IFormFile image1, IFormFile image2, IFormFile image3, AboutUs aboutus)
         {
             var model = _work.AboutUs.Get(aboutus.Id);
             if (ModelState.IsValid)
@@ -97,6 +107,16 @@ namespace Alphasoft.Controllers
                         image2.CopyTo(stream);
                     }
                     model.WhoWeAreImageTwo = _imagePath.GetImagePathForDb(path1);
+                }
+                if (image3 != null)
+                {
+                    var fileName2 = ContentDispositionHeaderValue.Parse(image3.ContentDisposition).FileName.Trim('"').Replace(" ", string.Empty);
+                    var path2 = _imagePath.GetImagePath(fileName2, "AboutUs", model.Id.ToString());
+                    using (var stream = new FileStream(path2, FileMode.Create))
+                    {
+                        image3.CopyTo(stream);
+                    }
+                    model.WhoWeAreImageThree = _imagePath.GetImagePathForDb(path2);
                 }
                 model.AboutMainSologan = aboutus.AboutMainSologan;
                 model.OurMissionDescription = aboutus.OurMissionDescription;

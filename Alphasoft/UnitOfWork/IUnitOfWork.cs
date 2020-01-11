@@ -1,5 +1,6 @@
 ﻿using Alphasoft.IRepositories;
 using Alphasoft.IServices;
+using Alphasoft.Models;
 using Alphasoft.Repositories;
 using System;
 
@@ -31,8 +32,10 @@ namespace Alphasoft.UnitOfWork
         IJobRepository Job { get; }
         ISoftwareRepository Softwares { get; }
         ISoftwareCategoriesRepository SoftwareCategories { get; }
+        IFeaturesRepository Features { get; }
         IQueryHelper QueryHelper { get; }
 
         int Complete();
+       
     }
 }

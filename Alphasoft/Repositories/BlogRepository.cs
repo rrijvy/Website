@@ -16,6 +16,16 @@ namespace Alphasoft.Repositories
         {
             get { return _context as ApplicationDbContext; }
         }
+
+        public Blog GetWithLatImage()
+        {
+            return Context.Blogs.LastOrDefault();
+        }
+
+        public Blog GetWithSingleImage()
+        {
+            return Context.Blogs.FirstOrDefault();
+        }
     }
 
 }

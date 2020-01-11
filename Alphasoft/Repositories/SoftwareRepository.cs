@@ -20,12 +20,25 @@ namespace Alphasoft.Repositories
                 return _context as ApplicationDbContext;
             }
         }
+
+        public Software GetAllWithFeatureAndCategory(int id)
+        {
+            return Context.Softwares
+                .Include(x => x.SoftwareCategory)
+                .Include(x => x.Features)
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+        }
+
         public List<Software> GetAllWithSoftware()
         {
             return Context.Softwares.Include(x => x.SoftwareCategory).OrderBy(x => x.Order).ToList();
         }
 
-
+        public List<Software> GetCategoryWiseSoftware(int id)
+        {
+            return Context.Softwares.Include(x => x.SoftwareCategory).Where(x => x.Id == id).ToList();
+        }
 
 
     }

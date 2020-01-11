@@ -86,6 +86,8 @@ namespace Alphasoft.Migrations
 
                     b.Property<string>("WhoWeAreImageOne");
 
+                    b.Property<string>("WhoWeAreImageThree");
+
                     b.Property<string>("WhoWeAreImageTwo");
 
                     b.Property<string>("WhyUsDescription");
@@ -155,6 +157,8 @@ namespace Alphasoft.Migrations
                     b.Property<string>("UpdatedBy");
 
                     b.Property<DateTime?>("UpdatedDate");
+
+                    b.Property<string>("VideoUrl");
 
                     b.HasKey("Id");
 
@@ -427,6 +431,29 @@ namespace Alphasoft.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Faqs");
+                });
+
+            modelBuilder.Entity("Alphasoft.Models.Features", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Icon");
+
+                    b.Property<string>("IconImage");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("ShortDescription");
+
+                    b.Property<int>("SoftwareId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SoftwareId");
+
+                    b.ToTable("Features");
                 });
 
             modelBuilder.Entity("Alphasoft.Models.HostingPlan", b =>
@@ -733,6 +760,8 @@ namespace Alphasoft.Migrations
 
                     b.Property<string>("Image");
 
+                    b.Property<string>("Name");
+
                     b.Property<int>("Order");
 
                     b.Property<string>("ShortDescription");
@@ -938,6 +967,14 @@ namespace Alphasoft.Migrations
                     b.HasOne("Alphasoft.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Alphasoft.Models.Features", b =>
+                {
+                    b.HasOne("Alphasoft.Models.Software", "Software")
+                        .WithMany("Features")
+                        .HasForeignKey("SoftwareId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
