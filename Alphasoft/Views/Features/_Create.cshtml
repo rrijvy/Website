@@ -14,7 +14,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label asp-for="Name"></label>
-                    <input asp-for="Name" type="text" class="form-control" />
+                    <textarea id="featuresName" class="form-control" cols="4" rows="8" asp-for="Name"></textarea>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -50,9 +50,13 @@
 <script>
 
     
-
+    
       $("#shortdescription").summernote({
         height:120
+      });
+
+     $("#featuresName").summernote({
+        height:100
       });
 
      $("#features-createForm").on("submit", function (e) {

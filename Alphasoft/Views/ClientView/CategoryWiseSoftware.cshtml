@@ -1,7 +1,7 @@
 ﻿@model SoftwareViewModel
 @{
     ViewData["Title"] = "Softwares";
-    int SoftwareImageDiv = 0;
+  //  int SoftwareImageDiv = 0;
     int SoftwareFeaturesIndex = 0;
 
 }
@@ -11,157 +11,10 @@
 
     }*@
 
-@*@if (Model.SingleSoftware.SoftwareCategory.Name == "RETAIL SOFTWARES")
-    {
-    <div class="slider-container bg-color-grey rev_slider_wrapper" style="height: 100vh;">
-        <div id="revolutionSlider" class="slider rev_slider" data-version="5.4.8" data-plugin-revolution-slider data-plugin-options="{'sliderLayout': 'fullscreen', 'fullScreenOffsetContainer': '#header', 'delay': 9000, 'gridwidth': [1410,1110,930,690], 'gridheight': 700, 'disableProgressBar': 'on', 'responsiveLevels': [4096,1422,1182,974], 'navigation' : {'arrows': { 'enable': true, 'style': 'metis arrows-primary arrows-rounded' }, 'bullets': {'enable': false}}}">
-            <ul>
-                <li data-transition="fade">
-                    <img src="@Model.SingleSoftware.Image*/"
-                         alt=""
-                         data-bgposition="center center"
-                         data-bgfit="cover"
-                         data-bgrepeat="no-repeat"
-                         class="rev-slidebg">
-
-                    <div class="tp-caption tp-resizeme d-none d-sm-block"
-                         data-frames='[{"delay":1500,"speed":2000,"frame":"0","from":"opacity:0;x:100%;","to":"o:1;x:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                         data-type="image"
-                         data-x="['right','right','right','center']" data-hoffset="['145','145','0','0']"
-                         data-y="center"
-                         data-width="['auto']"
-                         data-height="['auto']"
-                         data-basealign="grid"><img src="@Model.SingleSoftware.SoftwareCategory.Image*/" alt=""></div>
-
-                    <div class="tp-caption tp-resizeme d-none d-sm-block"
-                         data-frames='[{"delay":3000,"speed":2000,"from":"opacity:0;x:0;","to":"o:1;x:0;","ease":"Power1.easeIn"},{"delay":"wait","speed":500,"to":"opacity:0;fb:0;","ease":"Power1.easeIn"}]'
-                         data-type="image"
-                         data-x="['right','right','right','center']" data-hoffset="['270','270','120','0']"
-                         data-y="center"
-                         data-width="['auto']"
-                         data-height="['auto']"
-                         data-basealign="grid"><img src="@Model.SingleSoftware.SoftwareCategory.Image*/" alt=""></div>
-
-                    <div class="tp-caption overlay d-none d-sm-block d-lg-none overlay-show overlay-color-secondary overlay-op-8"
-                         data-frames='[{"delay":0}]'
-                         data-x="center"
-                         data-y="center"
-                         data-height="1000"
-                         data-width="100%"
-                         data-basealign="slide"></div>
-
-                    <h1 class="tp-caption font-weight-extra-bold text-color-dark line ws-normal"
-                        data-frames='[{"delay":1500,"speed":400,"frame":"0","from":"opacity:0;x:50%;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                        data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
-                        data-y="center" data-voffset="['-85','-85','-85','-85']"
-                        data-width="['500','500','500','500']"
-                        data-fontsize="['48','48','48','48']"
-                        data-lineheight="['55','55','55','55']"
-                        data-textAlign="['left','left','left','center']">
-                        Hey, welcome to our amazing office.
-                    </h1>
-
-
-                    <div class="tp-caption font-weight-light text-color-dark opacity-7 ws-normal"
-                         data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2300,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                         data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
-                         data-y="center" data-voffset="['0','0','0','0']"
-                         data-width="['900','900','900','900']"
-                         data-fontsize="['18','18','18','22']"
-                         data-lineheight="['26','26','26','26']"
-                         data-textAlign="['left','left','left','center']">Porto is a huge success, learn more about us.</div>
-
-                    <a class="tp-caption d-inline-flex align-items-center btn btn-primary font-weight-bold rounded"
-                       href="#"
-                       data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"y:50%;opacity:0;","to":"y:0;o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                       data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
-                       data-y="center" data-voffset="['65','65','65','65']"
-                       data-paddingtop="['16','16','16','24']"
-                       data-paddingbottom="['16','16','16','24']"
-                       data-paddingleft="['30','30','30','30']"
-                       data-paddingright="['15','15','15','15']"
-                       data-fontsize="['13','13','13','18']"
-                       data-lineheight="['20','20','20','22']">GET STARTED NOW <i class="fas fa-arrow-right ml-4 pl-1 mr-2 text-4"></i></a>
-
-                </li>
-                <li data-transition="fade">
-                    <img src="img/slides/slide-bg-light-1.jpg"
-                         alt=""
-                         data-bgposition="center center"
-                         data-bgfit="cover"
-                         data-bgrepeat="no-repeat"
-                         class="rev-slidebg">
-
-                    <div class="tp-caption tp-resizeme d-none d-sm-block"
-                         data-frames='[{"delay":1500,"speed":2000,"frame":"0","from":"opacity:0;x:100%;","to":"o:1;x:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                         data-type="image"
-                         data-x="['left','left','left','center']" data-hoffset="['145','145','0','0']"
-                         data-y="center"
-                         data-width="['auto']"
-                         data-height="['auto']"
-                         data-basealign="grid"><img src="@Model.SingleSoftware.SoftwareCategory.Image*/" alt=""></div>
-
-                    <div class="tp-caption tp-resizeme d-none d-sm-block"
-                         data-frames='[{"delay":3000,"speed":2000,"from":"opacity:0;x:0;","to":"o:1;x:0;","ease":"Power1.easeIn"},{"delay":"wait","speed":500,"to":"opacity:0;fb:0;","ease":"Power1.easeIn"}]'
-                         data-type="image"
-                         data-x="['left','left','left','center']" data-hoffset="['270','270','120','0']"
-                         data-y="center"
-                         data-width="['auto']"
-                         data-height="['auto']"
-                         data-basealign="grid"><img src="@Model.SingleSoftware.SoftwareCategory.Image" alt=""></div>
-
-                    <div class="tp-caption overlay d-none d-sm-block d-lg-none overlay-show overlay-color-secondary overlay-op-8"
-                         data-frames='[{"delay":0}]'
-                         data-x="center"
-                         data-y="center"
-                         data-height="1000"
-                         data-width="100%"
-                         data-basealign="slide"></div>
-
-
-                    <h1 class="tp-caption font-weight-extra-bold text-color-dark line ws-normal"
-                        data-frames='[{"delay":1500,"speed":400,"frame":"0","from":"opacity:0;x:50%;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                        data-x="['right','right','right','center']" data-hoffset="['145','145','0','0']"
-                        data-y="center" data-voffset="['-85','-85','-85','-85']"
-                        data-width="['500','500','500','500']"
-                        data-fontsize="['48','48','48','48']"
-                        data-lineheight="['55','55','55','55']"
-                        data-textAlign="['left','left','left','center']">
-                        We can help you with your project.
-                    </h1>
-
-                    <div class="tp-caption font-weight-light text-color-dark opacity-7 ws-normal"
-                         data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2300,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
-                         data-x="['right','right','right','center']" data-hoffset="['145','145','0','0']"
-                         data-y="center" data-voffset="['0','0','0','0']"
-                         data-width="['500','500','500','500']"
-                         data-fontsize="['18','18','18','22']"
-                         data-lineheight="['26','26','26','26']"
-                         data-textAlign="['left','left','left','center']">Porto is a huge success, learn more about us.</div>
-
-                    <a class="tp-caption d-inline-flex align-items-center btn btn-primary font-weight-bold rounded"
-                       href="#"
-                       data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"y:50%;opacity:0;","to":"y:0;o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                       data-x="center" data-hoffset="['170','170','70','0']"
-                       data-y="center" data-voffset="['65','65','65','65']"
-                       data-paddingtop="['16','16','16','24']"
-                       data-paddingbottom="['16','16','16','24']"
-                       data-paddingleft="['30','30','30','30']"
-                       data-paddingright="['15','15','15','15']"
-                       data-fontsize="['13','13','13','18']"
-                       data-lineheight="['20','20','20','22']">GET STARTED NOW <i class="fas fa-arrow-right ml-4 pl-1 mr-2 text-4"></i></a>
-
-                </li>
-            </ul>
-        </div>
-    </div>
 
 
 
-    }*@
-
-
-<section class="page-header page-header-modern page-header-background page-header-background-md py-0 overlay overlay-color-dark overlay-show overlay-op-5" style="background-image: url(@Model.SingleSoftware.SoftwareCategory.Image);">
+<section class="page-header page-header-modern page-header-background page-header-background-md py-0 overlay overlay-color-dark overlay-show overlay-op-5" style="background-image:url(@Model.SingleSoftware.SoftwareCategory.Image);">
     <div class="container">
         <div class="row">
             <div class="col-sm-5 order-2 order-sm-1 align-self-center p-static">
@@ -214,10 +67,10 @@
 </div>
 <section class="section section-height-5 bg-primary border-0 pt-5 m-0 appear-animation" data-appear-animation="fadeIn">
     <div class="container">
-        <div class="row mt-4 mt-lg-5">
+        @*<div class="row mt-4 mt-lg-5">
             <div class="col-md-12">
 
-                <h2 class="mb-4 mt-5"> <strong>Our Features</strong></h2>
+                <h2 class="mb-4 mt-5" style="text-align:center;"> <strong>Our Features</strong></h2>
                 <div class="process process-vertical py-4">
 
                     @foreach (var item in Model.SingleSoftware.Features)
@@ -227,8 +80,8 @@
                                 <img class="img-fluid" style="height:80px;width:80px;border-radius:50%;color:white;" src="@item.IconImage" />
                             </div>
                             <div class="process-step-content">
-                                <p style="color:white;font-size:18px;">@item.Name</p>
-                                <h6 style="text-align:justify;color:black;">@Html.Raw(item.ShortDescription)</h6>
+                                <p style="color:white;font-size:26px;">@item.Software.Title</p>
+                                <p style="font-size:26px;">@Html.Raw(item.Name)</p>
                             </div>
                         </div>
                     }
@@ -237,7 +90,48 @@
                 </div>
 
             </div>
+        </div>*@
+
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-4 mt-5 text-12" style="text-align:center;color:white;"> <strong>OUR FEATURES</strong></h2>
+                @foreach (var item in Model.SingleSoftware.Features)
+                {
+
+                    SoftwareFeaturesIndex += 1;
+
+                    if (SoftwareFeaturesIndex % 2 == 0)
+                    {
+
+                        <div class="row align-items-center pt-5 pb-3 appear-animation" data-appear-animation="fadeInRightShorter">
+                            <div class="col-md-8 pr-md-5 mb-5 mb-md-0">
+                                <p class="text-3" style="text-align:justify;">@Html.Raw(item.Name)</p>
+                            </div>
+                            <div class="col-md-4 px-5 px-md-3">
+                                <img class="img-fluid scale-2 my-4" style="height:300px;width:330px;" src="@item.IconImage" alt="style switcher" />
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row align-items-center pt-4 appear-animation" data-appear-animation="fadeInLeftShorter">
+                            <div class="col-md-3 mb-4 mb-md-0">
+                                <img class="img-fluid scale-2 pr-5 pr-md-0 my-4" style="height:300px;width:330px;" src="@item.IconImage" alt="layout styles" />
+
+                            </div>
+                            <div class="col-md-7 pl-md-5">
+                          
+                                <p class="text-3" style="text-align:justify;">@Html.Raw(item.Name)</p>
+                            </div>
+                        </div>
+
+                    }
+
+
+                }
+            </div>
         </div>
+
     </div>
 
 </section>
@@ -352,7 +246,7 @@
                                 <img class="img-fluid scale-2 pr-5 pr-md-0 my-4" src="@item.Software.Image" alt="layout styles" />
                             </div>
                             <div class="col-md-8 pl-md-5">
-                                <h2 class="font-weight-normal text-6 mb-3" style="text-align:justify;"><strong class="font-weight-extra-bold">@item.Software.Name</strong></h2>
+                                @*<h2 class="font-weight-normal text-6 mb-3" style="text-align:justify;"><strong class="font-weight-extra-bold">@item.Software.Name</strong></h2>*@
                                 <h2 class="font-weight-normal text-6 mb-3" style="text-align:justify;"><strong class="font-weight-extra-bold">@item.Software.Title</strong></h2>
                                 <p class="text-4" style="text-align:justify;">@Html.Raw(item.Software.ShortDescription)</p>
                             </div>
@@ -377,6 +271,7 @@
 
         <div class="row">
             <div class="col">
+                
                 @foreach (var item in Model.SingleSoftware.Features)
                 {
 
@@ -388,7 +283,7 @@
 
                         <div class="row align-items-center pt-5 pb-3 appear-animation" data-appear-animation="fadeInRightShorter">
                             <div class="col-md-8 pr-md-5 mb-5 mb-md-0">
-
+                                <h1>Software Features Description</h1>
                                 <p class="text-4" style="text-align:justify;">@Html.Raw(item.ShortDescription)</p>
 
                             </div>
@@ -405,7 +300,7 @@
 
                             </div>
                             <div class="col-md-8 pl-md-5">
-
+                                <h1>Software Features Description</h1>
                                 <p class="text-4" style="text-align:justify;">@Html.Raw(item.ShortDescription)</p>
                             </div>
                         </div>

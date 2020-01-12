@@ -1,6 +1,7 @@
 ﻿@model PronaliViewModel
 @{
     ViewData["Title"] = "Pronali";
+    int SoftwareFeaturesIndex = 0;
 }
 
 <div role="main" class="main">
@@ -67,8 +68,8 @@
     <div class="container container-lg py-5 my-5">
         <div class="row justify-content-center">
             <div class="col-xl-9 text-center">
-                <h2 class="font-weight-bold text-11 appear-animation" data-appear-animation="fadeInUpShorter">We are Porto, we are Awesome</h2>
-                <p class="line-height-9 text-4 opacity-9 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat id sapien ac varius. Fusce hendrerit ligula a consectetur ullamcorper. Vestibulum varius pharetra lorem, in maximus libero placerat sed. In a lectus vel mauris tempor lobortis feugiat sed magna.</p>
+                <h2 class="font-weight-bold text-11 appear-animation" data-appear-animation="fadeInUpShorter">@Model.whyChouseus.Title</h2>
+                <p style="text-align:justify;" class="line-height-9 text-4 opacity-9 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200"></p>
             </div>
         </div>
         <div class="row featured-boxes featured-boxes-style-4">
@@ -111,17 +112,23 @@
         </div>
     </div>
 
+
+
     <section class="section section-parallax bg-color-grey-scale-1 border-0 m-0 appear-animation" data-appear-animation="fadeIn" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '116%'}" data-image-src="img/parallax/parallax-corporate-14-2.jpg">
         <div class="container container-lg">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-7 order-2 order-md-1 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-                    <span class="font-weight-bold text-color-dark opacity-8 text-4">COOL STYLES</span>
-                    <h2 class="font-weight-bold text-9 mb-4">Layouts Styles & Variants</h2>
-                    <ul class="list list-icons pb-2 mb-4">
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Dolor sit amet, lorem ipsum consectetur adipiscing elit.</span></li>
-                    </ul>
+                    <span class="font-weight-bold text-color-dark text-10">Pronali</span>
+                    <h2 class="font-weight-bold text-9 mb-4">Various Type Of Pronali Software.</h2>
+
+                    @foreach (var item in Model.softwareCategory)
+                    {
+                        <ul class="list list-icons pb-2 mb-4">
+                            <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">@item.Name</span></li>
+                         
+                        </ul>
+                    }
+
                     <a href="#" class="btn btn-primary font-weight-semibold rounded-0 btn-px-5 py-3 text-2">LEARN MORE</a>
                 </div>
                 <div class="col-md-4 text-center text-md-left order-1 order-md-2 mb-5 mb-md-0 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="400">
@@ -131,53 +138,61 @@
         </div>
     </section>
 
-    <section class="section section-height-3 section-parallax bg-color-light border-0 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '100%', 'offset': 70}" data-image-src="img/parallax/parallax-corporate-14-2.jpg">
-        <div class="container container-lg">
-            <div class="row align-items-center">
-                <div class="col-md-6 col-lg-5 col-xl-6 text-center pr-5 mb-5 mb-md-0 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="400">
-                    <img src="~/images/w2.jpg" class="img-fluid" alt="" />
-                </div>
-                <div class="col-md-6 col-lg-7 col-xl-6 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
-                    <span class="font-weight-bold text-color-dark opacity-8 text-4">EXCLUSIVE</span>
-                    <h2 class="font-weight-bold text-9 mb-4">Customizable Style Switcher</h2>
-                    <ul class="list list-icons pb-2 mb-4">
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Dolor sit amet, lorem ipsum consectetur adipiscing elit.</span></li>
-                    </ul>
-                    <a href="#" class="btn btn-primary font-weight-semibold rounded-0 btn-px-5 py-3 text-2">LEARN MORE</a>
+
+
+
+    <section class="section bg-color-grey section-height-3 border-0 mt-5 mb-0">
+        <div class="container">
+
+            <div class="row">
+                <div class="col">
+                    @foreach (var item in Model.features)
+                    {
+
+                        SoftwareFeaturesIndex += 1;
+
+
+                        if (SoftwareFeaturesIndex % 2 == 0)
+                        {
+
+                            <div class="row align-items-center pt-5 pb-3 appear-animation" data-appear-animation="fadeInRightShorter">
+                                <div class="col-md-8 pr-md-5 mb-5 mb-md-0">
+                                    <p class="text-4" style="text-align:justify;">@item.Name</p>
+                                </div>
+                                <div class="col-md-4 px-5 px-md-3">
+                                    <img class="img-fluid scale-2 my-4" src="@item.IconImage" alt="style switcher" />
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row align-items-center pt-4 appear-animation" data-appear-animation="fadeInLeftShorter">
+                                <div class="col-md-4 mb-4 mb-md-0">
+                                    <img class="img-fluid scale-2 pr-5 pr-md-0 my-4" src="@item.IconImage" alt="layout styles" />
+
+                                </div>
+                                <div class="col-md-8 pl-md-5">
+                                    <p class="text-4" style="text-align:justify;">@item.Name</p>
+                                </div>
+                            </div>
+
+                        }
+
+
+                    }
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section section-height-3 section-parallax bg-color-grey-scale-1 border-0 m-0 appear-animation" data-appear-animation="fadeIn" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '100%', 'offset': 70}" data-image-src="img/parallax/parallax-corporate-14-3.jpg">
-        <div class="container container-lg">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-md-7 order-2 order-md-1 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-                    <span class="font-weight-bold text-color-dark opacity-8 text-4">MODERN</span>
-                    <h2 class="font-weight-bold text-9 mb-4">Mobile Advanced Apps</h2>
-                    <ul class="list list-icons pb-2 mb-4">
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Ipsum dolor sit amet, consectetur adipiscing elit.</span></li>
-                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Dolor sit amet, lorem ipsum consectetur adipiscing elit.</span></li>
-                    </ul>
-                    <a href="#" class="btn btn-primary font-weight-semibold rounded-0 btn-px-5 py-3 text-2">LEARN MORE</a>
-                </div>
-                <div class="col-md-4 text-center text-md-left order-1 order-md-2 mb-5 mb-md-0 mr-lg-5 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="400">
-                    <img src="~/images/w2.jpg" class="img-fluid" alt="" />
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="section section-height-5 section-background overlay overlay-show overlay-op-9 border-0 m-0 appear-animation" data-appear-animation="fadeIn" style="background-image: url(img/bg-corporate-14-1.jpg); background-size: cover; background-position: center;">
+    <section class="section section-height-1 section-background overlay overlay-show overlay-op-9 border-0 m-0 appear-animation" data-appear-animation="fadeIn" style="background-image: url(img/bg-corporate-14-1.jpg); background-size: cover; background-position: center;">
         <div class="container container-lg my-5">
             <div class="row justify-content-center">
                 <div class="col-md-10 col-xl-9 text-center">
                     <h2 class="font-weight-bold text-color-light text-11 mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">Get in touch and learn how we can help</h2>
-                    <p class="font-weight-light text-color-light line-height-9 text-4 opacity-7 mb-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat id sapien ac varius. Fusce hendrerit ligula a consectetur ullamcorper. Vestibulum varius pharetra lorem.</p>
-                    <a href="#" class="d-inline-flex align-items-center btn btn-primary font-weight-semibold px-5 btn-py-3 text-3 rounded appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="550">GET STARTED NOW <i class="fa fa-arrow-right ml-2 pl-1 text-5"></i></a>
+                    <p class="font-weight-light text-color-light line-height-9 text-4 opacity-7 mb-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Our Happiness Engineers work night and day through live chat, email, support pages, videos, and forums to answer any questions you have.</p>
+                    <a href="" class="contactFormBtnPronali d-inline-flex align-items-center btn btn-primary font-weight-semibold px-5 btn-py-3 text-3 rounded appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="550">CONTACT US<i class="fa fa-arrow-right ml-2 pl-1 text-5"></i></a>
                 </div>
             </div>
         </div>
@@ -186,61 +201,70 @@
     <div class="container container-lg py-5 my-5">
         <div class="row mb-3">
             <div class="col text-center">
-                <span class="font-weight-bold text-color-dark opacity-8 text-4">OUR BLOG</span>
+                <span class="font-weight-bold text-color-primary opacity-8 text-14">OUR BLOG</span>
                 <h2 class="font-weight-semibold text-9 mb-3">What's happening</h2>
-                <p class="text-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-4">Pronali ERP Lunching For Every Business.</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="card border-0">
-                    <div class="card-body px-0 py-5">
-                        <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="#" class="text-dark text-decoration-none">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta...</p>
-                        <div class="d-flex align-items-center">
-                            <img src="~/images/w1.jpg" class="img-fluid rounded-circle mr-2" width="25" alt="" />
-                            <strong class="text-color-dark text-2">by John Doe</strong>
+
+            @foreach (var item in Model.Blogs)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0">
+                        <div class="card-body px-0 py-5">
+                            <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="/ClientView/Blogs" class="text-dark text-decoration-none">@item.Title</a></h4>
+                            <p class="mb-4" style="text-align:justify;">@item.Description</p>
+                            <strong class="text-color-dark text-2"> Created By :@item.Creator</strong>
+                            <p class="text-color-dark text-2"> Date :@item.Date</p>
+                            <div class="d-flex align-items-center">
+                                <img style="height:100px;width:340px;" src="@item.Image" class="img-fluid mr-2" width="50" alt="" />
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card border-0">
-                    <div class="card-body px-0 py-5">
-                        <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="#" class="text-dark text-decoration-none">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta...</p>
-                        <div class="d-flex align-items-center">
-                            <img src="~/images/w1.jpg" class="img-fluid rounded-circle mr-2" width="25" alt="" />
-                            <strong class="text-color-dark text-2">by Jessica Doe</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card border-0">
-                    <div class="card-body px-0 py-5">
-                        <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="#" class="text-dark text-decoration-none">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta...</p>
-                        <div class="d-flex align-items-center">
-                            <img src="~/images/w2.jpg" class="img-fluid rounded-circle mr-2" width="25" alt="" />
-                            <strong class="text-color-dark text-2">by John Doe</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card border-0">
-                    <div class="card-body px-0 py-5">
-                        <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="#" class="text-dark text-decoration-none">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta...</p>
-                        <div class="d-flex align-items-center">
-                            <img src="~/images/w2.jpg" class="img-fluid rounded-circle mr-2" width="25" alt="" />
-                            <strong class="text-color-dark text-2">by Jennifer Doe</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
+
+
+
+
         </div>
     </div>
 
 </div>
+
+@section Scripts{
+
+
+    <script>
+        $("body").on("click", ".contactFormBtnPronali", function (e) {
+            e.preventDefault();
+
+            $('html,body').animate({ scrollTop: 0 }, 'slow');
+
+            setTimeout(function () {
+
+                $.ajax({
+                    url: "/Home/ContactUsFormShow",
+                    type: "GET",
+                    success: function (response) {
+                        $("#contactUsFormDiv").html(response).slideToggle("slow","swing");
+                    }
+
+
+                });
+
+            }, 1000)
+
+        });
+
+          $(".header-container").click(function () {
+            $("#contactUsFormDiv").hide();
+           
+        });
+
+    </script>
+
+}
+

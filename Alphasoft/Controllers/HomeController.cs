@@ -23,12 +23,12 @@ namespace Alphasoft.Controllers
 
         public IActionResult Index()
         {
-           
+
             HomeViewModel homeViewModel = new HomeViewModel();
 
             homeViewModel.BannerList = _work.Banner.GetAll();
 
-            var chooseUsList = _work.ChooseUs.GetAll();          
+            var chooseUsList = _work.ChooseUs.GetAll();
 
             foreach (var item in chooseUsList)
             {
@@ -38,7 +38,8 @@ namespace Alphasoft.Controllers
                     Title = item.Title,
                     Description = item.Description,
                     Order = item.Order,
-                    ShortDescription = Regex.Replace(item.ShortDescription, "<[^>]*>", "")
+                    Image = item.Image,
+                    //ShortDescription = Regex.Replace(item.ShortDescription, "<[^>]*>", "")
                 };
                 homeViewModel.ChooseUsList.Add(chooseUs);
             }

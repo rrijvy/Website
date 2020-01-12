@@ -421,11 +421,17 @@
                     type: "GET",
                     success: function (response) {
                         $("#contactUsFormDiv").html(response).slideToggle("slow", "swing");
+                      
                     }
 
                 });
             }, 1000);
 
+        });
+
+        $(".header-container").click(function () {
+            $("#contactUsFormDiv").hide();
+           
         });
 
 

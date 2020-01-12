@@ -23,6 +23,7 @@
             type: "GET",
             success: function (response) {
                 selector.contactUsFormDiv.html(response).slideToggle("fast", "swing");
+               
             }
         });
     });

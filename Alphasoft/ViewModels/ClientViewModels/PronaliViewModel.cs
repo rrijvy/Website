@@ -8,6 +8,13 @@ namespace Alphasoft.ViewModels.ClientViewModels
 {
     public class PronaliViewModel
     {
-        public Software SingleSoftware { get; internal set; }
+        public List<Software> software { get; set; }
+
+        public List<SoftwareCategory> softwareCategory { get; set; }
+        public List<Features> features { get; set; }
+        public ChooseUs whyChouseus { get; set; }
+
+        public Software SingleSoftware { get; set; }
+        public List<Blog> Blogs { get; set; }
     }
 }

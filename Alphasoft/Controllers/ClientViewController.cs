@@ -251,7 +251,14 @@ namespace Alphasoft.Controllers
         {
             PronaliViewModel viewModel = new PronaliViewModel
             {
-              
+                Blogs = _work.Blogs.GetAll().OrderBy(x => x.Order).ToList(),
+                whyChouseus = _work.ChooseUs.FirstOrDefault(),
+                
+                features=_work.Features.GetAll(),
+                softwareCategory=_work.SoftwareCategories.GetAll(),
+                software=_work.Softwares.GetAll(),
+               
+
             };
             return View(viewModel);
         }
