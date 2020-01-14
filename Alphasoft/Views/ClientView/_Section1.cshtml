@@ -21,8 +21,11 @@
 
                         <div class="col-md-12 mb-4 mb-md-0 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
                             <div class="row justify-content-center justify-content-md-start">
-                                <div class="col-4">
-                                    <img style="height:192px;width:192px;" class="img-fluid mb-5" src="@item.Image" alt="">
+                                <div  class="col-4">
+                                    <div style="height:150px;width:100px;">
+                                        <img style="height:100%;width:100%;" class="img-fluid" src="@item.Image" alt="">
+                                    </div>
+                                       
                                 </div>
                                 <div class="col-lg-8">
                                     <h2 class="font-weight-bold text-5 line-height-5 mb-1">@Html.Raw(item.Title)</h2>
@@ -53,9 +56,9 @@
 </div>
 
 <style>
-     .appear-animation{
-         opacity: 1 !important;
-     }
+    .appear-animation {
+        opacity: 1 !important;
+    }
 </style>
 
 <script>

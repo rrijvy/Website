@@ -42,7 +42,6 @@
                     <input asp-for="IsActive" type="hidden" value="true" />
                     <input id="toggle_checkbox" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" checked>
                 </div>
-
                 <div id="alert"></div>
                 <button class="btn btn-success form-control" type="submit">Save</button>
             </div>
@@ -52,27 +51,25 @@
 <script>
 
 
-    $("#toggle_checkbox").bootstrapToggle({
-        on: "Enable",
-        off: "Disable",
-        width:100
+     $('#toggle_checkbox').bootstrapToggle({
+            on: 'Enabled',
+            off: 'Disabled',
+            width: 100
+        });
 
-    });
+        $('#toggle_checkbox').change(function () {
+            let value = $('#toggle_checkbox')[0].checked;
 
-    $("#toggle_checkbox").change(function () {
-        let value = $('#toggle_checkbox')[0].checked;
-        if (value == true)
-        {
-            $('#IsActive').val(true);
-            $('#IsActive').attr('data-val', true);
+            if (value == true) {
+                $('#IsActive').val(true);
+                $('#IsActive').attr('data-val', true);
+            }
 
-        }
-        if (value == false) {
-            $('#IsActive').val(false);
-            $('#IsActive').attr('data-val', false);
-        }
-
-    });
+            if (value == false) {
+                $('#IsActive').val(false);
+                $('#IsActive').attr('data-val', false);
+            }
+        });
     
 
     $("#description").summernote({

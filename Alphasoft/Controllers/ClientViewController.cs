@@ -186,6 +186,34 @@ namespace Alphasoft.Controllers
         {
             return PartialView("_Section7");
         }
+        public IActionResult ContractUsCreate(ContactUs contact)
+        {
+            if (ModelState.IsValid)
+            {
+                _work.ContactUs.Add(contact);
+                _work.Complete();
+
+                ModelState.Clear();
+                contact = new ContactUs();
+                return PartialView("_Section6", contact);
+            }
+
+            return PartialView("_Section6", contact);
+        }
+        public IActionResult ProductContarctUs(ContactUs contact)
+        {
+            if (ModelState.IsValid)
+            {
+                _work.ContactUs.Add(contact);
+                _work.Complete();
+
+                ModelState.Clear();
+                contact = new ContactUs();
+                return View(contact);
+            }
+
+            return View(contact);
+        }
 
         public IActionResult CategoryProducts(int id)
         {

@@ -87,7 +87,7 @@ namespace Alphasoft.Controllers
                 chouseUsImage.Title = choseUs.Title;
                 chouseUsImage.ShortDescription = choseUs.ShortDescription;
                 chouseUsImage.Order = choseUs.Order;
-                choseUs.IsActive = choseUs.IsActive;
+                chouseUsImage.IsActive = choseUs.IsActive;
                 _work.ChooseUs.Update(chouseUsImage);
                 _work.Complete();
 

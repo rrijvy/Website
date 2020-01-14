@@ -277,11 +277,11 @@
                 </div>
 
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3" id="productContactUs">
                 <aside class="sidebar">
                     <h5 class="font-weight-bold">Contact <strong>Us</strong></h5>
                     <p>Contact us or give us a call to discover how we can help.</p>
-                    <form id="contactForm" class="contact-form" action="php/contact-form.php" method="POST">
+                    <form id="contactForm" class="contact-form">
                         <div class="contact-form-success alert alert-success d-none mt-4" id="contactSuccess">
                             <strong>Success!</strong> Your message has been sent to us.
                         </div>
@@ -292,19 +292,19 @@
                         <div class="form-row">
                             <div class="form-group col">
                                 <label class="required font-weight-bold text-dark text-1 mb-0">Full Name</label>
-                                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required="">
+                                <input type="text" value="" maxlength="100" class="form-control"  asp-for="Name"  id="name" required="">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
                                 <label class="required font-weight-bold text-dark text-1 mb-0">Email Address</label>
-                                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required="">
+                                <input type="email" value="" @*data-msg-required="Please enter your email address."*@ data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" asp-for="Email" id="email" required="">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
                                 <label class="required font-weight-bold text-dark text-1 mb-0">Message</label>
-                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" name="message" id="message" required=""></textarea>
+                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control"  asp-for="Message" id="message" required=""></textarea>
                             </div>
                         </div>
                         <div class="form-row mb-3 pb-1">
@@ -325,6 +325,33 @@
     </div>
 
 </div>
+
+@section Scripts{
+
+    <script>
+
+        $("#contactForm").on("submit", function (e) {
+            e.preventDefault();
+            let data = objectifyForm($(this).serializeArray());
+            $.ajax({
+                url: "/ClientView/ProductContarctUs",
+                type: "POST",
+                data: data,
+                success: function (response) {
+
+                     $("form")[0].reset();
+                    $("#productContactUs").html(response);
+                }
+
+            });
+
+        });
+
+
+    </script>
+
+
+ }
 
 
 

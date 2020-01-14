@@ -105,7 +105,7 @@
 
                         <div class="row align-items-center pt-5 pb-3 appear-animation" data-appear-animation="fadeInRightShorter">
                             <div class="col-md-8 pr-md-5 mb-5 mb-md-0">
-                                <p class="text-3" style="text-align:justify;">@Html.Raw(item.Name)</p>
+                                <h4  style="text-align:justify; color:white;">@Html.Raw(item.Name.Replace("color","white"))</h4>
                             </div>
                             <div class="col-md-4 px-5 px-md-3">
                                 <img class="img-fluid scale-2 my-4" style="height:300px;width:330px;" src="@item.IconImage" alt="style switcher" />
@@ -121,7 +121,7 @@
                             </div>
                             <div class="col-md-7 pl-md-5">
                           
-                                <p class="text-3" style="text-align:justify;">@Html.Raw(item.Name)</p>
+                                <h4 style="text-align:justify;color:white;">@Html.Raw(item.Name)</h4>
                             </div>
                         </div>
 
@@ -182,7 +182,7 @@
         <div class="row align-items-center justify-content-center pb-4 pb-lg-0">
             <div class="col-lg-6 order-2 order-lg-1 pr-5 pt-4 pt-lg-0 mt-md-5 mt-lg-0 appear-animation" data-appear-animation="fadeInRightShorter">
                 <h2 class="font-weight-normal text-6 mb-3"><strong class="font-weight-extra-bold">@Model.SingleSoftware.SoftwareCategory.Name</strong></h2>
-                <p style="text-align:justify;" class="lead">@Html.Raw(Model.SingleSoftware.ShortDescription)</p>
+                <p style="text-align:justify;" class="lead">@Html.Raw(Model.SingleSoftware.ShortDescription.Replace("bordered","borderless"))</p>
 
                 <a href="#" class="btn btn-dark font-weight-semibold btn-py-2 px-5">Our History</a>
             </div>
@@ -248,7 +248,7 @@
                             <div class="col-md-8 pl-md-5">
                                 @*<h2 class="font-weight-normal text-6 mb-3" style="text-align:justify;"><strong class="font-weight-extra-bold">@item.Software.Name</strong></h2>*@
                                 <h2 class="font-weight-normal text-6 mb-3" style="text-align:justify;"><strong class="font-weight-extra-bold">@item.Software.Title</strong></h2>
-                                <p class="text-4" style="text-align:justify;">@Html.Raw(item.Software.ShortDescription)</p>
+                                <p class="text-4" style="text-align:justify;">@Html.Raw(item.Software.ShortDescription.Replace("bordered","borderless"))</p>
                             </div>
                         </div>
                     }
@@ -271,41 +271,43 @@
 
         <div class="row">
             <div class="col">
-                
+                <h1 style="text-align:center;">Software Features Description</h1>
                 @foreach (var item in Model.SingleSoftware.Features)
                 {
 
-                    SoftwareFeaturesIndex += 1;
+                    //SoftwareFeaturesIndex += 1;
 
 
-                    if (SoftwareFeaturesIndex % 2 == 0)
-                    {
+                    //if (SoftwareFeaturesIndex % 2 == 0)
+                    //{
 
                         <div class="row align-items-center pt-5 pb-3 appear-animation" data-appear-animation="fadeInRightShorter">
-                            <div class="col-md-8 pr-md-5 mb-5 mb-md-0">
-                                <h1>Software Features Description</h1>
-                                <p class="text-4" style="text-align:justify;">@Html.Raw(item.ShortDescription)</p>
+                            <div class="col-md-12 pr-md-5 mb-5 mb-md-0">
+                           
+                                <p class="text-4">@Html.Raw(item.ShortDescription.Replace("bordered", "borderless"))</p>
 
                             </div>
-                            <div class="col-md-4 px-5 px-md-3">
+                            @*<div class="col-md-4 px-5 px-md-3">
                                 <img class="img-fluid scale-2 my-4" src="@item.IconImage" alt="style switcher" />
-                            </div>
+                                <p class="text-4" style="text-align:justify;">@Html.Raw(item.ShortDescription)</p>
+                            </div>*@
                         </div>
-                    }
+                    @*}
                     else
-                    {
-                        <div class="row align-items-center pt-4 appear-animation" data-appear-animation="fadeInLeftShorter">
+                    {*@
+                        @*<div class="row align-items-center pt-4 appear-animation" data-appear-animation="fadeInLeftShorter">
                             <div class="col-md-4 mb-4 mb-md-0">
                                 <img class="img-fluid scale-2 pr-5 pr-md-0 my-4" src="@item.IconImage" alt="layout styles" />
 
+                                <p class="text-4" style="text-align:justify;">@Html.Raw(item.ShortDescription)</p>
                             </div>
                             <div class="col-md-8 pl-md-5">
                                 <h1>Software Features Description</h1>
                                 <p class="text-4" style="text-align:justify;">@Html.Raw(item.ShortDescription)</p>
                             </div>
-                        </div>
+                        </div>*@
 
-                    }
+                    @*}*@
 
 
                 }

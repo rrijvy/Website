@@ -14,6 +14,7 @@ namespace Alphasoft.ViewModels
             Products = new List<Product>();
             PopularProducts = new List<Product>();
             ClientProjects = new List<ClientProduct>();
+           
         }
         public Company Company { get; set; }
         public Product Product { get; set; }
@@ -21,7 +22,12 @@ namespace Alphasoft.ViewModels
         public List<Product> Products { get; set; }
         public List<Product> PopularProducts { get; set; }
         public List<ClientProduct> ClientProjects { get; set; }
-     
-      
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Message { get; set; }
+
     }
 }

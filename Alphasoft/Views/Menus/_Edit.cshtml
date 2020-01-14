@@ -64,6 +64,9 @@
             $('#toggle_checkbox_edit').prop('checked', false).change();
         }
 
+
+
+
         $('#toggle_checkbox_edit').bootstrapToggle({
             on: 'Enabled',
             off: 'Disabled',
@@ -83,6 +86,8 @@
                 $('#isActive_edit').attr('data-val', false);
             }
         });
+
+
 
         $("#menu-editForm").on("submit", function (e) {
             e.preventDefault();
