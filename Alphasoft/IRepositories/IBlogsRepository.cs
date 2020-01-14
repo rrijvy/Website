@@ -10,5 +10,7 @@ namespace Alphasoft.IRepositories
     {
         Blog GetWithSingleImage();
         Blog GetWithLatImage();
+    
+        Blog GetWithBlogsItem(int id);
     }
 }

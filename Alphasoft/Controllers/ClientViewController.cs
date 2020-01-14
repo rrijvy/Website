@@ -61,6 +61,14 @@ namespace Alphasoft.Controllers
 
             return View(blogsVM);
         }
+       public IActionResult BlogsDetails(int id)
+        {
+            BlogsVM blogsDetailsvm = new BlogsVM
+            {
+              BlogsItem=_work.Blogs.GetWithBlogsItem(id),
+            };
+            return View(blogsDetailsvm);
+        }
 
         public IActionResult OurTeam()
         {
@@ -90,11 +98,20 @@ namespace Alphasoft.Controllers
             {
 
                 Company = _work.Companies.FirstOrDefault(),
+
                 aboutUs = _work.AboutUs.GetWithAboutUs(),
+
                 about = _work.AboutUs.GetWithAbout(),
+
                 OurTeamvm = _work.OurTeams.TeamWithUs(),
+
                 Teams = _work.OurTeams.GetAllWithDepartmentAndDesignation(),
+
                 TotalSoftware = _work.Softwares.GetAll(),
+
+                clientSayus=_work.Client.GetAll().TakeLast(3).ToList(),
+              
+
             };
            
 
@@ -252,19 +269,7 @@ namespace Alphasoft.Controllers
             products = _work.Products.GetCategoryWiseProducts(id).TakeLast(number).ToList();
             return PartialView("_GetCategoryWiseProducts", products);
         }
-        //public IActionResult Softwares()
-        //{
-        //    SoftwareViewModel SoftwareViewVM = new SoftwareViewModel
-        //    {
-        //        Software = _work.Softwares.GetAll(),
-        //        SoftwareCategory = _work.SoftwareCategories.GetAll(),
-        //        Features = _work.Features.GetAll(),
-        //        SoftwareImage=_work.Softwares.FirstOrDefault()
-               
-        //    };
-        //    return View(SoftwareViewVM);
-           
-        //}
+       
         public IActionResult CategoryWiseSoftware(int id)
         {
             SoftwareViewModel SoftwareViewVM = new SoftwareViewModel

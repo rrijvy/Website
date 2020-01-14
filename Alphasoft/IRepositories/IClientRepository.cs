@@ -8,7 +8,7 @@ namespace Alphasoft.IRepositories
 {
     public interface IClientRepository : IRepository<Client>
     {
-        
+       //List<Client> GetWithClientSayUs();
     }
 
 }

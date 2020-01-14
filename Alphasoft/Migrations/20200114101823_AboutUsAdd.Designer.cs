@@ -4,14 +4,16 @@ using Alphasoft.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alphasoft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200114101823_AboutUsAdd")]
+    partial class AboutUsAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,7 +84,7 @@ namespace Alphasoft.Migrations
 
                     b.Property<string>("BusinessHourse");
 
-                    b.Property<DateTime>("BusinessHourseTime");
+                    b.Property<string>("BusinessHourseTime");
 
                     b.Property<string>("CallUs");
 

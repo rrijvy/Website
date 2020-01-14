@@ -3,7 +3,7 @@
 
     <form id="aboutUs-createForm" class="createForm" enctype="multipart/form-data">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="AboutMainSologan"></label>
                     <textarea class="aboutsologan" asp-for="AboutMainSologan" type="text"></textarea>
@@ -28,12 +28,54 @@
                     <span asp-validation-for="WhyUsDescription" class="text-danger"></span>
                 </div>
                 <br />
+               
+                <br />
+                <div id="logo-preview" class="image-preview" style="display: none;">
+                    <div id="text" style="display: none;"></div>
+                    <img id="preview" src="#" />
+                </div>
+                <div id="logo-preview" class="image-preview" style="display: none;">
+                    <div id="text" style="display: none;"></div>
+                    <img id="preview" src="#" />
+                </div>
+            </div>
+            <div class="col-md-6">
+
                 <div class="form-group">
                     <label asp-for="WhoWeAreDescription"></label>
                     <textarea class="whoDescription" asp-for="WhoWeAreDescription" type="text"></textarea>
                     <span asp-validation-for="WhoWeAreDescription" class="text-danger"></span>
                 </div>
-                <br />
+                <div class="form-group">
+                    <label asp-for="Loacation"></label>
+                    <input type="text" asp-for="Loacation" class="form-control" value="" />
+                    <span asp-validation-for="Loacation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address"></label>
+                    <input type="text" asp-for="Address" class="form-control" value="" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BusinessHourse"></label>
+                    <input type="text" asp-for="BusinessHourse" class="form-control" value="" />
+                    <span asp-validation-for="BusinessHourse" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BusinessHourseTime"></label>
+                    <input type="text" asp-for="BusinessHourseTime" class="form-control" value="" />
+                    <span asp-validation-for="BusinessHourseTime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CallUs"></label>
+                    <input type="text" asp-for="CallUs" class="form-control" value="" />
+                    <span asp-validation-for="CallUs" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CallUsNumber"></label>
+                    <input type="text" asp-for="CallUsNumber" class="form-control" value="" />
+                    <span asp-validation-for="CallUsNumber" class="text-danger"></span>
+                </div>
                 <div class="form-group">
                     <label asp-for="WhoWeAreImageOne"></label>
                     <input id="logo1" name="image1" type="file" class="form-control" />
@@ -49,15 +91,6 @@
                     <label asp-for="WhoWeAreImageThree"></label>
                     <input id="logo3" name="image3" type="file" class="form-control" />
                     <span asp-validation-for="WhoWeAreImageThree" class="text-danger"></span>
-                </div>
-                <br />
-                <div id="logo-preview" class="image-preview" style="display: none;">
-                    <div id="text" style="display: none;"></div>
-                    <img id="preview" src="#" />
-                </div>
-                <div id="logo-preview" class="image-preview" style="display: none;">
-                    <div id="text" style="display: none;"></div>
-                    <img id="preview" src="#" />
                 </div>
             </div>
         </div>

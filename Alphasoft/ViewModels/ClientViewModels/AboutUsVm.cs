@@ -8,6 +8,7 @@ namespace Alphasoft.ViewModels.ClientViewModels
 {
     public class AboutUsVm
     {
+      
         public AboutUsVm()
         {
             teamVmList = new List<OurTeamVM>();
@@ -22,5 +23,10 @@ namespace Alphasoft.ViewModels.ClientViewModels
         public List<OurTeam> Teams { get; internal set; }
         public OurTeam Team { get; internal set; }
         public List<Software> TotalSoftware { get; internal set; }
+
+        public List<Client> clientSayus { get; set; }
+        public List<AboutUs> aboutus { get; set; }
+
+
     }
 }

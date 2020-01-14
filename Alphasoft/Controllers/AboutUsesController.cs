@@ -124,6 +124,12 @@ namespace Alphasoft.Controllers
                 model.WhyUsDescription = aboutus.WhyUsDescription;
                 model.WhoWeAreDescription = aboutus.WhoWeAreDescription;
                 model.WhyUsDescription = aboutus.WhyUsDescription;
+                model.Loacation = aboutus.Loacation;
+                model.Address = aboutus.Address;
+                model.CallUs = aboutus.CallUs;
+                model.CallUsNumber = aboutus.CallUsNumber;
+                model.BusinessHourse = aboutus.BusinessHourse;
+                model.BusinessHourseTime = aboutus.BusinessHourseTime;
                 _work.AboutUs.Update(model);
                 _work.Complete();
                 return PartialView("_Edit", model);

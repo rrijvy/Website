@@ -16,6 +16,11 @@ namespace Alphasoft.Repositories
         {
             get { return _context as ApplicationDbContext; }
         }
+
+        //public List<Client> GetWithClientSayUs()
+        //{
+        //    return Context.Clients.TakeLast(3).ToList();
+        //}
     }
 
    

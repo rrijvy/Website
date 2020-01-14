@@ -17,6 +17,11 @@ namespace Alphasoft.Repositories
             get { return _context as ApplicationDbContext; }
         }
 
+        public Blog GetWithBlogsItem(int id)
+        {
+            return Context.Blogs.Where(x => x.Id == id).FirstOrDefault();
+        }
+
         public Blog GetWithLatImage()
         {
             return Context.Blogs.LastOrDefault();
