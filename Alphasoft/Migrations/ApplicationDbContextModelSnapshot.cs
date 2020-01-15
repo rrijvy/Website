@@ -82,7 +82,7 @@ namespace Alphasoft.Migrations
 
                     b.Property<string>("BusinessHourse");
 
-                    b.Property<DateTime>("BusinessHourseTime");
+                    b.Property<string>("BusinessHourseTime");
 
                     b.Property<string>("CallUs");
 
@@ -175,6 +175,39 @@ namespace Alphasoft.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("Alphasoft.Models.BlogComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogId");
+
+                    b.Property<string>("Comment");
+
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FullName");
+
+                    b.Property<int>("Order");
+
+                    b.Property<int?>("UpdateCount");
+
+                    b.Property<string>("UpdatedBy");
+
+                    b.Property<DateTime?>("UpdatedDate");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("BlogComments");
                 });
 
             modelBuilder.Entity("Alphasoft.Models.Career", b =>
@@ -969,6 +1002,14 @@ namespace Alphasoft.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Alphasoft.Models.BlogComment", b =>
+                {
+                    b.HasOne("Alphasoft.Models.Blog", "Blog")
+                        .WithMany("BlogComment")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Alphasoft.Models.ClientProduct", b =>

@@ -1,10 +1,15 @@
-﻿@model BlogsVM
+﻿
+@model BlogsVM
 
 @{
     ViewData["Title"] = "BlogsDetails";
+
 }
 
 <div role="main" class="main">
+
+
+
 
     <div class="container py-4">
 
@@ -13,30 +18,34 @@
                 <div class="blog-posts single-post">
 
                     <article class="post post-large blog-single-post border-0 m-0 p-0">
+
                         <div class="post-image ml-0">
                             <a href="/ClientView/Blogs/@Model.BlogsItem.Id">
-                                <img src="@Model.BlogsItem.Image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                <img style="width:100%;height:350px;" src="@Model.BlogsItem.Image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
                             </a>
                         </div>
 
                         <div class="post-date ml-0">
-                            <span class="day">@Model.BlogsItem.Date</span>
-                            @*<span class="month">Jan</span>*@
+                            <div class="post-date ml-0">
+                                <span class="day">@Model.BlogsItem.Date.ToString("dd")</span>
+                                <span class="month">@Model.BlogsItem.Date.ToString("MMM")</span>
+                                @*<span class="day">@Model.BlogsItem.Date.ToString("hh:mm:ss tt")</span>*@
+                            </div>
                         </div>
 
                         <div class="post-content ml-0">
-
                             <h2 class="font-weight-bold"><a href="/ClientView/Blogs/@Model.BlogsItem.Id"></a></h2>
 
                             <div class="post-meta">
                                 <span><i class="far fa-user"></i> By <a href="/ClientView/Blogs/@Model.BlogsItem.Id">@Model.BlogsItem.CreatedBy</a> </span>
                                 <span><i class="far fa-folder"></i> <a href="/ClientView/Blogs/@Model.BlogsItem.Id">Lifestyle</a>, <a href="#">Design</a> </span>
-                                <span><i class="far fa-comments"></i> <a href="/ClientView/Blogs/@Model.BlogsItem.Id">12 Comments</a></span>
+                                <span><i class="far fa-comments"></i> <a href="/ClientView/Blogs/@Model.BlogsItem.Id">@Model.commentCount.Id Comments</a></span>
                             </div>
 
                             <p></p>
 
-
+                            <br />
+                            <br />
 
                             <div class="post-block mt-5 post-share">
                                 <h4 class="mb-3">Share this Post</h4>
@@ -48,7 +57,7 @@
                                     <a class="addthis_button_pinterest_pinit"></a>
                                     <a class="addthis_counter addthis_pill_style"></a>
                                 </div>
-                                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>
+                                @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>*@
                                 <!-- AddThis Button END -->
 
                             </div>
@@ -57,137 +66,75 @@
                                 <h4 class="mb-3">Author</h4>
                                 <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
                                     <a href="/ClientView/Blogs/@Model.BlogsItem.Id">
-                                        <img src="@Model.BlogsItem.Image" alt="">
+                                        <img style="height:150px;width:120px;" src="@Model.BlogsItem.Image" alt="">
                                     </a>
                                 </div>
                                 <p><strong class="name"><a href="/ClientView/Blogs/@Model.BlogsItem.Id" class="text-4 pb-2 pt-2 d-block">@Model.BlogsItem.Creator</a></strong></p>
-                                <p>@Model.BlogsItem.Description</p>
+                                <p style="text-align:justify;">@Model.BlogsItem.Description</p>
                             </div>
 
                             <div id="comments" class="post-block mt-5 post-comments">
-                                <h4 class="mb-3">Comments (3)</h4>
 
-                                <ul class="comments">
-                                    <li>
-                                        <div class="comment">
-                                            <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                <img class="avatar" alt="" src="@Model.BlogsItem.Image">
-                                            </div>
-                                            <div class="comment-block">
-                                                <div class="comment-arrow"></div>
-                                                <span class="comment-by">
-                                                    <strong>John Doe</strong>
-                                                    <span class="float-right">
-                                                        <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-                                                    </span>
-                                                </span>
-                                                <p>@Model.BlogsItem.Description</p>
-                                                <span class="date float-right">@Model.BlogsItem.Date</span>
-                                            </div>
-                                        </div>
+                                <h4 class="mb-3">Comments (@Model.commentCount.Id)</h4>
 
-                                        <ul class="comments reply">
-                                            <li>
-                                                <div class="comment">
-                                                    <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                        <img class="avatar" alt="" src="@Model.BlogsItem.Image">
-                                                    </div>
-                                                    <div class="comment-block">
-                                                        <div class="comment-arrow"></div>
-                                                        <span class="comment-by">
-                                                            <strong>John Doe</strong>
-                                                            <span class="float-right">
-                                                                <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-                                                            </span>
-                                                        </span>
-                                                        <p>@Model.BlogsItem.Description</p>
-                                                        <span class="date float-right">@Model.BlogsItem.Date</span>
-                                                    </div>
+                                @foreach (var item in Model.blogcomment)
+                                {
+                                    <ul class="comments">
+                                        <li>
+                                            <div class="comment">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                    <img class="avatar img-rounded" alt="" src="@Model.BlogsItem.Image">
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="comment">
-                                                    <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                        <img class="avatar" alt="" src="img/avatars/avatar-4.jpg">
-                                                    </div>
-                                                    <div class="comment-block">
-                                                        <div class="comment-arrow"></div>
-                                                        <span class="comment-by">
-                                                            <strong>John Doe</strong>
-                                                            <span class="float-right">
-                                                                <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-                                                            </span>
+                                                <div class="comment-block">
+                                                    <div class="comment-arrow"></div>
+                                                    <span class="comment-by">
+                                                        <strong>@item.FullName</strong>
+                                                        <span class="float-right">
+                                                            <span> <a href=""><i class="fas fa-reply"></i> Reply</a></span>
                                                         </span>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-                                                        <span class="date float-right">November 12, 2018 at 1:38 pm</span>
-                                                    </div>
+                                                    </span>
+                                                    <p>@item.Comment</p>
+                                                    @*<span class="date float-right">@item.CreatedDate</span>*@
                                                 </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="comment">
-                                            <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                <img class="avatar" alt="" src="img/avatars/avatar.jpg">
                                             </div>
-                                            <div class="comment-block">
-                                                <div class="comment-arrow"></div>
-                                                <span class="comment-by">
-                                                    <strong>John Doe</strong>
-                                                    <span class="float-right">
-                                                        <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-                                                    </span>
-                                                </span>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <span class="date float-right">November 12, 2018 at 1:38 pm</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="comment">
-                                            <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                <img class="avatar" alt="" src="img/avatars/avatar.jpg">
-                                            </div>
-                                            <div class="comment-block">
-                                                <div class="comment-arrow"></div>
-                                                <span class="comment-by">
-                                                    <strong>John Doe</strong>
-                                                    <span class="float-right">
-                                                        <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
-                                                    </span>
-                                                </span>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <span class="date float-right">November 12, 2018 at 1:38 pm</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+
+                                        </li>
+                                    </ul>
+                                }
+
 
                             </div>
 
-
                             <!-- ==============================Comment Section Form=========================== -->
+                           
+
+                            @*<button class="btn btn-primary btnContact">Show Comment</button>
+
+                            <div id="contact-formLoad">
+
+                            </div>*@
 
                             <div class="post-block mt-5 post-leave-comment">
                                 <h4 class="mb-3">Leave a comment</h4>
 
+                                <form id="contactFormBlogs" class="contact-formComment p-4 rounded bg-color-grey" action="php/contact-form.php" method="POST">
+                                    <input type="hidden" asp-for="BlogId" value="@Model.BlogsItem.Id" />
 
-                                <form id="contactForm" class="contact-form p-4 rounded bg-color-grey" action="php/contact-form.php" method="POST">
                                     <div class="p-2">
                                         <div class="form-row">
                                             <div class="form-group col-lg-6">
                                                 <label class="required font-weight-bold text-dark">Full Name</label>
-                                                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required>
+                                                <input type="text" asp-for="FullName" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" id="name" required>
                                             </div>
                                             <div class="form-group col-lg-6">
                                                 <label class="required font-weight-bold text-dark">Email Address</label>
-                                                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required>
+                                                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" asp-for="Email" id="email" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col">
                                                 <label class="required font-weight-bold text-dark">Comment</label>
-                                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" name="message" id="message" required></textarea>
+                                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" asp-for="Comment" id="message" required></textarea>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -199,7 +146,7 @@
                                 </form>
                             </div>
 
-                        <!-- ==============================Comment Section Form=========================== -->
+                            <!-- ==============================Comment Section Form=========================== -->
 
                         </div>
                     </article>
@@ -211,3 +158,43 @@
     </div>
 
 </div>
+
+@section Scripts{
+
+    <script>
+
+        $("#contactFormBlogs").on("submit", function (e) {
+
+            e.preventDefault();
+
+            let blogcomment = objectifyForm($(this).serializeArray());
+
+            $.ajax({
+
+                url: "/ClientView/BlogsCommentCreate",
+                type: "GET",
+                data: blogcomment,
+
+                success: function (response) {
+
+                    alert("working");
+
+                    $("#contactFormBlogs").reset();
+
+                    $(".contact-formComment").html(response);
+                },
+                error: function (response) {
+                    alert("Error");
+                }
+            });
+
+        });
+
+
+
+    </script>
+
+
+}
+
+

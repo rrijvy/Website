@@ -33,6 +33,7 @@ namespace Alphasoft.UnitOfWork
         ISoftwareRepository Softwares { get; }
         ISoftwareCategoriesRepository SoftwareCategories { get; }
         IFeaturesRepository Features { get; }
+        IBlogCommentRepository BlogComment { get; }
         IQueryHelper QueryHelper { get; }
 
         int Complete();

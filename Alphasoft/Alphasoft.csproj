@@ -7,6 +7,20 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200104053251_Order_BaseClass.cs" />
     <Compile Remove="Migrations\20200104053251_Order_BaseClass.Designer.cs" />
+    <Compile Remove="Migrations\20200114101823_AboutUsAdd.cs" />
+    <Compile Remove="Migrations\20200114101823_AboutUsAdd.Designer.cs" />
+    <Compile Remove="Migrations\20200114102608_AboutUsAddDate.cs" />
+    <Compile Remove="Migrations\20200114102608_AboutUsAddDate.Designer.cs" />
+    <Compile Remove="Migrations\20200115050306_Add.cs" />
+    <Compile Remove="Migrations\20200115050306_Add.Designer.cs" />
+    <Compile Remove="Migrations\20200115050549_BlogComment.cs" />
+    <Compile Remove="Migrations\20200115050549_BlogComment.Designer.cs" />
+    <Compile Remove="Migrations\20200115051842_BlogsCommentSection.cs" />
+    <Compile Remove="Migrations\20200115051842_BlogsCommentSection.Designer.cs" />
+    <Compile Remove="Migrations\20200115052435_BlogsCommentSection.cs" />
+    <Compile Remove="Migrations\20200115052435_BlogsCommentSection.Designer.cs" />
+    <Compile Remove="Migrations\20200115052712_BlogComment.cs" />
+    <Compile Remove="Migrations\20200115052712_BlogComment.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

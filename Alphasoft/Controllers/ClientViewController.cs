@@ -4,6 +4,7 @@ using Alphasoft.UnitOfWork;
 using Alphasoft.ViewModels;
 using Alphasoft.ViewModels.ClientViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 namespace Alphasoft.Controllers
@@ -63,13 +64,37 @@ namespace Alphasoft.Controllers
         }
        public IActionResult BlogsDetails(int id)
         {
+      
             BlogsVM blogsDetailsvm = new BlogsVM
             {
-              BlogsItem=_work.Blogs.GetWithBlogsItem(id),
+              BlogsItem=_work.Blogs.Get(id),
+              blogcomment=_work.BlogComment.GetAll(),
+              commentCount=_work.BlogComment.GetWithAllComment()
             };
             return View(blogsDetailsvm);
         }
 
+       
+
+        public IActionResult BlogsCommentCreate(BlogsVM blogsVM)
+        {
+          
+            if (ModelState.IsValid)
+            {
+                BlogComment blogComment = new BlogComment
+                {
+                    FullName = blogsVM.FullName,
+                    Email = blogsVM.Email,
+                    Comment = blogsVM.Comment,
+                    BlogId=blogsVM.BlogId,
+                };
+                _work.BlogComment.Add(blogComment);
+                _work.Complete();
+
+                return View("BlogsDetails", blogsVM);
+            }
+            return View(blogsVM);
+        }
         public IActionResult OurTeam()
         {
             OurTeamVM teamVm = new OurTeamVM

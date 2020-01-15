@@ -39,6 +39,7 @@ namespace Alphasoft.Data
         public DbSet<Software> Softwares { get; set; }
         public DbSet<SoftwareCategory> SoftwareCategories { get; set; }
         public DbSet<Features> Features { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
 
     }
 }

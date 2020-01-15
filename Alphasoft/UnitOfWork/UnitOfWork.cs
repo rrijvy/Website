@@ -61,7 +61,10 @@ namespace Alphasoft.UnitOfWork
             Softwares = new SoftwareRepository(_context);
 
             SoftwareCategories = new SoftwareCategoriesRepository(_context);
+
             Features = new FeaturesRepository(_context);
+
+            BlogComment = new BlogCommentRepository(_context);
 
             QueryHelper = new QueryHelper();
 
@@ -91,6 +94,7 @@ namespace Alphasoft.UnitOfWork
         public IJobRepository Job { get; private set; }
         public ISoftwareRepository Softwares { get; private set; }
         public ISoftwareCategoriesRepository SoftwareCategories { get; private set; }
+        public IBlogCommentRepository BlogComment { get; private set; }
         public IQueryHelper QueryHelper { get; private set; }
 
         public int Complete()
