@@ -73,79 +73,57 @@
                                 <p style="text-align:justify;">@Model.BlogsItem.Description</p>
                             </div>
 
-                            <div id="comments" class="post-block mt-5 post-comments">
+                            <br />
 
-                                <h4 class="mb-3">Comments (@Model.commentCount.Id)</h4>
+                       
 
-                                @foreach (var item in Model.blogcomment)
-                                {
-                                    <ul class="comments">
-                                        <li>
-                                            <div class="comment">
-                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                    <img class="avatar img-rounded" alt="" src="@Model.BlogsItem.Image">
-                                                </div>
-                                                <div class="comment-block">
-                                                    <div class="comment-arrow"></div>
-                                                    <span class="comment-by">
-                                                        <strong>@item.FullName</strong>
-                                                        <span class="float-right">
-                                                            <span> <a href=""><i class="fas fa-reply"></i> Reply</a></span>
+                            <div id="comments">
+
+                                <div class="post-block mt-5 post-comments">
+
+                                    <h4 class="mb-3">Comments (@Model.commentCount.Id)</h4>
+
+                                    @foreach (var item in Model.blogcomment)
+                                    {
+                                        <ul class="comments">
+                                            <li>
+                                                <div class="comment">
+                                                    <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                        <img class="avatar img-rounded" alt="" src="@Model.BlogsItem.Image">
+                                                    </div>
+                                                    <div class="comment-block">
+                                                        <div class="comment-arrow"></div>
+                                                        <span class="comment-by">
+                                                            <strong>@item.FullName</strong>
+                                                            <span class="float-right">
+                                                                <span><a href=""><i class="fas fa-reply btnContactReplay"></i></a></span>
+                                                            </span>
                                                         </span>
-                                                    </span>
-                                                    <p>@item.Comment</p>
-                                                    @*<span class="date float-right">@item.CreatedDate</span>*@
+                                                        <p>@item.Comment</p>
+                                                      
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </li>
-                                    </ul>
-                                }
+                                            </li>
+                                        </ul>
+                                    }
 
+
+                                </div>
 
                             </div>
+
 
                             <!-- ==============================Comment Section Form=========================== -->
-                           
 
-                            @*<button class="btn btn-primary btnContact">Show Comment</button>
+
+                            <button class="btn btn-primary btnContact">Create Comment</button>
 
                             <div id="contact-formLoad">
-
-                            </div>*@
-
-                            <div class="post-block mt-5 post-leave-comment">
-                                <h4 class="mb-3">Leave a comment</h4>
-
-                                <form id="contactFormBlogs" class="contact-formComment p-4 rounded bg-color-grey" action="php/contact-form.php" method="POST">
-                                    <input type="hidden" asp-for="BlogId" value="@Model.BlogsItem.Id" />
-
-                                    <div class="p-2">
-                                        <div class="form-row">
-                                            <div class="form-group col-lg-6">
-                                                <label class="required font-weight-bold text-dark">Full Name</label>
-                                                <input type="text" asp-for="FullName" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" id="name" required>
-                                            </div>
-                                            <div class="form-group col-lg-6">
-                                                <label class="required font-weight-bold text-dark">Email Address</label>
-                                                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" asp-for="Email" id="email" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col">
-                                                <label class="required font-weight-bold text-dark">Comment</label>
-                                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" asp-for="Comment" id="message" required></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col mb-0">
-                                                <input type="submit" value="Post Comment" class="btn btn-primary btn-modern" data-loading-text="Loading...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
 
+
+                           
                             <!-- ==============================Comment Section Form=========================== -->
 
                         </div>
@@ -163,33 +141,44 @@
 
     <script>
 
-        $("#contactFormBlogs").on("submit", function (e) {
-
+        $("body").on("click", ".btnContact", function (e) {
             e.preventDefault();
-
-            let blogcomment = objectifyForm($(this).serializeArray());
 
             $.ajax({
 
-                url: "/ClientView/BlogsCommentCreate",
+                url: "/ClientView/BlogsCommentView",
                 type: "GET",
-                data: blogcomment,
-
                 success: function (response) {
-
-                    alert("working");
-
-                    $("#contactFormBlogs").reset();
-
-                    $(".contact-formComment").html(response);
-                },
-                error: function (response) {
-                    alert("Error");
+                    $("#contact-formLoad").html(response).slideToggle("slow","swing");
                 }
             });
 
         });
 
+       
+
+
+          $("body").on("click", ".btnContactReplay", function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: "/ClientView/BlogsCommentView",
+                type: "GET",
+                success: function (response) {
+                    $("#contact-formLoad").html(response);
+                }
+            });
+
+        });
+
+        //$(".commentButton").click(function (e) {
+        //    e.preventDefault();
+        //    $("#comments").slideToggle("fast","swing");
+        //});
+
+
+
+        
 
 
     </script>

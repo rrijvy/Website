@@ -8,6 +8,8 @@ namespace Alphasoft.ViewModels.ClientViewModels
 {
     public class BlogsVM
     {
+        public List<Blog> blogImage { get; set; }
+
         public BlogComment commentCount { get; set; }
 
         public int Id { get; set; }

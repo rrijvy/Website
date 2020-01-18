@@ -2,7 +2,7 @@
 
 @{
 
-    //int blogsDiv=0;
+    
 
 }
 
@@ -150,16 +150,19 @@
                                             </a>
                                         </div>
 
+                                       
+
                                         <div class="post-content">
 
                                             <h2 class="font-weight-semibold text-5 line-height-6 mt-3 mb-2"><a href="#">@item.Title</a></h2>
                                             <p style="text-align:justify;">@item.Description</p>
 
                                             <div class="post-meta">
-                                                <span><i class="far fa-user"></i> By <a href="#">@item.Creator</a> </span>
-                                                <span><i class="far fa-folder"></i> <a href="#">@item.Date</a></span>
-                                                <span><i class="far fa-comments"></i> <a href="#">12 Comments</a></span>
-                                                <span class="d-block mt-2"><a href="#" class="btn btn-xs btn-light text-1 text-uppercase">Read More</a></span>
+                                                <span><i class="far fa-user"></i> By <a href="/ClientView/BlogsDetails/@item.Id">@item.Creator</a> </span>
+                                                <span><i class="far fa-folder"></i> <a href="/ClientView/BlogsDetails/@item.Id">@item.Date.ToString("dd")</a></span>
+                                                <span><a href="#">@item.Date.ToString("mm")</a></span>
+                                                <span><i class="far fa-comments"></i> <a href="#"></a></span>
+                                                <span class="d-block mt-2"><a href="/ClientView/BlogsDetails/@item.Id" class="btn btn-xs btn-primary text-1 text-uppercase">Read More</a></span>
                                             </div>
 
                                         </div>

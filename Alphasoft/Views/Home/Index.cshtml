@@ -169,15 +169,7 @@
     </div>
 </section>
 
-<div id="sec_7">
-    <div class="loader">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</div>
+
 
 
 @section Scripts{
@@ -191,7 +183,7 @@
                 _4: { position: $("#sec_4").position().top, visited: false },
                 _5: { position: $("#sec_5").position().top, visited: false },
                 _6: { position: $("#sec_6").position().top, visited: false },
-                _7: { position: $("#sec_7").position().top, visited: false }
+               
             };
 
 
@@ -445,49 +437,6 @@
                                                 $(`#sec_6`).html(response);
 
                                                 section._6.visited = true;
-                                            }
-                                        });
-
-                                    }
-                                });
-
-                            }
-                        });
-                    }
-                }
-
-                if ((windowBottomPosition + 700) > section._7.position) {
-
-                    if (section._7.visited === false) {
-
-                        $.ajax({
-                            url: `/ClientView/Section_7`,
-                            type: "GET",
-                            success: function (response) {
-
-                                $(`#sec_7`).html(response);
-
-                                section._7.visited = true;
-                            },
-                            error: function (response) {
-
-                                $.ajax({
-                                    url: `/ClientView/Section_7`,
-                                    type: "GET",
-                                    success: function (response) {
-                                        $(`#sec_7`).html(response);
-
-                                        section._7.visited = true;
-                                    },
-                                    error: function (response) {
-
-                                        $.ajax({
-                                            url: "/Home/AjaxErrorView",
-                                            type: "GET",
-                                            success: function (response) {
-                                                $(`#sec_7`).html(response);
-
-                                                ++numberOfVisitedSection;
                                             }
                                         });
 

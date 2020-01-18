@@ -15,6 +15,7 @@ namespace Alphasoft.Controllers
         private readonly ApplicationDbContext _context;
 
         public List<Faq> FaqList { get; private set; }
+        public Blog BlogsItem { get; private set; }
 
         public ClientViewController(IUnitOfWork work, ApplicationDbContext context)
         {
@@ -74,15 +75,38 @@ namespace Alphasoft.Controllers
             return View(blogsDetailsvm);
         }
 
-       
+
+        public IActionResult BlogsCommentCreateView(int id)
+        {
+            BlogsVM blogsDetailsvm = new BlogsVM
+            {
+                BlogsItem = _work.Blogs.Get(id),
+                blogcomment = _work.BlogComment.GetAll(),
+                commentCount = _work.BlogComment.GetWithAllComment()
+              
+            };
+
+            return PartialView("_CommentView", blogsDetailsvm);
+        }
+
+        public IActionResult BlogsCommentView()
+        {
+            ViewData["BlogId"] = new SelectList(_work.Blogs.GetAll(), "Id", "Id");
+            BlogsVM blogsDetailsvm = new BlogsVM();
+           
+            return PartialView("_CommentView", blogsDetailsvm);
+        }
 
         public IActionResult BlogsCommentCreate(BlogsVM blogsVM)
         {
-          
+             
+       
+
             if (ModelState.IsValid)
             {
                 BlogComment blogComment = new BlogComment
                 {
+               
                     FullName = blogsVM.FullName,
                     Email = blogsVM.Email,
                     Comment = blogsVM.Comment,
@@ -91,9 +115,10 @@ namespace Alphasoft.Controllers
                 _work.BlogComment.Add(blogComment);
                 _work.Complete();
 
-                return View("BlogsDetails", blogsVM);
+                ViewData["BlogId"] = new SelectList(_work.Blogs.GetAll(), "Id", "Id");
+                return PartialView("_CommentView", blogsVM);
             }
-            return View(blogsVM);
+            return PartialView("_CommentView", blogsVM);
         }
         public IActionResult OurTeam()
         {
@@ -224,10 +249,10 @@ namespace Alphasoft.Controllers
             return PartialView("_Section6");
         }
 
-        public IActionResult Section_7()
-        {
-            return PartialView("_Section7");
-        }
+        //public IActionResult Section_7()
+        //{
+        //    return PartialView("_Section7");
+        //}
         public IActionResult ContractUsCreate(ContactUs contact)
         {
             if (ModelState.IsValid)
