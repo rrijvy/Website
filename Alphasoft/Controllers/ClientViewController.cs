@@ -92,6 +92,9 @@ namespace Alphasoft.Controllers
         public IActionResult BlogsCommentView()
         {
             ViewData["BlogId"] = new SelectList(_work.Blogs.GetAll(), "Id", "Id");
+
+           // ViewData["BlogId"] = new SelectList(_work.Products.GetAll(), "Id", "Id");
+
             BlogsVM blogsDetailsvm = new BlogsVM();
            
             return PartialView("_CommentView", blogsDetailsvm);
