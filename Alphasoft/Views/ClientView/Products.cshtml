@@ -33,7 +33,7 @@
                                         <div class="post-image">
                                             <div class="d-block">
                                                 <a href="shop-product-sidebar-left.html">
-                                                    <img alt="" class="img-fluid" src="@item.Image" style="height: 60px; width: 60px;">
+                                                    <img alt="" class="img-fluid zoom" src="@item.Image" style="height: 60px; width: 60px;">
                                                 </a>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                     </a>
                                     <a href="/ClientView/Product/@item.Id" style="padding-bottom: 8px; background-color: #fff;">
                                         <span class="product-thumb-info-image" style="height: 220px; width: 100%;">
-                                            <img alt="" class="img-fluid" src="@item.Image" style="height: 100%; width: 100%; object-fit: contain;">
+                                            <img alt="" class="img-fluid zoom" src="@item.Image" style="height: 100%; width: 100%; object-fit: contain;">
                                         </span>
                                     </a>
                                     <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light productHoverBorderNone">
@@ -91,6 +91,7 @@
 
 
 @section Scripts{
+
     <script>
         (function () {
             $(".productCategory").on("click", function (e) {

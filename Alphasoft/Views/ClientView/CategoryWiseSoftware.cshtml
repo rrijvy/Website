@@ -75,7 +75,7 @@
 
                         <div class="row align-items-center pt-5 pb-3 appear-animation" data-appear-animation="fadeInRightShorter">
                             <div class="col-md-8 pr-md-5 mb-5 mb-md-0">
-                                <h4  style="text-align:justify; color:white;">@Html.Raw(item.Name.Replace("color","white"))</h4>
+                                <h4  style="text-align:justify; color:white;">@Html.Raw(item.Name)</h4>
                             </div>
                             <div class="col-md-4 px-5 px-md-3">
                                 <img class="img-fluid scale-2 my-4" style="height:300px;width:330px;" src="@item.IconImage" alt="style switcher" />
@@ -166,6 +166,7 @@
 </section>
 <br />
 <br />
+
 <section>
 
     <div class="container">
@@ -184,19 +185,20 @@
                             <div class="col-md-8 pl-md-5">
 
                                 <h2 class="font-weight-normal text-6 mb-3" style="text-align:justify;"><strong class="font-weight-extra-bold">@item.Software.Title</strong></h2>
-                                @if (item.Software.ShortDescription == null)
+
+                                @if (item.Software.ShortDescription !=null)
                                 {
                                     <p class="text-4" style="text-align:justify;">@Html.Raw(item.Software.ShortDescription.Replace("bordered", "borderless"))</p>
                                 }
                                 else
                                 {
-                                    <p class="text-4" style="text-align:justify;">@Html.Raw(item.Software.ShortDescription.Replace("bordered", "borderless"))</p>
+                                    <p class="text-4" style="text-align:justify;">@Html.Raw(item.Software.ShortDescription)</p>
                                 }
 
                             </div>
                         </div>
                     }
-
+                    
 
                 }
 
@@ -221,13 +223,13 @@
 
                         <div class="row align-items-center pt-5 pb-3 appear-animation" data-appear-animation="fadeInRightShorter">
                             <div class="col-md-12 pr-md-5 mb-5 mb-md-0">
-                                @if (@item.ShortDescription == null)
+                                @if (@item.ShortDescription != null)
                                 {
                                     <p class="text-4">@Html.Raw(item.ShortDescription.Replace("bordered", "borderless"))</p>
                                 }
                                 else
                                 {
-                                    <p class="text-4">@Html.Raw(item.ShortDescription.Replace("bordered", "borderless"))</p>
+                                    <p class="text-4">@Html.Raw(item.ShortDescription)</p>
                                 }
                             </div>
                            
@@ -237,6 +239,7 @@
         </div>
     </div>
 </section>
+
 
 @if (Model.SingleSoftware.SoftwareCategory.Name == "RETAIL SOFTWARES")
 {
@@ -337,6 +340,7 @@
 
 
 <script>
+
     var owl = $('.owl-carousel');
     owl.owlCarousel({
         items: 7,
@@ -347,4 +351,5 @@
         autoplayHoverPause: true,
         dots: false
     });
+
 </script>

@@ -6,6 +6,11 @@ namespace Alphasoft.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public string PlanDes { get; set; }
+        public string StrategyDes { get; set; }
+        public string WorkDes { get; set; }
+        public string QualityDes { get; set; }
         public string Image { get; set; }
         public double? Price { get; set; }
         public string Description { get; set; }

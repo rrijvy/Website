@@ -336,12 +336,15 @@ namespace Alphasoft.Controllers
             {
                 Blogs = _work.Blogs.GetAll().OrderBy(x => x.Order).ToList(),
                 whyChouseus = _work.ChooseUs.FirstOrDefault(),
-                
-                features=_work.Features.GetAll(),
-                softwareCategory=_work.SoftwareCategories.GetAll(),
-                software=_work.Softwares.GetAll(),
-               
 
+                features = _work.Features.GetAll(),
+                softwareCategory = _work.SoftwareCategories.GetAll(),
+                software = _work.Softwares.GetAll(),
+                client = _work.Client.GetAll(),
+                service = _work.Services.FirstOrDefault(),
+                aboutUs=_work.AboutUs.FirstOrDefault(),
+                company=_work.Companies.FirstOrDefault(),
+                servicAll=_work.Services.GetAll()
             };
             return View(viewModel);
         }

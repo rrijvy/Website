@@ -2952,6 +2952,8 @@
     <None Include="wwwroot\porto_7.4.0\vendor\vide\jquery.vide.min.js" />
     <None Include="wwwroot\porto_7.4.0\vendor\vivus\vivus.js" />
     <None Include="wwwroot\porto_7.4.0\vendor\vivus\vivus.min.js" />
+    <None Include="wwwroot\Zoom\js\jquery.magnify-mobile.js" />
+    <None Include="wwwroot\Zoom\js\jquery.magnify.js" />
   </ItemGroup>
 
 </Project>

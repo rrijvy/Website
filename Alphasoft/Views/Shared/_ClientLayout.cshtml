@@ -65,7 +65,7 @@
     <!-- Theme Custom CSS -->
     <link href="~/porto_7.4.0/css/custom.css" rel="stylesheet" />
 
-   
+
     <!-- jQuery UI -->
     <link href="~/lib/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" />
 
@@ -78,6 +78,12 @@
     <link href="~/css/rx-loader.css" rel="stylesheet" />
     <link href="~/css/custom.css" rel="stylesheet" />
 
+
+
+
+    <!--Zoom Plagin -->
+  
+   
     <!-- Head Libs -->
     <script src="~/porto_7.4.0/vendor/modernizr/modernizr.min.js"></script>
 </head>
@@ -283,196 +289,108 @@
         <div>
             @RenderBody()
         </div>
-        @*<footer id="footer" class="border-0">
-            <div class="py-5" style="width: 80% !important; margin: auto;">
-                <div class="row justify-content-md-center py-4 mt-3">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="row">
-                            <div class="col-4 col-md-2 mb-5 mb-lg-0">
-                                <h5 class="text-4 mb-2">Quick Links</h5>
-                                <ul class="list list-icons list-icons-sm">
-                                    <li><i class="fas fa-angle-right"></i><a href="page-services.html" class="link-hover-style-1 ml-1"> Our Services</a></li>
-                                    <li><i class="fas fa-angle-right"></i> <a class="link-hover-style-1 ml-1" asp-controller="ClientView" asp-action="AboutUs">About Us</a></li>
-                                    <li><i class="fas fa-angle-right"></i> <a class="link-hover-style-1 ml-1" asp-controller="ClientView" asp-action="AboutUs">ContactUs</a></li>
-                                    <li><i class="fas fa-angle-right"></i> <a class="link-hover-style-1 ml-1" asp-controller="ClientView" asp-action="AboutUs">Home</a></li>
-                                    <li><i class="fas fa-angle-right"></i> <a class="link-hover-style-1 ml-1" asp-controller="ClientView" asp-action="AboutUs">About Us</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-4 col-md-2 mb-5 mb-lg-0">
-                                <ul class="list list-icons list-icons-sm" style="margin-top:40px;">
-                                    <li><i class="fas fa-angle-right"></i> <a class="link-hover-style-1 ml-1" asp-controller="ClientView" asp-action="AboutUs">About Us</a></li>
-                                    <li><i class="fas fa-angle-right"></i> <a class="link-hover-style-1 ml-1" asp-controller="ClientView" asp-action="AboutUs">ContactUs</a></li>
-                                    <li><i class="fas fa-angle-right"></i> <a class="link-hover-style-1 ml-1" asp-controller="ClientView" asp-action="AboutUs">Home</a></li>
-                                    <li><i class="fas fa-angle-right"></i> <a class="link-hover-style-1 ml-1" asp-controller="ClientView" asp-action="AboutUs">About Us</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-4 col-md-2 mb-5 mb-lg-0">
-                                <h5 class="text-4 mb-2">G S T Link</h5>
-                                <ul class="list list-icons list-icons-sm">
-                                    <li><i class="fas fa-angle-right"></i><a href="page-faq.html" class="link-hover-style-1 ml-1">Pronali ERP</a></li>
-                                    <li><i class="fas fa-angle-right"></i><a href="sitemap.html" class="link-hover-style-1 ml-1">Dynamic website</a></li>
-                                    <li><i class="fas fa-angle-right"></i><a href="sitemap.html" class="link-hover-style-1 ml-1">Marge ERP</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-4 col-md-2 mb-5 mb-lg-0">
-                                <h5 class="text-4 mb-2">General Features</h5>
-                                <ul class="list list-icons list-icons-sm">
-                                    <li><i class="fas fa-angle-right"></i><a href="page-faq.html" class="link-hover-style-1 ml-1"> FAQ's</a></li>
-                                    <li><i class="fas fa-angle-right"></i><a href="sitemap.html" class="link-hover-style-1 ml-1"> Sitemap</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="col-4 col-md-2 mb-5 mb-lg-0">
-                                <h5 class="text-4 mb-2" style="margin-left:10px;">Social Links</h5>
-                                <ul class="list list-icons list-icons-sm">
-                                    <li>
-                                        <button class="btn btn-default" style="width:43px;color:#1da1f2;">
-                                            <i class="fab fa-facebook"></i>
-                                        </button>
-                                        <a style="color:#777;" class="btn  btn-link" href="@company.Facebook" target="_blank" title="Facebook">Facebook</a>
-                                    </li>
-                                    <li>
-                                        <button class="btn btn-default" style="width:43px;color:#1da1f2;">
-                                            <i class="fab fa-twitter-square"></i>
-                                        </button>
-                                        <a style="color:#777;" class="btn  btn-link" href="@company.Twitter" target="_blank" title="Twitter">Twitter</a>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="btn btn-default" style="width:43px;color:#1da1f2;">
-                                            <i class="fab fa-linkedin-in pr-1"></i>
-                                        </button>
-                                        <a style="color:#777;" class="btn  btn-link" href="@company.LinkedIn" target="_blank" title="LinkedIn">LinkedIn</a>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="btn btn-default" style="width:43px;height:40px;color:red;">
-                                            <i class="fab fa-youtube pr-1"></i>
-                                        </button>
-                                        <a style="color:#777;" class="btn  btn-link" href="@company.Youtube" target="_blank" title="Youtube">Youtube</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-4 col-md-2 mb-5 mb-lg-0">
-                                <h5 class="text-4 mb-3">Video Playlist & Channels</h5>
-
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/N_i64jd4QW8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright footer-copyright-style-2 background-transparent footer-top-light-border">
-                <div class="container py-2">
-                    <div class="row py-4">
-                        <div class="col d-flex align-items-center justify-content-center mb-4 mb-lg-0">
-                            <p class="font-weight-semibold text-3">&copy; Copyright 2019. @company.Name</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>*@
-
-    <footer id="footer">
-        <div class="container my-4 py-2">
-            <div class="row py-4">
-                <div class="col-lg-4 text-center text-lg-left">
-                    <h5 class="text-4 text-color-light mb-3">SUBSCRIBE NEWS LETTER</h5>
-                    <p class="text-3 mb-0">@Html.Raw(company.ShortDescription)</p>
-                    <p class="text-3 mb-0">Sign up for newsletter today.</p>
-                </div>
-                <div class="col-lg-5 text-center text-lg-left px-4 mt-1 mt-lg-3">
-                    <div class="pt-1 pt-lg-3 mt-1">
-                        <div class="alert alert-success d-none" id="newsletterSuccess">
-                            <strong>Success!</strong> You've been added to our email list.
-                        </div>
-                        <div class="alert alert-danger d-none" id="newsletterError"></div>
-                        <form id="newsletterForm" class="mw-100">
-                            <div style="border-radius:25px;">
-                                <div class="input-group input-group-rounded">
-                                    <input class="form-control form-control-sm bg-light px-4 text-3" placeholder="Email Address..." name="newsletterEmail" id="newsletterEmail" type="text">
-                                    <span class="input-group-append">
-                                        <button class="btn btn-primary  text-color-light text-2 py-3 px-4" type="submit"><strong>SUBSCRIBE!</strong></button>
-                                    </span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-3 text-center text-lg-left">
-                    <div class="pt-3 mt-1">
-                        <ul class="footer-social-icons social-icons social-icons-clean social-icons-big social-icons-opacity-light social-icons-icon-light mt-0 mt-lg-3">
-                            <li class="social-icons-facebook"><a href="@company.Facebook" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="social-icons-twitter"><a href="@company.Twitter" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                            <li class="social-icons-linkedin"><a href="@company.LinkedIn" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container mt-4 pt-2 pb-5 footer-top-light-border">
-            <div class="row py-4">
-
-                <div class="col-md-3 text-center text-md-left">
-                    <h5 class="text-4 text-color-light mb-3 mt-4 mt-lg-0">CONTACT INFO</h5>
-                    <p class="text-3 mb-0 text-color-light opacity-7">ADDRESS</p>
-                    <p class="text-3 mb-3">@company.Address</p>
-                    <p class="text-3 mb-0 text-color-light opacity-7">PHONE</p>
-                    <p class="text-3 mb-3">@company.Phone</p>
-                    <p class="text-3 mb-0 text-color-light opacity-7">EMAIL</p>
-                    <p class="text-3 mb-0"><a href="mailto:info@porto.com" class="">@company.Email</a></p>
-                </div>
-                <div class="col-md-9 text-center text-md-left">
-
-                    <div class="row">
-                        <div class="col-md-7 col-lg-5 mb-0">
-                            <h5 class="text-4 text-color-light mb-3 mt-4 mt-lg-0">Quick Links</h5>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <p class="mb-1"><a href="/ClientView/AboutUs" class="text-3 link-hover-style-1">About us</a></p>
-                                    <p class="mb-1"><a href="/ClientView/Services" class="text-3 link-hover-style-1">Blogs</a></p>
-                                    <p class="mb-1"><a href="/ClientView/Clients" class="text-3 link-hover-style-1">Clients</a></p>
-                                    <p class="mb-1"><a href="/ClientView/Blogs" class="text-3 link-hover-style-1">Blogs</a></p>
-                                </div>
-                                <div class="col-md-5">
-                                    <p class="mb-1"><a href="/ClientView/OurTeam" class="text-3 link-hover-style-1">Our Team</a></p>
-                                    <p class="mb-1"><a href="/ClientView/Faq" class="text-3 link-hover-style-1">Faq</a></p>
-                                  
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 col-lg-4">
-                            <h5 class="text-4 text-color-light mb-3 mt-4 mt-lg-0">Our Pronali  Software</h5>
-                            <p class="mb-1"><a href="/ClientView/Pronali" class="text-3 link-hover-style-1">Pronali Solution</a></p>
-                          
-                        </div>
-                        <div class="col-lg-3">
-                            <p class="mb-1 mt-lg-3 pt-lg-3"><a href="" class="text-3">Powerful Admin Panel</a></p>
-                            <p class="mb-1"><a href="#" class="text-3 link-hover-style-1">Mobile & Retina Optimized</a></p>
-                        </div>
-                    </div>
-
-                    <div class="row footer-top-light-border mt-4 pt-4">
-
-
-
-                        <div class="col-lg-5 text-center text-md-left">
-                            <p class="font-weight-semibold text-3">&copy; Copyright 2019. @company.Name</p>
-                        </div>
-
-                        <div class="col-lg-3 text-center text-md-left">
-
-                        </div>
-
-                        <div class="col-lg-4 text-center text-md-left">
-                            <p style="margin-left:70px;" class="text-4 mb-0 font-weight-semibold text-color-light opacity-8"><strong>BUSINESS HOURS</strong></p>
-                            <p style="margin-left:70px;" class="text-3 mb-0">@aboutUs.BusinessHourseTime</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
        
-    </footer>
+        <footer id="footer">
+            <div class="container my-4 py-2">
+                <div class="row py-4">
+                    <div class="col-lg-4 text-center text-lg-left">
+                        <h5 class="text-4 text-color-light mb-3">SUBSCRIBE NEWS LETTER</h5>
+                        <p class="text-3 mb-0">@Html.Raw(company.ShortDescription)</p>
+                        <p class="text-3 mb-0">Sign up for newsletter today.</p>
+                    </div>
+                    <div class="col-lg-5 text-center text-lg-left px-4 mt-1 mt-lg-3">
+                        <div class="pt-1 pt-lg-3 mt-1">
+                            <div class="alert alert-success d-none" id="newsletterSuccess">
+                                <strong>Success!</strong> You've been added to our email list.
+                            </div>
+                            <div class="alert alert-danger d-none" id="newsletterError"></div>
+                            <form id="newsletterForm" class="mw-100">
+                                <div style="border-radius:25px;">
+                                    <div class="input-group input-group-rounded">
+                                        <input class="form-control form-control-sm bg-light px-4 text-3" placeholder="Email Address..." name="newsletterEmail" id="newsletterEmail" type="text">
+                                        <span class="input-group-append">
+                                            <button class="btn btn-primary  text-color-light text-2 py-3 px-4" type="submit"><strong>SUBSCRIBE!</strong></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center text-lg-left">
+                        <div class="pt-3 mt-1">
+                            <ul class="footer-social-icons social-icons social-icons-clean social-icons-big social-icons-opacity-light social-icons-icon-light mt-0 mt-lg-3">
+                                <li class="social-icons-facebook"><a href="@company.Facebook" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="social-icons-twitter"><a href="@company.Twitter" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li class="social-icons-linkedin"><a href="@company.LinkedIn" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-4 pt-2 pb-5 footer-top-light-border">
+                <div class="row py-4">
+
+                    <div class="col-md-3 text-center text-md-left">
+                        <h5 class="text-4 text-color-light mb-3 mt-4 mt-lg-0">CONTACT INFO</h5>
+                        <p class="text-3 mb-0 text-color-light opacity-7">ADDRESS</p>
+                        <p class="text-3 mb-3">@company.Address</p>
+                        <p class="text-3 mb-0 text-color-light opacity-7">PHONE</p>
+                        <p class="text-3 mb-3">@company.Phone</p>
+                        <p class="text-3 mb-0 text-color-light opacity-7">EMAIL</p>
+                        <p class="text-3 mb-0"><a href="mailto:info@porto.com" class="">@company.Email</a></p>
+                    </div>
+                    <div class="col-md-9 text-center text-md-left">
+
+                        <div class="row">
+                            <div class="col-md-7 col-lg-5 mb-0">
+                                <h5 class="text-4 text-color-light mb-3 mt-4 mt-lg-0">Quick Links</h5>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <p class="mb-1"><a href="/ClientView/AboutUs" class="text-3 link-hover-style-1">About us</a></p>
+                                        <p class="mb-1"><a href="/ClientView/Services" class="text-3 link-hover-style-1">Blogs</a></p>
+                                        <p class="mb-1"><a href="/ClientView/Clients" class="text-3 link-hover-style-1">Clients</a></p>
+                                        <p class="mb-1"><a href="/ClientView/Blogs" class="text-3 link-hover-style-1">Blogs</a></p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <p class="mb-1"><a href="/ClientView/OurTeam" class="text-3 link-hover-style-1">Our Team</a></p>
+                                        <p class="mb-1"><a href="/ClientView/Faq" class="text-3 link-hover-style-1">Faq</a></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-lg-4">
+                                <h5 class="text-4 text-color-light mb-3 mt-4 mt-lg-0">Our Pronali  Software</h5>
+                                <p class="mb-1"><a href="/ClientView/Pronali" class="text-3 link-hover-style-1">Pronali Solution</a></p>
+
+                            </div>
+                            <div class="col-lg-3">
+                                <p class="mb-1 mt-lg-3 pt-lg-3"><a href="" class="text-3">Powerful Admin Panel</a></p>
+                                <p class="mb-1"><a href="#" class="text-3 link-hover-style-1">Mobile & Retina Optimized</a></p>
+                            </div>
+                        </div>
+
+                        <div class="row footer-top-light-border mt-4 pt-4">
+
+
+
+                            <div class="col-lg-5 text-center text-md-left">
+                                <p class="font-weight-semibold text-3">&copy; Copyright 2019. @company.Name</p>
+                            </div>
+
+                            <div class="col-lg-3 text-center text-md-left">
+
+                            </div>
+
+                            <div class="col-lg-4 text-center text-md-left">
+                                <p style="margin-left:70px;" class="text-4 mb-0 font-weight-semibold text-color-light opacity-8"><strong>BUSINESS HOURS</strong></p>
+                                <p style="margin-left:70px;" class="text-3 mb-0">@aboutUs.BusinessHourseTime</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
 
     </div>
 
@@ -499,6 +417,7 @@
     <script src="~/porto_7.4.0/js/theme.js"></script>
 
 
+    <!--Zoom Plagin Jquery-->
     <!-- ClientLayout Page Vendor and Views -->
 
     <script src="~/porto_7.4.0/vendor/rs-plugin/revolution-addons/typewriter/js/revolution.addon.typewriter.min.js"></script>
@@ -526,6 +445,8 @@
     <script src="~/lib/CodeSeven-toastr-50092cc/build/toastr.min.js"></script>
 
 
+    <!--Zoom plagin Js-->
+  
     <!-- rx js -->
     <script src="~/js/ClientJS/clientLayout.js"></script>
     <script src="~/js/ObjectifyForm.js"></script>
