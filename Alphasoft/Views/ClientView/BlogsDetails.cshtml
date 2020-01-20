@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "BlogsDetails";
 
+    int countBlogId = 0;
 }
 
 <div role="main" class="main">
@@ -16,118 +17,237 @@
         <div class="row">
             <div class="col">
                 <div class="blog-posts single-post">
+                    @if (countBlogId != 0)
+                    {
+                        <article class="post post-large blog-single-post border-0 m-0 p-0">
 
-                    <article class="post post-large blog-single-post border-0 m-0 p-0">
+                            <div class="post-image ml-0">
+                                <a href="/ClientView/Blogs/@Model.BlogsItem.Id">
+                                    <img style="width:100%;height:350px;" src="@Model.BlogsItem.Image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                </a>
+                            </div>
 
-                        <div class="post-image ml-0">
-                            <a href="/ClientView/Blogs/@Model.BlogsItem.Id">
-                                <img style="width:100%;height:350px;" src="@Model.BlogsItem.Image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
-                            </a>
-                        </div>
-
-                        <div class="post-date ml-0">
                             <div class="post-date ml-0">
-                                <span class="day">@Model.BlogsItem.Date.ToString("dd")</span>
-                                <span class="month">@Model.BlogsItem.Date.ToString("MMM")</span>
-                                @*<span class="day">@Model.BlogsItem.Date.ToString("hh:mm:ss tt")</span>*@
-                            </div>
-                        </div>
-
-                        <div class="post-content ml-0">
-                            <h2 class="font-weight-bold"><a href="/ClientView/Blogs/@Model.BlogsItem.Id"></a></h2>
-
-                            <div class="post-meta">
-                                <span><i class="far fa-user"></i> By <a href="/ClientView/Blogs/@Model.BlogsItem.Id">@Model.BlogsItem.CreatedBy</a> </span>
-                                <span><i class="far fa-folder"></i> <a href="/ClientView/Blogs/@Model.BlogsItem.Id">Lifestyle</a>, <a href="#">Design</a> </span>
-                                <span><i class="far fa-comments"></i> <a href="/ClientView/Blogs/@Model.BlogsItem.Id">@Model.commentCount.Id Comments</a></span>
-                            </div>
-
-                            <p></p>
-
-                            <br />
-                            <br />
-
-                            <div class="post-block mt-5 post-share">
-                                <h4 class="mb-3">Share this Post</h4>
-
-                                <!-- AddThis Button BEGIN -->
-                                <div class="addthis_toolbox addthis_default_style ">
-                                    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-                                    <a class="addthis_button_tweet"></a>
-                                    <a class="addthis_button_pinterest_pinit"></a>
-                                    <a class="addthis_counter addthis_pill_style"></a>
+                                <div class="post-date ml-0">
+                                    <span class="day">@Model.BlogsItem.Date.ToString("dd")</span>
+                                    <span class="month">@Model.BlogsItem.Date.ToString("MMM")</span>
+                                    @*<span class="day">@Model.BlogsItem.Date.ToString("hh:mm:ss tt")</span>*@
                                 </div>
-                                @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>*@
-                                <!-- AddThis Button END -->
-
                             </div>
 
-                            <div class="post-block mt-4 pt-2 post-author">
-                                <h4 class="mb-3">Author</h4>
-                                <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
-                                    <a href="/ClientView/Blogs/@Model.BlogsItem.Id">
-                                        <img style="height:150px;width:120px;" src="@Model.BlogsItem.Image" alt="">
-                                    </a>
+                            <div class="post-content ml-0">
+                                <h2 class="font-weight-bold"><a href="/ClientView/Blogs/@Model.BlogsItem.Id"></a></h2>
+
+                                <div class="post-meta">
+                                    <span><i class="far fa-user"></i> By <a href="/ClientView/Blogs/@Model.BlogsItem.Id">@Model.BlogsItem.CreatedBy</a> </span>
+                                    <span><i class="far fa-folder"></i> <a href="/ClientView/Blogs/@Model.BlogsItem.Id">Lifestyle</a>, <a href="#">Design</a> </span>
+                                    <span><i class="far fa-comments"></i> <a href="/ClientView/Blogs/@Model.BlogsItem.Id">@Model.commentCount.Id Comments</a></span>
                                 </div>
-                                <p><strong class="name"><a href="/ClientView/Blogs/@Model.BlogsItem.Id" class="text-4 pb-2 pt-2 d-block">@Model.BlogsItem.Creator</a></strong></p>
-                                <p style="text-align:justify;">@Model.BlogsItem.Description</p>
-                            </div>
 
-                            <br />
+                                <p></p>
 
-                       
+                                <br />
+                                <br />
 
-                            <div id="comments">
+                                <div class="post-block mt-5 post-share">
+                                    <h4 class="mb-3">Share this Post</h4>
 
-                                <div class="post-block mt-5 post-comments">
+                                    <!-- AddThis Button BEGIN -->
+                                    <div class="addthis_toolbox addthis_default_style ">
+                                        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                                        <a class="addthis_button_tweet"></a>
+                                        <a class="addthis_button_pinterest_pinit"></a>
+                                        <a class="addthis_counter addthis_pill_style"></a>
+                                    </div>
+                                    @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>*@
+                                    <!-- AddThis Button END -->
 
-                                    <h4 class="mb-3">Comments (@Model.commentCount.Id)</h4>
+                                </div>
 
-                                    @foreach (var item in Model.blogcomment)
-                                    {
-                                        <ul class="comments">
-                                            <li>
-                                                <div class="comment">
-                                                    <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                        <img class="avatar img-rounded" alt="" src="@Model.BlogsItem.Image">
-                                                    </div>
-                                                    <div class="comment-block">
-                                                        <div class="comment-arrow"></div>
-                                                        <span class="comment-by">
-                                                            <strong>@item.FullName</strong>
-                                                            <span class="float-right">
-                                                                <span><a href=""><i class="fas fa-reply btnContactReplay"></i></a></span>
+                                <div class="post-block mt-4 pt-2 post-author">
+                                    <h4 class="mb-3">Author</h4>
+                                    <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
+                                        <a href="/ClientView/Blogs/@Model.BlogsItem.Id">
+                                            <img style="height:150px;width:120px;" src="@Model.BlogsItem.Image" alt="">
+                                        </a>
+                                    </div>
+                                    <p><strong class="name"><a href="/ClientView/Blogs/@Model.BlogsItem.Id" class="text-4 pb-2 pt-2 d-block">@Model.BlogsItem.Creator</a></strong></p>
+                                    <p style="text-align:justify;">@Model.BlogsItem.Description</p>
+                                </div>
+
+                                <br />
+
+
+
+                                <div id="comments">
+
+                                    <div class="post-block mt-5 post-comments">
+
+                                        <h4 class="mb-3">Comments (@Model.commentCount.Id)</h4>
+
+                                        @foreach (var item in Model.blogcomment)
+                                        {
+                                            <ul class="comments">
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                            <img class="avatar img-rounded" alt="" src="@Model.BlogsItem.Image">
+                                                        </div>
+                                                        <div class="comment-block">
+                                                            <div class="comment-arrow"></div>
+                                                            <span class="comment-by">
+                                                                <strong>@item.FullName</strong>
+                                                                <span class="float-right">
+                                                                    <span><a href=""><i class="fas fa-reply btnContactReplay"></i></a></span>
+                                                                </span>
                                                             </span>
-                                                        </span>
-                                                        <p>@item.Comment</p>
-                                                      
+                                                            <p>@item.Comment</p>
+
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </li>
-                                        </ul>
-                                    }
+                                                </li>
+                                            </ul>
+                                        }
 
+
+                                    </div>
 
                                 </div>
 
+
+                                <!-- ==============================Comment Section Form=========================== -->
+
+
+                                <button class="btn btn-primary btnContact">Create Comment</button>
+
+                                <div id="contact-formLoad">
+                                </div>
+
+
+
+                                <!-- ==============================Comment Section Form=========================== -->
+
+                            </div>
+                        </article>
+                    }
+                    else
+                    {
+                        <article class="post post-large blog-single-post border-0 m-0 p-0">
+
+                            <div class="post-image ml-0">
+                                <a href="/ClientView/Blogs/@Model.BlogsItem.Id">
+                                    <img style="width:100%;height:350px;" src="@Model.BlogsItem.Image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                </a>
                             </div>
 
-
-                            <!-- ==============================Comment Section Form=========================== -->
-
-
-                            <button class="btn btn-primary btnContact">Create Comment</button>
-
-                            <div id="contact-formLoad">
+                            <div class="post-date ml-0">
+                                <div class="post-date ml-0">
+                                    <span class="day">@Model.BlogsItem.Date.ToString("dd")</span>
+                                    <span class="month">@Model.BlogsItem.Date.ToString("MMM")</span>
+                                    @*<span class="day">@Model.BlogsItem.Date.ToString("hh:mm:ss tt")</span>*@
+                                </div>
                             </div>
 
+                            <div class="post-content ml-0">
+                                <h2 class="font-weight-bold"><a href="/ClientView/Blogs/@Model.BlogsItem.Id"></a></h2>
 
-                           
-                            <!-- ==============================Comment Section Form=========================== -->
+                                <div class="post-meta">
+                                    <span><i class="far fa-user"></i> By <a href="/ClientView/Blogs/@Model.BlogsItem.Id">@Model.BlogsItem.CreatedBy</a> </span>
+                                    <span><i class="far fa-folder"></i> <a href="">Lifestyle</a>, <a href="#">Design</a> </span>
+                                    <span><i class="far fa-comments"></i> <a href=""></a></span>
+                                </div>
 
-                        </div>
-                    </article>
+                                <p></p>
+
+                                <br />
+                                <br />
+
+                                <div class="post-block mt-5 post-share">
+                                    <h4 class="mb-3">Share this Post</h4>
+
+                                    <!-- AddThis Button BEGIN -->
+                                    <div class="addthis_toolbox addthis_default_style ">
+                                        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                                        <a class="addthis_button_tweet"></a>
+                                        <a class="addthis_button_pinterest_pinit"></a>
+                                        <a class="addthis_counter addthis_pill_style"></a>
+                                    </div>
+
+                                    @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>*@
+                                    <!-- AddThis Button END -->
+
+                                </div>
+
+                                <div class="post-block mt-4 pt-2 post-author">
+                                    <h4 class="mb-3">Author</h4>
+                                    <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
+                                        <a href="/ClientView/Blogs/@Model.BlogsItem.Id">
+                                            <img style="height:150px;width:120px;" src="@Model.BlogsItem.Image" alt="">
+                                        </a>
+                                    </div>
+                                    <p><strong class="name"><a href="" class="text-4 pb-2 pt-2 d-block"></a></strong></p>
+                                    <p style="text-align:justify;">@Model.BlogsItem.Description</p>
+                                </div>
+
+                                <br />
+
+
+
+                                <div id="comments">
+
+                                    <div class="post-block mt-5 post-comments">
+
+                                        <h4 class="mb-3">Comments ()</h4>
+
+                                        @foreach (var item in Model.blogcomment)
+                                        {
+                                            <ul class="comments">
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                            <img class="avatar img-rounded" alt="" src="@Model.BlogsItem.Image">
+                                                        </div>
+                                                        <div class="comment-block">
+                                                            <div class="comment-arrow"></div>
+                                                            <span class="comment-by">
+                                                                <strong>@item.FullName</strong>
+                                                                <span class="float-right">
+                                                                    <span><a href=""><i class="fas fa-reply btnContactReplay"></i></a></span>
+                                                                </span>
+                                                            </span>
+                                                            <p>@item.Comment</p>
+
+                                                        </div>
+                                                    </div>
+
+                                                </li>
+                                            </ul>
+                                        }
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ==============================Comment Section Form=========================== -->
+
+
+                                <button class="btn btn-primary btnContact">Create Comment</button>
+
+                                <div id="contact-formLoad">
+                                </div>
+
+
+
+                                <!-- ==============================Comment Section Form=========================== -->
+
+                            </div>
+                        </article>
+                    }
+
+
 
                 </div>
             </div>
