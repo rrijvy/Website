@@ -4,7 +4,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
+    /*font-family: 'Montserrat', sans-serif;*/
     font-size: 16px;
     font-weight: 500;
 }
@@ -40,3 +41,4 @@ table td, table th {
     font-size: 120%;
     font-weight: 700;
 }
+
