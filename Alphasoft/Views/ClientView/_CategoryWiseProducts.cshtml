@@ -1,13 +1,10 @@
 ﻿@model List<Product>
 
-<div class="masonry-loader masonry-loader-loaded">
+<div class="masonry-loader masonry-loader-loaded" >
     <div class="row products product-thumb-info-list" data-plugin-masonry="" data-plugin-options="{'layoutMode': 'fitRows'}" style="position: relative; height: auto;">
         @foreach (var item in Model)
         {
             <div class="col-sm-6 col-lg-4 product product-effect">
-                @*<a href="/ClientView/Product/@item.Id">
-                        <span class="onsale">Sale!</span>
-                    </a>*@
                 <span class="product-thumb-info border-0 product-effect-span">
                     <a href="/ClientView/Product/@item.Id" class="add-to-cart-product bg-color-primary">
                         <span class="text-uppercase text-1">See Details</span>

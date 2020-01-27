@@ -2,7 +2,7 @@
 
 <div role="main" class="main shop py-4">
 
-    <div class="container">
+    <div class=""  style="padding: 0; width: 80%; margin: auto">
 
         <div class="row">
             <div class="col-lg-3">
@@ -49,10 +49,7 @@
                         @foreach (var item in Model.Products)
                         {
                             <div class="col-sm-6 col-lg-4 product product-effect" style="position: absolute; left: 0px; top: 0px;">
-                                @*<a href="/ClientView/Product/@item.Id">
-                                        <span class="onsale">Sale!</span>
-                                    </a>*@
-                                <span class="product-thumb-info border-0 product-effect-span">
+                                <span class="product-thumb-info border-0 product-effect-span" style="background-color: transparent;">
                                     <a href="/ClientView/Product/@item.Id" class="add-to-cart-product bg-color-primary">
                                         <span class="text-uppercase text-1">See Details</span>
                                     </a>
@@ -62,7 +59,7 @@
                                         </span>
                                     </a>
                                     <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light productHoverBorderNone">
-                                        <a href="/ClientView/Product/@item.Id" style="padding: 0px 10px;">
+                                        <a href="/ClientView/Product/@item.Id" style="padding: 0px 10px; text-align: center;">
                                             <h4 class="text-4 text-primary">@item.Name</h4>
                                             <span class="price">
                                                 <del><span class="amount">@item.RetailPrice</span></del>

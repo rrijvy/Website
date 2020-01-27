@@ -4,7 +4,7 @@
 }
 
 <div role="main" class="main shop py-4">
-    <div class="container" style="padding: 0;">
+    <div class="" style="padding: 0; width: 80%; margin: auto">
         <div class="row">
             <div class="col-lg-3">
                 <aside class="sidebar">
@@ -51,9 +51,9 @@
                         <div class="owl-carousel owl-theme owl-loaded owl-drag owl-carousel-init" data-plugin-options="{'items': 1, 'margin': 10}" style="height: auto;">
                             <div class="owl-stage-outer">
                                 <div class="owl-stage" style="transform: translate3d(-1100px, 0px, 0px); transition: all 0s ease 0s; width: 3850px;">
-                                    <div class="owl-item cloned" style="width: 540px; margin-right: 10px;">
-                                        <div>
-                                            <img alt="" height="300" class="img-fluid zoom" src="@Model.Product.Image">
+                                    <div class="owl-item cloned">
+                                        <div style="height: 400px;">
+                                            <img alt="@Model.Name" style="height: 100%; width: 100%; object-fit: contain;" class="img-fluid zoom" src="@Model.Product.Image">
                                         </div>
                                     </div>
                                 </div>
@@ -63,54 +63,7 @@
                     <div class="col-12">
                         <div class="summary entry-summary">
 
-                            <h1 class="mb-0 font-weight-bold text-7">@Model.Product.Name</h1>
-
-                            <div class="pb-0 clearfix">
-                                <div title="Rated 3 out of 5" class="float-left">
-                                    <div class="rating-container theme-krajee-fas rating-xs rating-animate is-display-only rating-primary">
-                                        <div class="rating-stars" title="Three Stars">
-                                            <span class="empty-stars">
-                                                <span class="star">
-                                                    <i class="far fa-star"></i>
-                                                </span>
-                                                <span class="star">
-                                                    <i class="far fa-star"></i>
-                                                </span>
-                                                <span class="star">
-                                                    <i class="far fa-star"></i>
-                                                </span>
-                                                <span class="star">
-                                                    <i class="far fa-star"></i>
-                                                </span>
-                                                <span class="star">
-                                                    <i class="far fa-star"></i>
-                                                </span>
-                                            </span>
-                                            <span class="filled-stars" style="width: 60%;">
-                                                <span class="star">
-                                                    <i class="fas fa-star"></i>
-                                                </span>
-                                                <span class="star">
-                                                    <i class="fas fa-star"></i>
-                                                </span>
-                                                <span class="star">
-                                                    <i class="fas fa-star"></i>
-                                                </span>
-                                                <span class="star">
-                                                    <i class="fas fa-star"></i>
-                                                </span><span class="star">
-                                                    <i class="fas fa-star"></i>
-                                                </span>
-                                            </span>
-                                            <input type="text" class="d-none rating-input" value="3" title="" data-plugin-star-rating="" data-plugin-options="{'displayOnly': true, 'color': 'primary', 'size':'xs'}">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="review-num">
-                                    <span class="count" itemprop="ratingCount">2</span> reviews
-                                </div>
-                            </div>
+                            <h1 class="mb-0 font-weight-bold text-7">@Model.Product.Name</h1>                            
 
                             <p class="price">
                                 <span class="amount">@Model.Product.PurchasePrice</span>
@@ -244,13 +197,13 @@
                         @foreach (var item in Model.Products.TakeLast(8))
                         {
                             <div class="col-12 col-sm-6 col-lg-3 product" style="position: absolute; left: 0px; top: 0px;">
-                                <span class="product-thumb-info border-0">
+                                <span class="product-thumb-info border-0" style="background-color: transparent;">
                                     <a href="/ClientView/Product/@item.Id" class="add-to-cart-product bg-color-primary">
                                         <span class="text-uppercase text-1">See Details</span>
                                     </a>
                                     <a href="/ClientView/Product/@item.Id">
-                                        <span class="product-thumb-info-image">
-                                            <img alt="" class="img-fluid" src="@item.Image">
+                                        <span class="product-thumb-info-image" style="width: 85%; height: 200px; margin: auto;">
+                                            <img alt="@item.Name" style="width: 100%; height: 100%; object-fit: contain;" src="@item.Image">
                                         </span>
                                     </a>
                                     <span class="product-thumb-info-content product-thumb-info-content pl-0 bg-color-light">

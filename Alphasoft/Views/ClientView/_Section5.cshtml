@@ -26,21 +26,18 @@
         {
             <div id="products" style="width: 100%;">
                 <div class="owl-carousel owl-theme mb-0 pt-2" data-plugin-options="{'responsive': {'0': {'items': 1}, '476': {'items': 2}, '768': {'items': 4}, '992': {'items': 4}, '1200': {'items': 4}}, 'autoplay': true, 'autoplayTimeout': 3000, 'dots': false}">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model) 
                     {
                         <div class="col-sm-12 col-md-12 mb-4 mb-md-0">
                             <article class="post post-medium border-0 pb-0 mb-2">
-                                <div class="post-image">
+                                <div class="post-image" style="height: 230px; width: 100%; margin: auto; background-color: #fff;">
                                     <a href="/ClientView/Product/@item.Id">
-                                        <img src="@item.Image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" style="height: 180px; width: 100%;" />
+                                        <img src="@item.Image" style="height: 100%; width: 90%; margin: auto; object-fit: contain;" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" style="height: 180px; width: 100%;" />
                                     </a>
                                 </div>
-
-                                <div class="post-content">
-
+                                <div class="post-content"  @*style="background-color: #fff; padding: 0px 8px 10px 8px; border-top: 1px solid #eee;"*@>
                                     <h2 class="font-weight-semibold text-3 line-height-6 mt-3 mb-2"><a href="/ClientView/Product/@item.Id">@item.Name</a></h2>
                                     <p class="text-2" style="height: 80px; overflow: hidden;">@item.ShortDescription</p>
-
                                     <div class="post-meta">
                                         <span><i class="far fa-user"></i> Category <a href="/ClientView/Products/@item.ProductCategoryId">@item.ProductCategory.Name</a> </span>
                                         <span class="d-block mt-2"><a href="/ClientView/Product/@item.Id" class="btn btn-xs btn-light text-1 text-uppercase">Read More</a></span>
